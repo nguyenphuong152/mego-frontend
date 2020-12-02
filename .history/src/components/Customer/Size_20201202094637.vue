@@ -19,29 +19,21 @@ export default {
   data() {
     return {
       text: "",
-      sizes: [
-        {
-          value: "36",
-        },
-        {
-          value: "37",
-        },
-        {
-          value: "38",
-        },
-        {
-          value: "39",
-        },
-        {
-          value: "48",
-        },
-        {
-          value: "59",
-        },
-      ],
+      sizes: null,
     };
   },
   methods : {
+    fetchSize: function() {
+      this.axios
+        .get("https://mego-backend.herokuapp.com/api/guest/sizes")
+        .then((response) => {
+          (this.sizes = response.data), console.log(this.sizes);
+        })
+        .catch((error) => console.log(error));
+    },
+  mounted() {
+    this.fetchSize();
+  }
    
   }
 };

@@ -75,7 +75,7 @@ export default {
   components: { imageView, productInfo, colorSwatch, size, productDiscription },
   data() {
     return {
-      rating: "5",
+      rating: 5,
       numb:"1"
     };
   },
