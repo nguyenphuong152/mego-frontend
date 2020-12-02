@@ -28,8 +28,38 @@
 export default {
   data() {
     return {
-      apiCol: null,
+     apiCol: null,
       text: "",
+      colors: [
+        {
+          value: "red",
+          show: false,
+        },
+        {
+          value: "green",
+          show: false,
+        },
+        {
+          value: "blue",
+          show: false,
+        },
+        {
+          value: "cyan",
+          show: false,
+        },
+        {
+          value: "red",
+          show: false,
+        },
+        {
+          value: "green",
+          show: false,
+        },
+        {
+          value: "blue",
+          show: false,
+        },
+      ],
     };
   },
   methods: {
@@ -44,14 +74,18 @@ export default {
     fetchColor: function() {
       this.axios
         .get("https://mego-backend.herokuapp.com/api/guest/colors")
-        .then((response) => {
-          (this.apiCol = response.data);
-        })
+        .then(response => (this.apiCol = response.data.bpi,
+         console.log(response.json
+        )
+        )
         .catch((error) => console.log(error));
+      
     },
   },
   mounted() {
     this.fetchColor();
+    //var parsedobj = JSON.parse(JSON.stringify(this.apiCol))
+    console.log(this.apiCol)
   },
 };
 </script>

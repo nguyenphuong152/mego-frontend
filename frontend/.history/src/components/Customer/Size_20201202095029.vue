@@ -24,11 +24,11 @@ export default {
   },
   methods : {
     fetchSize: function() {
-      console.log("vos")
+      console.log(vo)
       this.axios
         .get("https://mego-backend.herokuapp.com/api/guest/sizes")
         .then((response) => {
-          (this.sizes = response.data), console.log(response);
+          (this.sizes = response.data), console.log(this.sizes);
         })
         .catch((error) => console.log(error));
     },

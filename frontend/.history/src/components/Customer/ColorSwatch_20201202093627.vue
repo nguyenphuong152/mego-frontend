@@ -45,13 +45,15 @@ export default {
       this.axios
         .get("https://mego-backend.herokuapp.com/api/guest/colors")
         .then((response) => {
-          (this.apiCol = response.data);
+          (this.apiCol = response.data), console.log(this.apiCol);
         })
         .catch((error) => console.log(error));
     },
   },
   mounted() {
     this.fetchColor();
+    //var parsedobj = JSON.parse(JSON.stringify(this.apiCol))
+    console.log(this.apiCol);
   },
 };
 </script>

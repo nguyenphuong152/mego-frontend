@@ -6,7 +6,7 @@
     <v-col>
       <v-row class="d-flex justify-space-around">
         <v-sheet
-          v-for="(col, i) in this.apiCol"
+          v-for="(col, i) in apiCol"
           :key="i"
           v-bind="{ color: col.name }"
           height="36"
@@ -26,10 +26,44 @@
 
 <script>
 export default {
+  mounted() {
+    this.fetchColor();
+    console.log(this.apiCol)
+  },
   data() {
     return {
-      apiCol: null,
+      apiCol: [],
       text: "",
+      colors: [
+        {
+          value: "red",
+          show: false,
+        },
+        {
+          value: "green",
+          show: false,
+        },
+        {
+          value: "blue",
+          show: false,
+        },
+        {
+          value: "cyan",
+          show: false,
+        },
+        {
+          value: "red",
+          show: false,
+        },
+        {
+          value: "green",
+          show: false,
+        },
+        {
+          value: "blue",
+          show: false,
+        },
+      ],
     };
   },
   methods: {
@@ -44,14 +78,9 @@ export default {
     fetchColor: function() {
       this.axios
         .get("https://mego-backend.herokuapp.com/api/guest/colors")
-        .then((response) => {
-          (this.apiCol = response.data);
-        })
+        .then((response) => (this.apiCol = response.data.bpi))
         .catch((error) => console.log(error));
     },
-  },
-  mounted() {
-    this.fetchColor();
   },
 };
 </script>

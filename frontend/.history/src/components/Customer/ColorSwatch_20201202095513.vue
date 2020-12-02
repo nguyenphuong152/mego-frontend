@@ -51,7 +51,7 @@ export default {
     },
   },
   mounted() {
-    this.fetchColor();
+    //this.fetchColor();
   },
 };
 </script>

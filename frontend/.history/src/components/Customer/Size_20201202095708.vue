@@ -24,7 +24,6 @@ export default {
   },
   methods : {
     fetchSize: function() {
-      console.log("vos")
       this.axios
         .get("https://mego-backend.herokuapp.com/api/guest/sizes")
         .then((response) => {
