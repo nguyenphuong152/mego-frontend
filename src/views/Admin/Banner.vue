@@ -5,7 +5,7 @@
         <div>
             <Banner/>  
             <BannerDetail/>  
-            <v-col style="mt-8;margin-left:405px">
+            <v-col style="mt-8;margin-left:450px">
                 <v-btn elevation="2" style="margin:5px">Add</v-btn>
                 <v-btn elevation="2" style="margin:5px">Order</v-btn>
                 <v-btn elevation="2" style="margin:5px">Delete</v-btn>         
