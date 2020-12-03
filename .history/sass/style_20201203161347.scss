@@ -1,0 +1,144 @@
+
+$font-primary: 'Montserrat',
+Arial,
+sans-serif;
+$font-secondary: 'Rokkitt',
+Georgia,
+serif;
+
+
+@import '~vuetify/src/styles/styles.sass';
+
+// Overrides
+$font-size-header: 34px;
+$font-size-default: 16px;
+$font-size-content: 21px;
+$font-size-slogan:28px;
+
+
+$brand-primary: #616161 !default;
+$brand-secondary: #88c8bc !default;
+$brand-yellow: #FFDD00 !default;
+$brand-footer-color: #2C2E3E;
+
+$brand-white: #fff;
+$brand-black: #000;
+$brand-darker: #444;
+$brand-gray: #ccc;
+$brand-lighter: #e9e9e9;
+$brand-body-color: #e8e8e8;
+$brand-selection-color: #f9f6f0;
+$brand-overlay-color: #4c4a8a;
+$brand-bg-color: $brand-white;
+
+.v-btn {
+  text-transform:none !important;
+}
+// .v-text-field{
+//   width: 50px;
+//   height: 10px;
+// }
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+  .container {
+    max-width: 1100px;
+  }
+  font: 300
+}
+
+.nav {
+  padding-left: 0px;
+  a {
+    font-size: $font-size-default;
+    color: lighten($brand-black,35%);
+    font-family: $font-primary;
+    text-decoration: none;
+    font-weight: 500;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+
+  }
+}
+
+#logo {
+  font-size: 40px;
+  font-weight: 700;
+  font-family: $font-primary;
+  color: lighten($brand-black, 35%);
+}
+
+
+.slogan {
+  font-size: $font-size-slogan;
+  color: #000;
+  font-family: $font-primary;
+  text-decoration: none;
+}
+
+.title-normal{
+  font-size: $font-size-header;
+  color: #000;
+  font-family: $font-primary;
+  text-decoration: none;
+}
+
+.title-collection{
+  @extend .slogan;
+  font-size: $font-size-content;
+}
+
+
+.title-shoes {
+  @extend .slogan;
+  font-size: $font-size-default;
+}
+
+
+.footer-text {
+  font-family:$font-primary;
+  font-size: $font-size-default;
+}
+
+.admin {
+  font-family: $font-primary;
+  font-size:$font-size-default;
+}
+
+.admin-nav {
+  font-family: $font-primary !important;
+  font-size: $font-size-content !important;
+  color: white !important;
+}
+
+.product-detail--title{
+  @extend .admin;
+  font-size: $font-size-content;
+  font-weight: 500;
+}
+
+.product-detail--price {
+  @extend .product-detail--title;
+  font-weight: 300;
+  font-size:$font-size-content;
+}
+
+.product-price {
+  color: gray ;
+  font-size: $font-size-default;
+}
+
+.product-name {
+  color: black;
+  font-size: 20;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+}
+
