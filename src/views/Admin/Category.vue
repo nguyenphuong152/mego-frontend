@@ -7,7 +7,7 @@
           <v-card class="text-start">
             <v-list dense>
               <a class="admin pl-4 font-weight-black" style="color:teal;"
-                >Human Oriented</a>
+                >Customers</a>
               <v-list-item-group v-model="selectedItem" color="teal">
                 <v-list-item v-for="(Catogories, i) in Catogories" :key="i">
                   <v-list-item-content>
@@ -42,7 +42,7 @@
           <v-card class="text-start">
             <v-list dense>
               <a class="admin pl-4 font-weight-black" style="color:teal;"
-                >Product types Oriented</a>
+                >Product types</a>
               <v-list-item-group v-model="selectedProductItem" color="teal">
                 <v-list-item v-for="(ProdcutTypes, i) in ProdcutTypes" :key="i">
                   <v-list-item-content>
