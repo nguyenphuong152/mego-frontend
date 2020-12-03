@@ -5,8 +5,8 @@
     </v-col>
     <v-col>
  <v-btn-toggle v-model="text" tile color="cyan accent-5" group class="admin">
-    <v-btn v-for="(size, i) in sizes" :key="i" :value="size.name">
-      {{ size.name }}
+    <v-btn v-for="(size, i) in sizes" :key="i" :value="size.value">
+      {{ size.value }}
     </v-btn>
   </v-btn-toggle>
     </v-col>
@@ -24,18 +24,20 @@ export default {
   },
   methods : {
     fetchSize: function() {
+      console.log("vos")
       this.axios
         .get("https://mego-backend.herokuapp.com/api/guest/sizes")
         .then((response) => {
           (this.sizes = response.data), console.log(response);
         })
         .catch((error) => console.log(error));
-    }
+    },
   },
   mounted() {
     this.fetchSize();
   }
    
+  }
 };
 </script>
 

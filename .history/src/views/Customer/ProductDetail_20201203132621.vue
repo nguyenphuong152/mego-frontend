@@ -2,7 +2,7 @@
   <div class="app">
     <v-sheet color="grey lighten-3" height="150">
       <v-container py-8>
-        <a class="title-normal">Product Detail</a>
+        <a class="slogan-3">Product Detail</a>
         <br />
         <br />
         <a class="title-shoes">Home / Product Detail</a>
