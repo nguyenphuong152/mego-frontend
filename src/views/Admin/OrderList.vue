@@ -28,14 +28,14 @@
             </v-col>
           </v-row>
           <div >
-            <v-row class="flex-table">
+            <v-row class="flex-table" >
               <v-col>Orrder ID</v-col>
               <v-col>Purchased On</v-col>
               <v-col>Bill on Name</v-col>
               <v-col>Ship to Name</v-col>
               <v-col>Total ($)</v-col>
-              <v-col>Status</v-col>
-              <v-col></v-col>
+              <v-col class="text-start">Status</v-col>
+              <v-col class="text-start">Action</v-col>
             </v-row>     
           </div>
           <div v-for="(OrderList,index) in OrderList" :key="index" class="flex-table">
@@ -45,11 +45,11 @@
             <v-col>{{ OrderList.Buyer }}</v-col>
             <v-col>{{ OrderList.Receiver }}</v-col>
             <v-col>{{ OrderList.Total }}</v-col>
-            <v-col>{{ OrderList.Status }}</v-col>
-            <v-btn color=blue style="margin:6px;">
+            <v-col class="text-start">{{ OrderList.Status }}</v-col>
+                <v-btn color=blue style="margin:5px;">
               View
             </v-btn>
-            <v-btn color=teal style="margin:6px;">               
+            <v-btn color=teal style="margin:5px;">               
               Ship
             </v-btn>
             </v-row>         
