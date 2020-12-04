@@ -8,8 +8,9 @@
           v-bind="attrs"
           v-on="on"
           class=mr-2
+          v-model="selectCate"
         >
-          Human
+          Customer
         </v-btn>
       </template>
       <v-list>
@@ -37,7 +38,9 @@
           v-for="(ProductTypes, index) in ProductTypes"
           :key="index"
         >
-          <v-list-item-title>{{ ProductTypes.type }}</v-list-item-title>
+          <v-list-item-title>  
+              {{ ProductTypes.type }}       
+          </v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
@@ -48,11 +51,11 @@
 <script>
 export default {
   data: () =>  ({ 
-
+    selectCate:-1,
     Human: [{ type: "Men" }, { type: "Women" }, { type: "Kids" }],
 
-    selectedProductItem: -1,
-    ProdcutTypes: [{ name: "Sneakers" }, { name: "Basketball" }, { name: "Soccers" }, { name: "Running" }, { name: "Casual" }],
+    selectedProductTypes: -1,
+    ProductTypes: [{ type: "Sneakers" }, { type: "Basketball" }, { type: "Soccers" }, { type: "Running" }, { type: "Casual" }],
 }),
 }
 </script>
