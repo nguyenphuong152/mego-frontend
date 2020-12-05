@@ -15,7 +15,7 @@
         </v-col>
         <v-divider vertical></v-divider>
         <v-col>
-          <productInfo :product="getProduct" />
+          <productInfo :productName="productDetail.name" :productPrice="productDetail.product_detail.price" />
           <colorSwatch />
           <size />
           <v-row class="d-flex align-baseline">
@@ -73,17 +73,15 @@ export default {
   components: { imageView, productInfo, colorSwatch, size, productDiscription },
   data() {
     return {
+      productDetail: "",
       rating: 5,
       select: ["1"],
       items: ["1", "2", "3", "4", "5"],
     };
   },
-  computed:{
+  created() {
     //dang bi loi
-    getProduct() {
-      return this.$store.getters.productWithPrice;
-    }
-    
+    this.$store.getters.productWithPrice;
   },
   methods: {
     addToCart() {
