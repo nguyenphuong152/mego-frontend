@@ -78,8 +78,6 @@ export default {
     goDetail: function ( product,id) {
       this.$router.push({ name: "ProductDetail", params: {  id } });
       this.$store.dispatch("getProductWithPrice",product);
-      console.log(product.name+" "+product.product_detail.price)
-
     },
   },
 };

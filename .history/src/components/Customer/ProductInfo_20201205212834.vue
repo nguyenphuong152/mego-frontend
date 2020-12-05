@@ -21,6 +21,9 @@ export default {
   data() {
     return {};
   },
+  created() {
+    console.log(this.product.name + " " + this.product.product_detail.price);
+  },
 };
 </script>
 

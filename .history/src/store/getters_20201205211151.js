@@ -12,6 +12,4 @@ export const listBrand = (state) => {
 
 export const productWithPrice = (state)=> {
     return state.productWithPrice;
-    
-
 }

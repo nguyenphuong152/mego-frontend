@@ -1,14 +1,13 @@
 <template>
   <v-container class="text-start pa-0">
     <v-container pa-0 v-if="product">
-      <span class="product-detail--title">{{ this.product.name }}</span>
+      <span class="product-detail--title">{{this.productName}}</span>
       <br />
       <span class="product-detail--price">
         {{
-          Intl.NumberFormat("vn-VN", {
-            style: "currency",
-            currency: "VND",
-          }).format(this.product.product_detail.price)
+          Intl.NumberFormat("en-EN", { maximumSignificantDigits: 3 }).format(
+          this.productPrice
+          )
         }}</span
       >
     </v-container>
@@ -16,10 +15,13 @@
 </template>
 
 <script>
+
+
 export default {
-  props: ["product"],
+  props:['productName','productPrice'],
   data() {
-    return {};
+    return {
+    }
   },
 };
 </script>
