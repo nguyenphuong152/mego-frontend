@@ -2,7 +2,7 @@
 <v-container text-start>
     <div class="title-collection">Product Categories</div>
 <v-list>
-      <v-list-item-group v-model="model" color="cyan">
+      <v-list-item-group v-model="model">
         <v-list-item
           v-for="(item, i) in getCollections"
           :key="i"

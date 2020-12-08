@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col
-      v-for="product in filterList"
+      v-for="product in listProductWithPrice"
       :key="product.id"
       class="d-flex child-flex"
       cols="4"
@@ -89,6 +89,7 @@ export default {
         });
       },
     },
+  },
 };
 </script>
 

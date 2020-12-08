@@ -65,7 +65,7 @@
       </v-row>
 
       <v-divider></v-divider>
-      <productDiscription :content="getProduct.description" />
+      <productDiscription :content="getProduct" />
     </v-container>
   </div>
 </template>

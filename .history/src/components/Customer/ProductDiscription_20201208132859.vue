@@ -9,9 +9,6 @@
     <br>
     <br>
     <span class="admin">{{content1}}</span>
-    <br>
-    <br>
-    <span class="admin">{{content2}}</span>
   </v-container>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col
-      v-for="product in filterList"
+      v-for="product in listProductWithPrice"
       :key="product.id"
       class="d-flex child-flex"
       cols="4"
@@ -71,24 +71,27 @@ export default {
     filterList() {
       return this.listProductWithPrice.filter((p) => {
         return p.name.toLowerCase().includes(this.filter.toLowerCase());
-      })}
+      })
+  },
+  created() {
+    this.$store.dispatch("getListProductWithPrice");
+  },
+  data: () => ({
+    return: {},
+  }),
+  methods: {
+    goDetail: function(product, id) {
+      this.$router.push({ name: "ProductDetail", params: { id } });
+      this.$store.dispatch("getProductWithPrice", product);
     },
-    created() {
-      this.$store.dispatch("getListProductWithPrice");
+    addToCart(product) {
+      this.$store.dispatch("addProductToCart", {
+        product: product,
+        quantity: Number(this.select),
+        price: product.product_detail.price,
+      });
     },
-    methods: {
-      goDetail: function(product, id) {
-        this.$router.push({ name: "ProductDetail", params: { id } });
-        this.$store.dispatch("getProductWithPrice", product);
-      },
-      addToCart(product) {
-        this.$store.dispatch("addProductToCart", {
-          product: product,
-          quantity: Number(this.select),
-          price: product.product_detail.price,
-        });
-      },
-    },
+  },
 };
 </script>
 

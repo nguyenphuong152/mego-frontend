@@ -21,13 +21,13 @@
                 </v-icon>
               </v-btn>
             </v-row>
-            <productBrand />
-            <productCate :gender="1" />
+            <productBrand/>
+            <productCate :gender="1"/>
           </v-col>
           <v-col>
-            <productTag :gender="1" />
+            <productTag :gender="1"/>
             <v-container>
-              <productView :filter="filter" />
+              <productView/>
             </v-container>
           </v-col>
         </v-row>
@@ -50,18 +50,20 @@ export default {
     productBrand,
   },
   data() {
-    return {
-      search: "",
-      filter:""
-    };
+    return{
+      search:''
+    }
+  },
+  watch:{
+    search() {
+      console.log('hi');
+    }
   },
   methods: {
-    find(search) {
-      if (search != "") {
-        console.log(search);
-        this.filter = search;
-      }
-    },
-  },
+    find(search)
+    {
+      console.log(search)
+    }
+  }
 };
 </script>

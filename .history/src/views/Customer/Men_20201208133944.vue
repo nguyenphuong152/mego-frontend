@@ -15,19 +15,19 @@
               <v-col class="pl-6">
                 <v-text-field label="Search" v-model="search"></v-text-field>
               </v-col>
-              <v-btn icon class="pr-6" @click="find(search)">
+              <v-btn icon class="pr-6">
                 <v-icon>
                   mdi-magnify
                 </v-icon>
               </v-btn>
             </v-row>
-            <productBrand />
-            <productCate :gender="1" />
+            <productBrand/>
+            <productCate :gender="1"/>
           </v-col>
           <v-col>
-            <productTag :gender="1" />
+            <productTag :gender="1"/>
             <v-container>
-              <productView :filter="filter" />
+              <productView/>
             </v-container>
           </v-col>
         </v-row>
@@ -50,18 +50,14 @@ export default {
     productBrand,
   },
   data() {
-    return {
-      search: "",
-      filter:""
-    };
+    return{
+      search:''
+    }
   },
-  methods: {
-    find(search) {
-      if (search != "") {
-        console.log(search);
-        this.filter = search;
-      }
-    },
-  },
+  watch:{
+    search() {
+      console.log(this.search);
+    }
+  }
 };
 </script>
