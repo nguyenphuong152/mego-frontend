@@ -72,7 +72,6 @@ export default {
     {
        this.$store.dispatch("getProductWithLowestPrice",this.products[i].id);
        let price = this.productLowestPrice.price;
-       console.log(price)
       //  this.listProductInfos.push(price);
       //  console.log(this.listProductInfos[i]);
     }
