@@ -10,7 +10,7 @@ import Category from "../views/Admin/Category.vue";
 import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue";
-import Login from "../views/Admin/Login.vue";
+
 //import ProductDetail from "../views/ProductDetail.vue"
 
 Vue.use(VueRouter);
@@ -79,9 +79,16 @@ const routes = [
       ),
   },
   {
-    path: "/login",
-    name: "Login",
-    component: Login,
+    path: "/adminlogin",
+    name: "AdminLogin",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Admin/AdminLogin.vue"),
+  },
+  {
+    path: "/adminregister",
+    name: "AdminRegister",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Admin/AdminRegister.vue"),
   },
   {
     path: "/admin",
@@ -118,11 +125,6 @@ const routes = [
         name: "Dashboard",
         component: Dashboard,
       },
-      {
-        path: "/login",
-        name: "Login",
-        component: Login,
-      },
     ],
   },
 ];
@@ -134,3 +136,16 @@ const router = new VueRouter({
 });
 
 export default router;
+
+// router.beforeEach((to, from, next) => {
+//   // redirect to login page if not logged in and trying to access a restricted page
+//   const publicPages = ['/adminlogin', '/adminregister','/'];
+//   const authRequired = !publicPages.includes(to.path);
+//   const loggedIn = localStorage.getItem('user');
+
+//   if (authRequired && !loggedIn) {
+//     return next('/adminlogin');
+//   }
+
+//   next();
+// })
