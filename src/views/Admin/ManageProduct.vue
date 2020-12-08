@@ -49,13 +49,5 @@
 </template>
 
 <script>
-export default {
-  data: () =>  ({ 
-    selectCate:-1,
-    Human: [{ type: "Men" }, { type: "Women" }, { type: "Kids" }],
 
-    selectedProductTypes: -1,
-    ProductTypes: [{ type: "Sneakers" }, { type: "Basketball" }, { type: "Soccers" }, { type: "Running" }, { type: "Casual" }],
-}),
-}
 </script>

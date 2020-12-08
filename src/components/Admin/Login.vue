@@ -1,34 +1,41 @@
-<template>
-  <article>
-    <div class="container" :class="{'sign-up-active' : signUp}">
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-left">
-            <h2>Welcome Back!</h2>
-            <p>Please login with your personal info</p>
-            <button class="invert" id="signIn" @click="signUp = !signUp">Sign In</button>
-          </div>
-          <div class="overlay-right">
-            <h2>Hello, Friend!</h2>
-            <p>Please enter your personal details</p>
-            <button class="invert" id="signUp" @click="signUp = !signUp">Sign Up</button>
-          </div>
-        </div>
-      </div>
-      <form class="sign-up" action="#">
-        <h2>Create login</h2>
-        <div>Use your email for registration</div>
-        <input type="text" placeholder="Name" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
-      </form>
-      <form class="sign-in" action="#">
-        <h2>Sign In</h2>
-        <div>Use your account</div>
-        <input type="email" placeholder="Email" />
-        <a href="#">Forgot your password?</a>
-        <button>Sign Up</button>
-      </form>
-    </div>
-  </article>
+<template>   
+      <v-form ref="form" v-model="valid" lazy-validation>
+        <v-text-field
+          v-model="User"
+          :counter="10"
+          :rules="User"
+          label="User"
+          required
+        ></v-text-field>
+
+        <v-text-field
+          v-model="password"
+          :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+          :rules="[rules.required, rules.min]"
+          :type="show ? 'text' : 'password'"
+          name="input-10-1"
+          label="Password"
+          hint="At least 8 characters"
+          counter
+          @click:append="show = !show"
+        ></v-text-field>
+
+        <v-btn color="teal"> Log in </v-btn>
+      </v-form>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      show: false,
+      
+      rules: {
+        required: (value) => !!value || "Required.",
+        min: (v) => v.length >= 8 || "Min 8 characters",
+        emailMatch: () => `The email and password you entered don't match`,
+      },
+    };
+  },
+};
+</script>

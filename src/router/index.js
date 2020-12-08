@@ -9,7 +9,7 @@ import Banner from "../views/Admin/Banner.vue";
 import Category from "../views/Admin/Category.vue";
 import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
-import Dashboard from "../views/Admin/Dashboard.vue"
+import Dashboard from "../views/Admin/Dashboard.vue";
 import Login from "../views/Admin/Login.vue";
 //import ProductDetail from "../views/ProductDetail.vue"
 
@@ -74,9 +74,15 @@ const routes = [
     path: "/product/:id",
     name: "ProductDetail",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"),
+      import(
+        /* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"
+      ),
   },
-
+  {
+    path: "/login",
+    name: "Login",
+    component: Login,
+  },
   {
     path: "/admin",
     name: "Admin",
@@ -111,7 +117,7 @@ const routes = [
         path: "/dashboard",
         name: "Dashboard",
         component: Dashboard,
-      }, 
+      },
       {
         path: "/login",
         name: "Login",

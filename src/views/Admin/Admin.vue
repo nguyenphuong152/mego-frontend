@@ -8,7 +8,7 @@
         <ToolBar/>
         <v-row>
           <v-container>
-               <router-view></router-view>
+               <!-- <router-view></router-view> -->
           </v-container>
         </v-row>
       </v-col>
