@@ -103,13 +103,5 @@ export default {
     background-color: #dedede;
   }
 }
-.modi-table {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 33%);
-  padding: 1px;
-  border-bottom: 1px black solid;
-  &:nth-of-type(2n) {
-    background-color: #dedede;
-  }
-}
+
 </style>

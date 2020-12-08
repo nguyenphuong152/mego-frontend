@@ -10,6 +10,7 @@ import Category from "../views/Admin/Category.vue";
 import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue"
+import Login from "../views/Admin/Login.vue";
 //import ProductDetail from "../views/ProductDetail.vue"
 
 Vue.use(VueRouter);
@@ -75,7 +76,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"),
   },
-  
+
   {
     path: "/admin",
     name: "Admin",
@@ -110,6 +111,11 @@ const routes = [
         path: "/dashboard",
         name: "Dashboard",
         component: Dashboard,
+      }, 
+      {
+        path: "/login",
+        name: "Login",
+        component: Login,
       },
     ],
   },
