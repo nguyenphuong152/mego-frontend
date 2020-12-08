@@ -7,7 +7,7 @@
         <span class="title-shoes">Home / MyAccount</span>
       </v-container>
     </v-sheet>
-    <v-card >
+    <v-container >
       <v-row>
         <v-col  cols="3">
           <span class="product-detail--title">Name:</span>
@@ -21,7 +21,7 @@
           <span class="product-detail--title">Phone:</span>
         </v-col>
         <v-col class="text-start">
-          <span class="product-detail--title">0909-0214-12</span>
+          <span class="product-detail--title">Day la ho ten</span>
         </v-col>
       </v-row>
       <v-row>
@@ -29,17 +29,17 @@
           <span class="product-detail--title">Address:</span>
         </v-col>
         <v-col class="text-start">
-          <span class="product-detail--title">KKTX KHU B, DHQG</span>
+          <span class="product-detail--title">Day la ho ten</span>
         </v-col>
       </v-row>
       <v-row>
-        <v-col  cols="3">
+        <v-col>
           <span class="product-detail--title">Email:</span>
         </v-col>
         <v-col class="text-start">
-          <span class="product-detail--title">ancb@gmail.com</span>
+          <span class="product-detail--title">Day la ho ten</span>
         </v-col>
       </v-row>
-    </v-card>
+    </v-container>
   </div>
 </template>
