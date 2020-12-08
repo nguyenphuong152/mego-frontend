@@ -7,14 +7,14 @@
         max-width="100%"
         src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
       >
-        <v-container class="text-start pa-15">
-          <h1 class="title-normal white--text">ABOUT MEGO</h1>
-          <span class="admin font-weight-medium white--text"
+        <v-container class="text-start ma-15">
+          <h1 class="title-normal">ABOUT MEGO</h1>
+          <span class="admin font-weight-medium"
             >Our mission is what drives us to do everything possible to expand
             human potential.
           </span>
           <br>
-          <span class="admin font-weight-medium white--text">
+          <span class="admin font-weight-medium">
             We do that by creating groundbreaking sport innovations,by making
             our products more sustainably, by building a creative and diverse
             global team and by making a positive impact in communities where we
