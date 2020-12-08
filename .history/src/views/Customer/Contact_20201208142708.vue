@@ -1,6 +1,6 @@
 <template>
   <div class="contact app">
-   <v-container class= "admin text-center">
+   <v-container class= "admin text-strt">
      <h1 > CONTACT US</h1>
    </v-container>
   </div>

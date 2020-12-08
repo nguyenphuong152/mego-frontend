@@ -1,7 +1,7 @@
 <template>
   <div class="contact app">
-   <v-container class= "admin text-center">
-     <h1 > CONTACT US</h1>
+   <v-container>
+     <h3 class= "title-normal text-start"> CONTACT US</h3>
    </v-container>
   </div>
 </template>
