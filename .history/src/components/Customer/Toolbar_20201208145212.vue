@@ -39,10 +39,8 @@
         <v-badge
         :content="cartItemCount"
         :value="cartItemCount"
-        color="cyan"
+        color="green"
         overlap
-        bottom
-        class="admin"
       >
         <v-btn icon @click="goToCart">
          <CartIcon class="logo"> </CartIcon>

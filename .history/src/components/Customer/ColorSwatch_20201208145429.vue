@@ -32,9 +32,7 @@
 export default {
   props: ["productID"],
   data() {
-    return {
-      listColor:[]
-    };
+    return {};
   },
   methods: {
     getColor(index) {
@@ -42,7 +40,7 @@ export default {
     },
     checkFalse: function() {
       for (var i = 0; i < this.colors.length; i++) {
-        this.listColor[i].show = false;
+        this.colors[i].show = false;
       }
     },
     checkTrue: function(col) {

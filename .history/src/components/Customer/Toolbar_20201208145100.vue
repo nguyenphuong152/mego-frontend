@@ -13,7 +13,7 @@
       </v-col>
       <v-col cols="2" class="d-flex justify-end">
         <v-btn icon>
-           <SearchIcon class="logo"></SearchIcon> 
+          <SearchIcon class="logo"></SearchIcon>
         </v-btn>
         <v-menu
           open-on-hover
@@ -25,75 +25,75 @@
         >
           <template v-slot:activator="{ on, attrs }">
             <v-btn icon v-bind="attrs" v-on="on">
-               <UserIcon class="logo"></UserIcon> 
+              <UserIcon class="logo"></UserIcon>
             </v-btn>
           </template>
 
           <v-list class="text-start nav">
-            <v-list-item v-for="(item, index) in routes" :key="index" :to="item.path">
+            <v-list-item
+              v-for="(item, index) in routes"
+              :key="index"
+              :to="item.path"
+            >
               <v-list-item-title>{{ item.name }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
         <v-divider vertical inset></v-divider>
         <v-badge
-        :content="cartItemCount"
-        :value="cartItemCount"
-        color="cyan"
-        overlap
-        bottom
-        class="admin"
-      >
-        <v-btn icon @click="goToCart">
-         <CartIcon class="logo"> </CartIcon>
-        </v-btn>
-         </v-badge>
+          :content="cartItemCount"
+          :value="cartItemCount"
+          color="green"
+          overlap
+        >
+          <v-btn icon @click="goToCart">
+            <CartIcon class="logo"> </CartIcon>
+        </v-badge>
       </v-col>
     </v-row>
   </v-toolbar>
 </template>
 
 <script>
-import CartIcon from "../../assets/shopping-cart.svg"
-import UserIcon from "../../assets/user.svg"
-import SearchIcon from "../../assets/search.svg"
+import CartIcon from "../../assets/shopping-cart.svg";
+import UserIcon from "../../assets/user.svg";
+import SearchIcon from "../../assets/search.svg";
 
 export default {
-  components:{
+  components: {
     CartIcon,
     UserIcon,
-    SearchIcon
+    SearchIcon,
   },
   data: () => ({
     routes: [
-      { 
-        path:"/checkout",
-        name:"Check Out"
-       },
-       { 
-        path:"/account",
-        name:"My Account"
-       },
-       { 
-        path:"/userlogin",
-        name:"User Login"
-       },
-      
+      {
+        path: "/checkout",
+        name: "Check Out",
+      },
+      {
+        path: "/account",
+        name: "My Account",
+      },
+      {
+        path: "/userlogin",
+        name: "User Login",
+      },
     ],
   }),
   methods: {
-     goToCart: function() {
-     this.$router.push({name: 'Cart'})
-     }
+    goToCart: function() {
+      this.$router.push({ name: "Cart" });
+    },
   },
-  computed:{
+  computed: {
     // cart(){
     //   return this.$store.state.cart;
     // }
     cartItemCount() {
       return this.$store.getters.cartItemCount;
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -42,7 +42,7 @@ export default {
     },
     checkFalse: function() {
       for (var i = 0; i < this.colors.length; i++) {
-        this.listColor[i].show = false;
+        this.colors[i].show = false;
       }
     },
     checkTrue: function(col) {
@@ -51,9 +51,11 @@ export default {
   },
   created() {
     this.$store.dispatch("getColorsOfOneProduct", this.productID);
-    this.colors.map(function(e) {
-      e.show = false;
-    });
+    this.listColor = this.colors
+    console.log(this.listColor)
+    // this.colors.map(function(e) {
+    //   e.show = false;
+    // });
   },
   computed: {
     colors() {

@@ -10,7 +10,7 @@
 
       <v-row class="d-flex justify-space-around pt-4">
         <v-btn
-          v-for="(col, i) in this.colors"
+          v-for="(col, i) in this.listColor"
           :key="i"
           :value="col.name"
           v-bind:color="col.name"
@@ -41,7 +41,7 @@ export default {
       this.$emit("sendColor", index);
     },
     checkFalse: function() {
-      for (var i = 0; i < this.colors.length; i++) {
+      for (var i = 0; i < this.listColor.length; i++) {
         this.listColor[i].show = false;
       }
     },
@@ -51,7 +51,9 @@ export default {
   },
   created() {
     this.$store.dispatch("getColorsOfOneProduct", this.productID);
-    this.colors.map(function(e) {
+    this.listColor = this.colors
+    console.log(this.listColor)
+    this.listColor.map(function(e) {
       e.show = false;
     });
   },
