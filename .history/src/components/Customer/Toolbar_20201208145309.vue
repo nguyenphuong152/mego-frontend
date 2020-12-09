@@ -42,7 +42,6 @@
         color="cyan"
         overlap
         bottom
-        class="admin"
       >
         <v-btn icon @click="goToCart">
          <CartIcon class="logo"> </CartIcon>

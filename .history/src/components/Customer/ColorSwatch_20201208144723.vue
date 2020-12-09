@@ -9,20 +9,22 @@
       </span>
 
       <v-row class="d-flex justify-space-around pt-4">
-        <v-btn
-          v-for="(col, i) in this.colors"
-          :key="i"
-          :value="col.name"
-          v-bind:color="col.name"
-          depressed
-          @click="
-            getColor(col.id);
-            checkFalse();
-            checkTrue(col);
-          "
-        >
-          <v-icon color="white" v-show="col.show">mdi-check</v-icon>
-        </v-btn>
+        <v-badge bordered color="error" icon="mdi-lock" overlap>
+          <v-btn
+            v-for="(col, i) in this.colors"
+            :key="i"
+            :value="col.name"
+            v-bind:color="col.name"
+            depressed
+            @click="
+              getColor(col.id);
+              checkFalse();
+              checkTrue(col);
+            "
+          >
+            <v-icon color="white" v-show="col.show">mdi-check</v-icon>
+          </v-btn>
+        </v-badge>
       </v-row>
     </v-col>
   </v-row>
@@ -32,9 +34,7 @@
 export default {
   props: ["productID"],
   data() {
-    return {
-      listColor:[]
-    };
+    return {};
   },
   methods: {
     getColor(index) {
@@ -42,7 +42,7 @@ export default {
     },
     checkFalse: function() {
       for (var i = 0; i < this.colors.length; i++) {
-        this.listColor[i].show = false;
+        this.colors[i].show = false;
       }
     },
     checkTrue: function(col) {
