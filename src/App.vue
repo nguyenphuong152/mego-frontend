@@ -6,7 +6,7 @@
     <v-main>
       <router-view></router-view>
     </v-main>
-      <Footer v-if="!['Admin', 'Category','Product','ManageUser','OrderList','Dashboard','AdminLogin','AdminRegister'].includes($route.name)"/>
+      <Footer v-if="!['Admin', 'Banner', 'Category','Product','ManageUser','OrderList','Dashboard','AdminLogin','AdminRegister'].includes($route.name)"/>
   </v-app>
   
 </template>

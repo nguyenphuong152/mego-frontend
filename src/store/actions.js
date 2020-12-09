@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export const getProducts=({ commit }) => {
    axios.get('http://mego-backend.herokuapp.com/api/guest/products').then(response=>{
        commit('SET_PRODUCTS', response.data)
@@ -70,7 +71,16 @@ export const getListProductWithPrice=({ commit }) => {
     }).catch((error) => console.log(error));
  }
 
+export const handleLogin=({commit},{email,password})=>{
+    axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
+        commit('SET_TOKENS',response.data)
+    }).catch((error)=>console.log(error));
+}
  
-
+// export const getListProductFilter=({commit},{colID,brandID})=>{
+//     axios.get(https://mego-backend.herokuapp.com/api/guest/collection/products,{params:{collection_id:colID,brand_id:brandID}}).then(response=>{
+//         commit('SET_LIST_PRODUCT_FITLER', response.data)
+//     }).catch((error) => console.log(error));
+//  }
  
 

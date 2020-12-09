@@ -23,7 +23,7 @@
 
             <v-btn
               :disabled="!valid"
-              color="black"
+              color="white"
               class="mr-4 white--text slogan-3"
               @click="validate"
             >
@@ -61,6 +61,9 @@ export default {
         this.$refs.form.resetValidation()
       },
     },
+    computed:{
+      
+    }
 }
 </script>
 

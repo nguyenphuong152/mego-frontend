@@ -41,12 +41,6 @@ export default {
 <script>
 import Login from "../../components/Admin/Login.vue";
 export default {
-  data(){
-      return {
-        email : "",
-        password : ""
-      }
-    },
   components: {
     Login
   }

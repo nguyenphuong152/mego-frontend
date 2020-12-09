@@ -65,3 +65,12 @@ export const SET_PRICE_OF_PRODUCT=(state,prod)=>{
     state.price = prod[0].price;
 }
 
+export const SET_TOKENS = (state, token) => {
+    state.token = token;
+}
+
+export const HANDLE_LOGIN = (state,{User,Password})=>{
+    state.Account.email = User,
+    state.Account.password = Password;
+}
+

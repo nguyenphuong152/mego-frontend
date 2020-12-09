@@ -18,5 +18,9 @@ export default {
     colors:[],   
     sizes: [],
     price:null,
+
+    //Token, User, Password login
+    Account:[],
+    token:null,
     
 }
