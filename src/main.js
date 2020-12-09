@@ -6,14 +6,16 @@ import '../sass/style.scss'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
-
+import storeAdmin from './storeAdmin'
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(store)
+Vue.use(storeAdmin)
 
 new Vue({
   vuetify,
   router,
   store,
+  storeAdmin,
   render: h => h(App)
 }).$mount('#app')

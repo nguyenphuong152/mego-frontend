@@ -23,20 +23,24 @@
 <script>
 export default {
   data() {
-    return {
+    return {  
       show : false,
-      user: '',
+      email: '',
       password: '',
     };
   },
     methods:{
       handleLogin(email,password){
-        this.$store.dispatch('handleLogin',{
+          this.$store.dispatch('handleLogin',{
           email:email,
           password:password,
-        });
-      }
+        })
+        .then(() =>{
+          if(localStorage.getItem(`token`))
+            this.$router.push('/admin');
+        }).catch(err=> console.log(err))
+        }
+      },
     }
-  }
 
 </script>

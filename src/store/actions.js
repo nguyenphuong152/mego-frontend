@@ -70,8 +70,7 @@ export const getListProductWithPrice=({ commit }) => {
         commit('SET_PRICE_OF_PRODUCT', response.data)
     }).catch((error) => console.log(error));
  }
-
-export const handleLogin=({commit},{email,password})=>{
+ export const handleLogin= ({commit},{email,password})=>{
     axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
         commit('SET_TOKENS',response.data)
     }).catch((error)=>console.log(error));

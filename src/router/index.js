@@ -137,15 +137,14 @@ const router = new VueRouter({
 
 export default router;
 
-// router.beforeEach((to, from, next) => {
-//   // redirect to login page if not logged in and trying to access a restricted page
-//   const publicPages = ['/adminlogin', '/adminregister','/'];
-//   const authRequired = !publicPages.includes(to.path);
-//   const loggedIn = localStorage.getItem('user');
-
-//   if (authRequired && !loggedIn) {
-//     return next('/adminlogin');
-//   }
-
-//   next();
-// })
+router.beforeEach((to, from, next) => {
+  // redirect to login page if not logged in and trying to access a restricted page
+  const RestrictedPage = ['/admin', '/banner','/category','/product','/manageuser','/orderlist','/dashboard'];
+  const authRequired = RestrictedPage.includes(to.path);
+  const loggedIn = localStorage.getItem(`token`);
+  if(authRequired)
+    if (!loggedIn) {
+      return next('/adminlogin');
+  }
+  next();
+})

@@ -2,6 +2,7 @@
 
 export const SET_PRODUCTS = (state, products) => {
     state.products = products;
+    console.log(products);
 }
 
 export const SET_PRODUCT = (state, product) => {
@@ -64,13 +65,13 @@ export const SET_SIZE_OF_PRODUCT=(state,sizes)=>{
 export const SET_PRICE_OF_PRODUCT=(state,prod)=>{
     state.price = prod[0].price;
 }
-
 export const SET_TOKENS = (state, token) => {
     state.token = token;
+    localStorage.setItem("token",token.token);
 }
 
-export const HANDLE_LOGIN = (state,{User,Password})=>{
-    state.Account.email = User,
-    state.Account.password = Password;
+export const HANDLE_LOGIN = (state,{email,password})=>{
+    state.Account.email = email,
+    state.Account.password = password;
 }
 
