@@ -2,7 +2,7 @@
   <v-container>
       <v-card class="text-start" >
            <v-list dense >
-      <a class="admin pl-4 font-weight-black" style="color:teal;">Customer  </a>
+      <a class="admin pl-4 font-weight-black" style="color:teal;">Customer</a>
       <v-list-item-group
         v-model="selectedItem"
         color="teal"

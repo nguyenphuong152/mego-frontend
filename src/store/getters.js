@@ -30,6 +30,7 @@ export const price = (state)=>{
     return state.price;
 }
 
+
 export const listProductFilter =(state)=> {
     return state.listProductFilter
 }
@@ -41,3 +42,4 @@ export const bill = (state)=>{
 export const increment = (state)=>{
     return state.increment
 }
+

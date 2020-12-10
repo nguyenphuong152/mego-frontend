@@ -9,7 +9,8 @@ import Banner from "../views/Admin/Banner.vue";
 import Category from "../views/Admin/Category.vue";
 import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
-import Dashboard from "../views/Admin/Dashboard.vue"
+import Dashboard from "../views/Admin/Dashboard.vue";
+
 //import ProductDetail from "../views/ProductDetail.vue"
 
 Vue.use(VueRouter);
@@ -73,9 +74,22 @@ const routes = [
     path: "/product/:id",
     name: "ProductDetail",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"),
+      import(
+        /* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"
+      ),
   },
-  
+  {
+    path: "/adminlogin",
+    name: "AdminLogin",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Admin/AdminLogin.vue"),
+  },
+  {
+    path: "/adminregister",
+    name: "AdminRegister",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Admin/AdminRegister.vue"),
+  },
   {
     path: "/admin",
     name: "Admin",
@@ -122,3 +136,15 @@ const router = new VueRouter({
 });
 
 export default router;
+
+router.beforeEach((to, from, next) => {
+  // redirect to login page if not logged in and trying to access a restricted page
+  const RestrictedPage = ['/admin', '/banner','/category','/product','/manageuser','/orderlist','/dashboard'];
+  const authRequired = RestrictedPage.includes(to.path);
+  const loggedIn = localStorage.getItem(`token`);
+  if(authRequired)
+    if (!loggedIn) {
+      return next('/adminlogin');
+  }
+  next();
+})

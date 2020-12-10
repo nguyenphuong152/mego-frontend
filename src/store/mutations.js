@@ -1,6 +1,8 @@
 export const SET_PRODUCTS = (state, products) => {
+
   state.products = products;
 };
+
 
 export const SET_PRODUCT = (state, product) => {
   state.product = product;
@@ -83,6 +85,10 @@ export const ADD_TO_BILL= (state,{total,shipping})=>{
   state.bill.total= Number(total)+Number(shipping);
 }
 
+
+export const SET_PRICE_OF_PRODUCT=(state,prod)=>{
+    state.price = prod[0].price;
+}
 
 export const SET_INCREMENT = (state)=>{
   state.increment++;

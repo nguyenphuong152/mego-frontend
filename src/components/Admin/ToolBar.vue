@@ -5,7 +5,7 @@
         <span  >DASHBOARD</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text color="black">
+      <v-btn text color="black" @click="LogOut()">
         <span>Sign Out</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
@@ -15,7 +15,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  method:{
+    LogOut(){
+      localStorage.clear(),
+      this.$router.push('/adminlogin')
+    }
+  }
+};
 </script>
 
 <style></style>

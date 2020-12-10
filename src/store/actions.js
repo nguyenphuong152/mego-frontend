@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export const getProducts=({ commit }) => {
    axios.get('http://mego-backend.herokuapp.com/api/guest/products').then(response=>{
        commit('SET_PRODUCTS', response.data)
@@ -79,6 +80,7 @@ export const getListProductWithPrice=({ commit }) => {
         commit('SET_LIST_PRODUCT_FITLER', response.data)
     }).catch((error) => console.log(error));
  }
+
 
  
  
