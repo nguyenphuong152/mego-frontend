@@ -31,7 +31,7 @@ export default {
   },
     methods:{
       handleLogin(email,password){
-          this.$store.dispatch('handleLogin',{
+          this.$storeAdmin.dispatch('handleLogin',{
           email:email,
           password:password,
         })

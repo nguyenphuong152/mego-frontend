@@ -20,7 +20,7 @@ export default {
     price:null,
 
     //Token, User, Password login
-    Account:[],
-    token:null,
+    // Account:[],
+    // token:null,
     
 }
