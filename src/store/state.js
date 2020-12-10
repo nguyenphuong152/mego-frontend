@@ -5,6 +5,7 @@ export default {
     productDetail: null,
     listProductWithPrice:[],
     productWithPrice: null,
+    listProductFilter:[],
 
     //cart field
     cart:[],
@@ -19,8 +20,13 @@ export default {
     sizes: [],
     price:null,
 
-    //Token, User, Password login
-    // Account:[],
-    // token:null,
+
+    //customer payment
+    bill:[],
+
+
+    //toggle re-rendering
+    increment:null,
+
     
 }

@@ -6,11 +6,20 @@ import '../sass/style.scss'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
+
 import storeAdmin from './storeAdmin'
 Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 Vue.use(store)
 Vue.use(storeAdmin)
+
+import { BootstrapVue } from 'bootstrap-vue'
+
+Vue.config.productionTip = false
+Vue.use(VueAxios, axios)
+Vue.use(store)
+Vue.use(BootstrapVue)
+
 
 new Vue({
   vuetify,

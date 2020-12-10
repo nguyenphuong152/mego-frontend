@@ -29,3 +29,17 @@ export const cart = (state)=>{
 export const price = (state)=>{
     return state.price;
 }
+
+
+export const listProductFilter =(state)=> {
+    return state.listProductFilter
+}
+
+export const bill = (state)=>{
+    return state.bill;
+}
+
+export const increment = (state)=>{
+    return state.increment
+}
+

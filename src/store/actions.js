@@ -19,15 +19,19 @@ export const getProductDetail = ({commit}, productId)=>{
     }).catch((error) => console.log(error));
 }
 
-export const addProductToCart = ({commit}, {product,quantity}) => {
-    commit('ADD_TO_CART',{product,quantity});
+//cart field
+export const addProductToCart = ({commit}, {product,quantity,price}) => {
+    commit('ADD_TO_CART',{product,quantity,price});
+}
+
+export const deleteProductFromCart = ({commit},product)=>
+{
+    commit('DELETE_FROM_CART',product)
 }
 
 export const getProductWithPrice = ({commit}, product) =>{
     commit('SET_PRODUCT_PRICE', product)
 }
-
-
 
 export const getCollections = ({commit},gender) =>{
     axios.get(`https://mego-backend.herokuapp.com/api/guest/collections/gender/${gender}`).then(response=>{
@@ -70,16 +74,23 @@ export const getListProductWithPrice=({ commit }) => {
         commit('SET_PRICE_OF_PRODUCT', response.data)
     }).catch((error) => console.log(error));
  }
- export const handleLogin= ({commit},{email,password})=>{
-    axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
-        commit('SET_TOKENS',response.data)
-    }).catch((error)=>console.log(error));
+
+ export const getListProductFilter=({commit},{colID,brandID,modelID})=>{
+    axios.get(`https://mego-backend.herokuapp.com/api/guest/collection/products/${colID}`,{params:{brand_id:brandID, model_id:modelID}}).then(response=>{
+        commit('SET_LIST_PRODUCT_FITLER', response.data)
+    }).catch((error) => console.log(error));
+ }
+
+
+ 
+ 
+//customer field
+export const createBill = ({commit}, {total,shipping}) => {
+    commit('ADD_TO_BILL',{total,shipping});
 }
  
-// export const getListProductFilter=({commit},{colID,brandID})=>{
-//     axios.get(https://mego-backend.herokuapp.com/api/guest/collection/products,{params:{collection_id:colID,brand_id:brandID}}).then(response=>{
-//         commit('SET_LIST_PRODUCT_FITLER', response.data)
-//     }).catch((error) => console.log(error));
-//  }
- 
 
+//toggle re-rendering
+export const toggleRerender = ({commit}) =>{
+    commit('SET_INCREMENT',)
+}
