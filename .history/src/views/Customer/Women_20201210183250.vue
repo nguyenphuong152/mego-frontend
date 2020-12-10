@@ -21,13 +21,13 @@
                 </v-icon>
               </v-btn>
             </v-row>
-            <productBrand @sendBrand="sendBrand"/>
-            <productCate :gender="1" @sendCategory="sendCategory" />
+            <productBrand/>
+            <productCate :gender="1"/>
           </v-col>
           <v-col>
-            <productTag :gender="1" @sendTag="sendTag"/>
+            <productTag :gender="1"/>
             <v-container>
-              <productView :filter="filter" :category=this.category_id :brand=this.brand_id :tag=this.tag_id :key="toggleRerender"  />
+              <productView :filter="filter" />
             </v-container>
           </v-col>
         </v-row>
