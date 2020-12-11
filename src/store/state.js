@@ -28,5 +28,7 @@ export default {
     //toggle re-rendering
     increment:null,
 
-    
+    //-------------------------------ADMIN------------------------------------
+    models_Admin:[],
+    genders_Admin:[],
 }

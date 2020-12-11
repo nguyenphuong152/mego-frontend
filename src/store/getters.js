@@ -43,3 +43,17 @@ export const increment = (state)=>{
     return state.increment
 }
 
+
+
+
+
+
+//----------------------------------ADMIN-----------------------------------
+
+export const models_Admin = (state)=>{
+    return state.models_Admin;
+}
+
+export const genders_Admin = (state) =>{
+    return state.genders_Admin;
+}

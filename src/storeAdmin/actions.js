@@ -6,4 +6,9 @@ export const handleLogin= ({commit},{email,password})=>{
         commit('SET_TOKENS',response.data)
     }).catch((error)=>console.log(error));
 }
- 
+
+export const getProducts=({ commit }) => {
+    axios.get('http://mego-backend.herokuapp.com/api/guest/products').then(response=>{
+        commit('SET_PRODUCTS', response.data)
+     }).catch((error) => console.log(error));
+ }
