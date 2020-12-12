@@ -54,10 +54,12 @@
 <template>
   <v-app class="admin">
     <v-main>
-      <v-row style="margin-left:425px" >
+      <v-row style="margin-left: 425px">
         <h1>Product List</h1>
-        <v-btn color="yellow" style="margin-left:250px"> Add new Product </v-btn>
-      </v-row>     
+        <v-btn color="yellow" style="margin-left: 250px">
+          Add new Product
+        </v-btn>
+      </v-row>
       <v-content>
         <v-container width="100%">
           <!--<v-row>
@@ -90,17 +92,25 @@
             </v-row>
           </div>
           <div
-            v-for="(products,index) in listProduct"
+            v-for="(products, index) in listProduct"
             :key="index"
             class="flex-table"
           >
             <v-row>
               <v-col>{{ products.id }}</v-col>
-              <v-col style="margin-right:20px">{{ products.name }}</v-col>
-              <v-col style="margin-right:20px">{{ products.model.name }}</v-col>
-              <v-col style="margin-right:25px">{{ products.brand.name }}</v-col>
-              <!-- <v-col>{{ products.description }}</v-col> -->
-              <v-btn color="blue" style="margin: 5px" @click="ViewProduct()"> View </v-btn>
+              <v-col style="margin-right: 20px">{{ products.name }}</v-col>
+              <v-col style="margin-right: 20px">{{
+                products.model.name
+              }}</v-col>
+              <v-col style="margin-right: 25px">{{
+                products.brand.name
+              }}</v-col>
+              <v-btn
+                color="blue"
+                style="margin: 5px"
+                @click="goDetail(products, products.id)"
+                >View</v-btn
+              >
               <v-btn color="red " style="margin: 5px"> Delete </v-btn>
             </v-row>
           </div>
@@ -112,21 +122,23 @@
 
 <script>
 export default {
+  components: {},
   data: () => ({
-    products:[]
+    isShowProductDetail: false,
+    products: [],
   }),
-  computed:{
-    listProduct(){
+  computed: {
+    listProduct() {
       this.$store.dispatch("getProducts");
       return this.$store.state.products;
-    }
+    },
   },
-  method:{
-    ViewProduct(){
-      
-    }
+  methods: {
+    goDetail: function(products, id) {
+      this.$router.push({name:"ProductDetail",params: { id } });
+      this.$store.dispatch("getProductInfo", products);
+    },
   }
-  
 };
 </script>
 
