@@ -49,14 +49,7 @@ export const SET_PRODUCTS = (state, products) => {
   export const SET_COLLECTIONS = (state, collections) => {
     state.collections = collections;
   };
-  
-  export const SET_MODELS_ADMIN = (state, models) => {
-    state.models_Admin = models;
-  };
 
-  export const SET_GENDERS_ADMIN = (state,genders) =>{
-    state.genders_Admin = genders;
-  }
   
   export const SET_LISTPRODUCTS_PRICE = (state, listProductWithPrice) => {
     state.listProductWithPrice = listProductWithPrice;
@@ -91,3 +84,18 @@ export const SET_PRODUCTS = (state, products) => {
   export const SET_INCREMENT = (state)=>{
     state.increment++;
   }
+
+
+  //------------------------------ADMIN---------------------------------//
+  export const productDetail_Admin = (state,productDetail_Admin)=>{
+    state.productDetail_Admin =productDetail_Admin
+  }
+    
+  export const SET_MODELS_ADMIN = (state, models) => {
+    state.models_Admin = models;
+  };
+
+  export const SET_GENDERS_ADMIN = (state,genders) =>{
+    state.genders_Admin = genders;
+  }
+  
