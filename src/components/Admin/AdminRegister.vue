@@ -1,4 +1,4 @@
-<template>
+<!--<template>
     <div>
         <h2>Register</h2>
         <form @submit.prevent="handleSubmit">
@@ -61,4 +61,4 @@ export default {
         }
     }
 };
-</script>
+</script>-->

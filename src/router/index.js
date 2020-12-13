@@ -10,11 +10,9 @@ import Category from "../views/Admin/Category.vue";
 import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue";
-
-//import ProductDetail from "../views/ProductDetail.vue"
+import ProductDetail from "../views/Admin/ProductDetail.vue";
 
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: "/",
@@ -96,32 +94,39 @@ const routes = [
     component: Admin,
     children: [
       {
-        path: "/banner",
+        path: "/admin/banner",
         name: "Banner",
         component: Banner,
       },
       {
-        path: "/category",
+        path: "/admin/category",
         name: "Category",
         component: Category,
       },
       {
-        path: "/product",
+        path: "/admin/product",
         name: "Product",
         component: Product,
+        children:[
+          {
+            path: "/admin/product/:id",
+            name: "ProductDetail",
+            component: ProductDetail,
+          }
+        ]
       },
       {
-        path: "/manageuser",
+        path: "/admin/manageuser",
         name: "ManageUser",
         component: ManageUser,
       },
       {
-        path: "/orderlist",
+        path: "/admin/orderlist",
         name: "OrderList",
         component: OrderList,
       },
       {
-        path: "/dashboard",
+        path: "/admin/dashboard",
         name: "Dashboard",
         component: Dashboard,
       },
@@ -137,14 +142,14 @@ const router = new VueRouter({
 
 export default router;
 
-router.beforeEach((to, from, next) => {
-  // redirect to login page if not logged in and trying to access a restricted page
-  const RestrictedPage = ['/admin', '/banner','/category','/product','/manageuser','/orderlist','/dashboard'];
-  const authRequired = RestrictedPage.includes(to.path);
-  const loggedIn = localStorage.getItem(`token`);
-  if(authRequired)
-    if (!loggedIn) {
-      return next('/adminlogin');
-  }
-  next();
-})
+// router.beforeEach((to, from, next) => { //Duyệt luồng truy cập 
+//   // redirect to login page if not logged in and trying to access a restricted page
+//   const RestrictedPage = ['/admin', '/banner','/category','/product','/manageuser','/orderlist','/dashboard'];
+//   const authRequired = RestrictedPage.includes(to.path);
+//   const loggedIn = localStorage.getItem(`token`);
+//   if(authRequired)
+//     if (!loggedIn) {
+//       return next('/adminlogin');
+//   }
+//   next();
+// })
