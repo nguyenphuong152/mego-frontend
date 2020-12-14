@@ -27,9 +27,7 @@
         <v-row>
           <v-col class="pl-10">
             <v-row>
-              <span class="product-name float-left">
-                {{ product.name }}</span
-              >
+              <span class="product-name float-left"> {{ product.name }}</span>
             </v-row>
             <v-row>
               <span class="product-price">
@@ -37,9 +35,7 @@
                   Intl.NumberFormat("vn-VN", {
                     style: "currency",
                     currency: "VND",
-                  }).format(
-                    product.product_detail_min_price.price
-                  )
+                  }).format(product.product_detail_min_price.price)
                 }}
               </span>
             </v-row>
@@ -71,23 +67,27 @@ export default {
   },
   computed: {
     collection() {
-      console.log(this.$store.getters.listProductFilter)
+      console.log(this.$store.getters.listProductFilter);
       return this.$store.getters.listProductFilter;
-      
     },
   },
   mounted() {
-    this.$store.dispatch("getListProductFilter", { colID: 1, brandID: "", modelID:"" });
+    this.$store.dispatch("getListProductFilter", {
+      colID: 1,
+      brandID: "",
+      modelID: "",
+    });
   },
   methods: {
     goDetail: function(product, id) {
       this.$router.push({ name: "ProductDetail", params: { id } });
     },
     addToCart(product) {
+      console.log(product);
       this.$store.dispatch("addProductToCart", {
         product: product,
         quantity: Number(this.select),
-        price: product.product_detail.price,
+        price: product.product_detail_min_price.price,
       });
     },
   },
