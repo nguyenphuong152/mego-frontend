@@ -38,32 +38,32 @@ export default {
         {
           title: "Dash Board",
           icon: "mdi-view-dashboard",
-          path: "/dashboard",
+          path: "/admin/dashboard",
         },
         {
           title: "Banner",
           icon: "mdi-alpha-b-circle-outline",
-          path: "/banner",
+          path: "/admin/banner",
         },
         {
-          title: "Categories",
+          title: "Category",
           icon: "mdi-view-list",
-          path: "/category",
+          path: "/admin/category",
         },
         {
           title: "Products",
           icon: "mdi-texture-box",
-          path: "/product",
+          path: "/admin/product",
         },
         {
           title: "Order List",
           icon: "mdi-layers",
-          path: "/orderlist",
+          path: "/admin/orderlist",
         },
         {
           title: "Manage Users",
           icon: "mdi-account-multiple-check-outline",
-          path: "/manageuser",
+          path: "/admin/manageuser",
         },
       ],
     };

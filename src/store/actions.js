@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export const getProducts=({ commit }) => {
    axios.get('http://mego-backend.herokuapp.com/api/guest/products').then(response=>{
        commit('SET_PRODUCTS', response.data)
@@ -79,8 +80,6 @@ export const getListProductWithPrice=({ commit }) => {
         commit('SET_LIST_PRODUCT_FITLER', response.data)
     }).catch((error) => console.log(error));
  }
-
- 
  
 //customer field
 export const createBill = ({commit}, {total,shipping}) => {
@@ -91,4 +90,15 @@ export const createBill = ({commit}, {total,shipping}) => {
 //toggle re-rendering
 export const toggleRerender = ({commit}) =>{
     commit('SET_INCREMENT',)
+}
+
+export const getListModels = ({commit}) =>{
+    axios.get(`https://mego-backend.herokuapp.com/api/guest/models`).then(response=>{
+        commit('SET_MODELS_ADMIN', response.data)
+    }).catch((error) => console.log(error));
+}
+export const getListGenders = ({commit}) =>{
+    axios.get(`https://mego-backend.herokuapp.com/api/guest/genders`).then(response=>{
+        commit('SET_GENDERS_ADMIN', response.data)
+    }).catch((error) => console.log(error));
 }
