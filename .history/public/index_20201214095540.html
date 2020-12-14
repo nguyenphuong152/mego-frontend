@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <head>
+      <title>MEGO</title>
+    </head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css"
+    />
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml: true,
+          version: "v9.0",
+        });
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+
+    <!-- Your Chat Plugin code -->
+    <div
+      class="fb-customerchat"
+      attribution="install_email"
+      page_id="105583464763139"
+      theme_color="#44bec7"
+      logged_in_greeting="Ch&#xe0;o b&#x1ea1;n, Mego c&#xf3; th&#x1ec3; gi&#xfa;p g&#xec; cho b&#x1ea1;n?"
+      logged_out_greeting="Ch&#xe0;o b&#x1ea1;n, Mego c&#xf3; th&#x1ec3; gi&#xfa;p g&#xec; cho b&#x1ea1;n?"
+    ></div>
+    <noscript>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
+    </noscript>
+
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

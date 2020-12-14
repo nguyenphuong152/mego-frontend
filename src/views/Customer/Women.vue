@@ -21,13 +21,13 @@
                 </v-icon>
               </v-btn>
             </v-row>
-            <productBrand/>
-            <productCate :gender="1"/>
+            <productBrand @sendBrand="sendBrand"/>
+            <productCate :gender="1" @sendCategory="sendCategory" />
           </v-col>
           <v-col>
-            <productTag :gender="1"/>
+            <productTag :gender="1" @sendTag="sendTag"/>
             <v-container>
-              <productView :filter="filter" />
+              <productView :filter="filter" :category=this.category_id :brand=this.brand_id :tag=this.tag_id :key="toggleRerender"  />
             </v-container>
           </v-col>
         </v-row>
@@ -51,15 +51,33 @@ export default {
   },
    data() {
     return {
-      search: "",
-      filter:""
+       search: "",
+      filter: "",
+      category_id: 11,
+      brand_id:"",
+      tag_id:""
     };
   },
   methods: {
     find(search) {
-      if (search != "") 
-        this.filter = search;
-      }
+      if (search != "") this.filter = search;
     },
+     sendCategory(id) {
+      this.category_id = id;
+    },
+     sendBrand(id) {
+      this.brand_id = id;
+    },
+     sendTag(id) {
+      this.tag_id = id;
+    },
+  },
+  computed:{
+    toggleRerender()
+    {
+      console.log(this.$store.getters.increment)
+      return this.$store.getters.increment;
+    }
+  }
 };
 </script>

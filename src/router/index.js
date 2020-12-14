@@ -86,7 +86,9 @@ const routes = [
     path: "/adminregister",
     name: "AdminRegister",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Admin/AdminRegister.vue"),
+      import(
+        /* webpackChunkName: "about" */ "../views/Admin/AdminRegister.vue"
+      ),
   },
   {
     path: "/admin",
@@ -107,11 +109,21 @@ const routes = [
         path: "/admin/product",
         name: "Product",
         component: Product,
+<<<<<<< HEAD
       },
       {
         path: "/admin/product/:id",
         name: "ProductDetail",
         component: ProductDetail,
+=======
+        children: [
+          {
+            path: "/admin/product/:id",
+            name: "ProductDetailAdmin",
+            component: ProductDetail,
+          },
+        ],
+>>>>>>> main
       },
       {
         path: "/admin/manageuser",
@@ -140,7 +152,7 @@ const router = new VueRouter({
 
 export default router;
 
-// router.beforeEach((to, from, next) => { //Duyệt luồng truy cập 
+// router.beforeEach((to, from, next) => { //Duyệt luồng truy cập
 //   // redirect to login page if not logged in and trying to access a restricted page
 //   const RestrictedPage = ['/admin', '/banner','/category','/product','/manageuser','/orderlist','/dashboard'];
 //   const authRequired = RestrictedPage.includes(to.path);
