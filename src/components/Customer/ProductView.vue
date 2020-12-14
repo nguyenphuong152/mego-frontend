@@ -59,7 +59,7 @@
 import CartIcon from "../../assets/shopping-cart.svg";
 import HeartIcon from "../../assets/heart.svg";
 export default {
-  props: ["filter", "category", "brand","tag"],
+  props: ["filter", "category", "brand", "tag"],
   components: {
     CartIcon,
     HeartIcon,
@@ -78,24 +78,23 @@ export default {
     },
   },
   async created() {
-    console.log(this.brand)
+    console.log(this.brand);
     if (this.category == 11) {
-     await this.$store.dispatch("getListProductWithPrice");
+      await this.$store.dispatch("getListProductWithPrice");
     } else if (this.category != 11) {
-      if (this.brand !== ''&&this.tag!=='') {
+      if (this.brand !== "" && this.tag !== "") {
         await this.$store.dispatch("getListProductFilter", {
           colID: this.category,
           brandID: this.brand,
-          modelID: this.tag
+          modelID: this.tag,
         });
-      } else if(this.brand!==''&&this.tag==''){
+      } else if (this.brand !== "" && this.tag == "") {
         await this.$store.dispatch("getListProductFilter", {
           colID: this.category,
           brandID: this.brand,
           modelID: "",
         });
-      }
-      else {
+      } else {
         await this.$store.dispatch("getListProductFilter", {
           colID: this.category,
           brandID: "",
@@ -108,13 +107,13 @@ export default {
     goDetail: function(product, id) {
       this.$router.push({ name: "ProductDetail", params: { id } });
       this.$store.dispatch("getProductWithPrice", product);
-      console.log(product)
+      console.log(product);
     },
     addToCart(product) {
       this.$store.dispatch("addProductToCart", {
         product: product,
         quantity: Number(this.select),
-        price: product.product_detail.price,
+        price: product.product_detail_min_price.price,
       });
     },
   },

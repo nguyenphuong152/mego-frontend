@@ -12,7 +12,7 @@
           'Dashboard',
           'AdminLogin',
           'AdminRegister',
-          'ProductDetail',
+          'ProductDetailAdmin',
         ].includes($route.name)
       "
     >
@@ -34,7 +34,7 @@
           'Dashboard',
           'AdminLogin',
           'AdminRegister',
-          'ProductDetail',
+          'ProductDetailAdmin',
         ].includes($route.name)
       "
     />
