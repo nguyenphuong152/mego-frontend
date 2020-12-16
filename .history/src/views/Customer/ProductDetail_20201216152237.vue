@@ -16,7 +16,7 @@
         <v-divider vertical></v-divider>
         <v-col>
           <productInfo
-            :id="this.pid"
+            :product="getProduct"
             :price="this.price"
             :isHasPrice="this.isHasPrice"
           />

@@ -1,9 +1,7 @@
 <template>
   <v-container class="text-start pa-0">
-    <v-container pa-0>
-      <span class="product-detail--title">{{
-        this.getProduct.product.name
-      }}</span>
+    <v-container pa-0 v-if="product">
+      <span class="product-detail--title">{{ this.product.product.name }}</span>
       <br />
       <span class="product-detail--price" v-if="this.isHasPrice">
         {{
@@ -18,7 +16,7 @@
           Intl.NumberFormat("vn-VN", {
             style: "currency",
             currency: "VND",
-          }).format(this.getProduct.price)
+          }).format(this.product.price)
         }}</span
       >
     </v-container>

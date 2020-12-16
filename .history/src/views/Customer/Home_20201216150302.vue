@@ -2,9 +2,9 @@
   <div class="app">
     <v-main>
       <div class="d-flex flex-column">
-        <Banner class="hidden-sm-and-down" />
+        <Banner class="hidden-xs-only" />
         <v-container class="pa-0">
-          <span class="slogan">FIND YOUR IDEAL STYLE HERE</span>
+          <span class="slogan" xs="30%">FIND YOUR IDEAL STYLE HERE</span>
           <Collection />
         </v-container>
         <v-container my-8>

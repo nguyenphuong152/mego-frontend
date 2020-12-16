@@ -103,7 +103,7 @@ const routes = [
         /* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"
       ),
     meta: {
-      title: "Product Detail",
+      title: "ProductDetail",
     },
   },
   {
@@ -157,7 +157,7 @@ const routes = [
             name: "ProductDetailAdmin",
             component: ProductDetail,
             meta: {
-              title: "Product Detail",
+              title: "ProductDetail",
             },
           },
         ],
@@ -182,9 +182,6 @@ const routes = [
         path: "/admin/dashboard",
         name: "Dashboard",
         component: Dashboard,
-        meta: {
-          title: "Dashboard",
-        },
       },
     ],
   },

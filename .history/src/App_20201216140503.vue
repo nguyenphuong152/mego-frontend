@@ -54,9 +54,14 @@ export default {
   },
 
   watch: {
-    $route(to) {
-      document.title = `${to.meta.title}`;
-    },
-  },
+  $route(to) {
+     document.title = `MEGO - ${to.meta.title}`;
+  }
+}
+
+
+  data: () => ({
+    //
+  }),
 };
 </script>

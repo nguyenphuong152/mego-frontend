@@ -14,7 +14,7 @@
           aspect-ratio="1"
           class="grey lighten-2"
           height="200"
-          @click="goDetail(product.id)"
+          @click="goDetail(product, product.id)"
         >
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">
@@ -79,7 +79,7 @@ export default {
     });
   },
   methods: {
-    goDetail: function(id) {
+    goDetail: function(product, id) {
       this.$router.push({ name: "ProductDetail", params: { id } });
     },
     addToCart(product) {

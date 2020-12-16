@@ -40,7 +40,10 @@ export const deleteProductFromCart = ({ commit }, product) => {
 
 export const getProductWithPrice = ({ commit }, id) => {
   axios
-    .get(`https://mego-backend.herokuapp.com/api/guest/product_details/${id}`)
+    .get(
+      `
+    "https://mego-backend.herokuapp.com/api/guest/product_details/${id}`
+    )
     .then((response) => {
       commit("SET_PRODUCT_PRICE", response.data);
     })

@@ -1,6 +1,6 @@
 <template>
   <v-container class="text-start pa-0">
-    <v-container pa-0>
+    <v-container pa-0 v-if="product">
       <span class="product-detail--title">{{
         this.getProduct.product.name
       }}</span>

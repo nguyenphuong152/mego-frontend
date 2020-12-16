@@ -16,7 +16,7 @@
         <v-divider vertical></v-divider>
         <v-col>
           <productInfo
-            :id="this.pid"
+            :product="getProduct"
             :price="this.price"
             :isHasPrice="this.isHasPrice"
           />
@@ -117,6 +117,7 @@ export default {
   },
   created() {
     this.pid = this.$route.params.id;
+    console.log(this.pid);
     this.$store.dispatch("getProductWithPrice", this.pid);
   },
 };

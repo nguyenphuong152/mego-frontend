@@ -2,7 +2,7 @@
   <div class="app">
     <v-main>
       <div class="d-flex flex-column">
-        <Banner class="hidden-sm-and-down" />
+        <Banner class="hidden-sm-and-own" />
         <v-container class="pa-0">
           <span class="slogan">FIND YOUR IDEAL STYLE HERE</span>
           <Collection />

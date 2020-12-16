@@ -38,13 +38,8 @@ export const deleteProductFromCart = ({ commit }, product) => {
   commit("DELETE_FROM_CART", product);
 };
 
-export const getProductWithPrice = ({ commit }, id) => {
-  axios
-    .get(`https://mego-backend.herokuapp.com/api/guest/product_details/${id}`)
-    .then((response) => {
-      commit("SET_PRODUCT_PRICE", response.data);
-    })
-    .catch((error) => console.log(error));
+export const getProductWithPrice = ({ commit }, product) => {
+  commit("SET_PRODUCT_PRICE", product);
 };
 
 export const getCollections = ({ commit }, gender) => {
@@ -57,6 +52,7 @@ export const getCollections = ({ commit }, gender) => {
     })
     .catch((error) => console.log(error));
 };
+
 
 //coi coi co xai k thi xoa di nhe
 // export const getProductModels = ({commit},gender) =>{

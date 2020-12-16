@@ -102,18 +102,12 @@ const routes = [
       import(
         /* webpackChunkName: "about" */ "../views/Customer/ProductDetail.vue"
       ),
-    meta: {
-      title: "Product Detail",
-    },
   },
   {
     path: "/adminlogin",
     name: "AdminLogin",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Admin/AdminLogin.vue"),
-    meta: {
-      title: "Login",
-    },
   },
   {
     path: "/adminregister",
@@ -122,9 +116,6 @@ const routes = [
       import(
         /* webpackChunkName: "about" */ "../views/Admin/AdminRegister.vue"
       ),
-    meta: {
-      title: "Register",
-    },
   },
   {
     path: "/admin",
@@ -135,17 +126,11 @@ const routes = [
         path: "/admin/banner",
         name: "Banner",
         component: Banner,
-        meta: {
-          title: "Banner Managenent",
-        },
       },
       {
         path: "/admin/category",
         name: "Category",
         component: Category,
-        meta: {
-          title: "Category Managenent",
-        },
       },
       {
         path: "/admin/product",
@@ -156,9 +141,6 @@ const routes = [
             path: "/admin/product/:id",
             name: "ProductDetailAdmin",
             component: ProductDetail,
-            meta: {
-              title: "Product Detail",
-            },
           },
         ],
       },
@@ -166,25 +148,16 @@ const routes = [
         path: "/admin/manageuser",
         name: "ManageUser",
         component: ManageUser,
-        meta: {
-          title: "User Management",
-        },
       },
       {
         path: "/admin/orderlist",
         name: "OrderList",
         component: OrderList,
-        meta: {
-          title: "OrderList Management",
-        },
       },
       {
         path: "/admin/dashboard",
         name: "Dashboard",
         component: Dashboard,
-        meta: {
-          title: "Dashboard",
-        },
       },
     ],
   },
