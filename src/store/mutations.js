@@ -91,3 +91,7 @@ export const SET_PRODUCTS = (state, products) => {
   export const SET_INCREMENT = (state)=>{
     state.increment++;
   }
+
+  export const SET_PRODUCT_DETAIL_ADMIN  = (state,productDetail)=>{
+    state.productDetail_Admin = productDetail;
+  }

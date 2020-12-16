@@ -109,13 +109,11 @@ const routes = [
         path: "/admin/product",
         name: "Product",
         component: Product,
-        children: [
-          {
-            path: "/admin/product/:id",
-            name: "ProductDetailAdmin",
-            component: ProductDetail,
-          },
-        ],
+      },
+      {
+        path: "/admin/product/:id",
+        name: "ProductDetailAdmin",
+        component: ProductDetail,
       },
       {
         path: "/admin/manageuser",

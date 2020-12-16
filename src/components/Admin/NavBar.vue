@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <v-navigation-drawer permanent color="cyan darken-4">
+    <v-navigation-drawer permanent color="cyan darken-4" style="height:1000px;">
       <v-list-item>
         <v-list-item-avatar>
           <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
         </v-list-item-avatar>
 
         <v-list-item-content class="admin-nav">
-          <v-list-item-title class="text-start">John Leider</v-list-item-title>
+          <v-list-item-title class="text-start">Đạt đẹp trai siêu cấp dzu trụ</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 

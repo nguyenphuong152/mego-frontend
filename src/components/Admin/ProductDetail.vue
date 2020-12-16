@@ -1,14 +1,52 @@
+
 <template>
   <v-container>
-    <v-main>
-      ProductDetail
-  </v-main>
-</v-container>
-
+    <v-app class="admin">
+      <v-row>
+        <v-col cols="7"> 
+          <product-image :productID="this.pid" /> 
+        </v-col>
+        <v-divider vertical></v-divider>
+        <v-col>
+          <ProductInfo/>
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+      <v-row>
+        <ProductDescription/>
+      </v-row>
+      <div style="margin-left:955px;">
+        <v-btn color="teal" style="width:90px">
+          Save
+        </v-btn>
+      </div>
+    </v-app>
+  </v-container>
 </template>
 
 <script>
-export default {
 
+import ProductImage from "../../components/Admin/ProductImage";
+import ProductDescription from "../../components/Admin/ProductDescription";
+import ProductInfo from "../../components/Admin/ProductInfo";
+
+
+export default {
+  components: { ProductImage,ProductDescription,ProductInfo },
+  data(){
+    return{
+      pid: "",
+      productDetail_Admin:null,
+    }
+  },
+  method: {
+    getProductDetailByID() {
+      this.$store.dispatch("getProdutDetailByID");
+      return this.$store.state.productDetail_Admin;
+    },
+    created() {
+    this.pid = this.$route.params.id;
+    },
+  },
 };
 </script>
