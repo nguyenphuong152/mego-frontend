@@ -16,7 +16,7 @@
         ></v-text-field>
 
         <v-btn color="teal" 
-        @click="handleLogin(email,password)"> Log in </v-btn>
+        @click="handleLogin(email,password)"> Có ngon bấm vào bố mày xem </v-btn>
       </v-form>
 </template>
 
@@ -31,16 +31,16 @@ export default {
   },
     methods:{
       handleLogin(email,password){
-          this.$storeAdmin.dispatch('handleLogin',{
-          email:email,
-          password:password,
-        })
-        .then(() =>{
-          if(localStorage.getItem(`token`))
-            this.$router.push('/admin');
-        }).catch(err=> console.log(err))
-        }
-      },
+          this.$store.dispatch('handleLogin',{ email:email, password:password});
+          console.log('co token', this.$store.getters.getToken);
+          this.$router.push('/admin/dashboard');
+        },
+      clearLocalStorage(){
+        localStorage.removeItem("token");
+      }
+    },
+    mounted:function(){
+      this.clearLocalStorage();
     }
-
+}
 </script>

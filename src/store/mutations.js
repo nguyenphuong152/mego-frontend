@@ -92,6 +92,17 @@ export const SET_PRODUCTS = (state, products) => {
     state.increment++;
   }
 
+
+  //---------------------------------------------ADMIN---------------------------------------------------
   export const SET_PRODUCT_DETAIL_ADMIN  = (state,productDetail)=>{
     state.productDetail_Admin = productDetail;
+  }
+  export const SET_TOKENS = (state, token) => {
+    state.token = JSON.stringify(token);
+    localStorage.setItem("token",JSON.stringify(token));
+  }
+
+  export const HANDLE_LOGIN = (state,{email,password})=>{
+    state.Account.email = email,
+    state.Account.password = password;
   }

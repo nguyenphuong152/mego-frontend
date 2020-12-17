@@ -31,4 +31,7 @@ export default {
     //-------------------------------ADMIN------------------------------------
     models_Admin:[],
     genders_Admin:[],
+    productDetail_Admin: null,
+    token:null,
+    Account:null
 }
