@@ -48,9 +48,6 @@ export const productDetail_Admin = (state)=>{
 }
 
 
-
-
-
 //----------------------------------ADMIN-----------------------------------
 
 export const models_Admin = (state)=>{
@@ -59,4 +56,8 @@ export const models_Admin = (state)=>{
 
 export const genders_Admin = (state) =>{
     return state.genders_Admin;
+}
+
+export const getToken = (state) => {
+    return state.token
 }
