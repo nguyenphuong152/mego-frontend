@@ -144,7 +144,10 @@ export const toggleRerender = ({ commit }) => {
   commit("SET_INCREMENT");
 };
 
-export const getListModels = ({ commit }) => {
+
+//------------------------------------------Admin---------------------------------------//
+
+export const getListModels_Admin = ({ commit }) => {
   axios
     .get(`https://mego-backend.herokuapp.com/api/guest/models`)
     .then((response) => {
@@ -152,7 +155,7 @@ export const getListModels = ({ commit }) => {
     })
     .catch((error) => console.log(error));
 };
-export const getListGenders = ({ commit }) => {
+export const getListGenders_Admin = ({ commit }) => {
   axios
     .get(`https://mego-backend.herokuapp.com/api/guest/genders`)
     .then((response) => {
@@ -160,3 +163,12 @@ export const getListGenders = ({ commit }) => {
     })
     .catch((error) => console.log(error));
 };
+export const getProductDetailByID = ({ commit,product_id }) => {
+  axios
+    .get(`https://mego-backend.herokuapp.com/api/guest/product_details/${product_id}`)
+    .then((response) => {
+      commit("SET_PRODUCT_DETAIL_ADMIN", response.data);
+    })
+    .catch((error) => console.log(error));
+};
+

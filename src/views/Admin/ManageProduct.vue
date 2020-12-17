@@ -135,8 +135,8 @@ export default {
   },
   methods: {
     goDetail: function(products, id) {
-      this.$router.push({name:"ProductDetail",params: { id } });
-      this.$store.dispatch("getProductInfo", products);
+      this.$router.push({name:"ProductDetailAdmin",params: { id } });
+      //this.$store.dispatch("getProductInfo", products);
     },
   }
 };

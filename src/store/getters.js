@@ -43,6 +43,9 @@ export const increment = (state)=>{
     return state.increment
 }
 
+export const productDetail_Admin = (state)=>{
+    return state.productDetail_Admin
+}
 
 
 
