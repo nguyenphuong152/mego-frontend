@@ -78,11 +78,10 @@ export const SET_LIST_PRODUCT_FITLER = (state, listProducts) => {
 };
 
 export const SET_PRICE_OF_PRODUCT = (state, prod) => {
-  if (prod.length == 0) {
+  if (prod === null) {
     state.price = 0;
-  } else {
-    state.price = prod[0].price;
   }
+  state.price = prod[0].price;
 };
 
 export const ADD_TO_BILL = (state, { total, shipping }) => {

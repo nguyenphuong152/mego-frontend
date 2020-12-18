@@ -19,16 +19,19 @@
             this.getProduct.product.name
           }}</span>
           <br />
-          <span class="product-detail--price" v-if="!isHasSize">
-            {{
+          <span class="product-detail--price" v-if="this.price === null">
+            Hãy chọn màu sắc và kích thước phù hợp để xem giá sản phẩm chính xác
+            nhất nhé!
+          </span>
+          <span class="product-detail--price" v-else-if="this.price == 0">
+            <!-- {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
-              }).format(this.getProduct.price)
-            }}
-          </span>
-          <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
+              }).format(this.price)
+            }} -->
+            Sản phẩm tạm hết hàng. Hãy chọn màu sắc khác hoặc kích thước khác
+            nhé!
           </span>
           <span class="product-detail--price" v-else>
             {{
@@ -42,7 +45,6 @@
           <size
             :productID="this.pid"
             @sendPrice="sendPrice"
-            @sendSize="sendSize"
             :colorID="this.color"
           />
           <v-row class="d-flex align-baseline">
@@ -106,7 +108,7 @@ export default {
       select: "1",
       items: ["1"],
       price: "",
-      isHasSize: false,
+      isHasPrice: false,
     };
   },
   computed: {
@@ -129,13 +131,6 @@ export default {
     sendColor(colorID) {
       if (colorID != "") {
         this.color = colorID;
-      }
-    },
-    sendSize(size) {
-      if (size != null) {
-        this.isHasSize = true;
-      } else {
-        this.isHasSize = false;
       }
     },
   },

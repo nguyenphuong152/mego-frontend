@@ -15,7 +15,7 @@
           aspect-ratio="1"
           class="grey lighten-2"
           height="200"
-          @click="goDetail(product.product_detail_min_price.id)"
+          @click="goDetail(product.id)"
         >
           <template v-slot:placeholder>
             <v-row class="fill-height ma-0" align="center" justify="center">

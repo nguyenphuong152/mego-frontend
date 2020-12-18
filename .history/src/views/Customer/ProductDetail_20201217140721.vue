@@ -15,34 +15,33 @@
         </v-col>
         <v-divider vertical></v-divider>
         <v-col class="text-start">
-          <span class="product-detail--title">{{
-            this.getProduct.product.name
-          }}</span>
+          <!-- <productInfo
+            :id="this.pid"
+            :price="this.price"
+            :isHasPrice="this.isHasPrice"
+          /> -->
+          <span class="product-detail--title">{{ this.getProduct.name }}</span>
           <br />
-          <span class="product-detail--price" v-if="!isHasSize">
+          <span class="product-detail--price">
+            {{
+              Intl.NumberFormat("vn-VN", {
+                style: "currency",
+                currency: "VND",
+              }).format(1000000000)
+            }}</span
+          >
+          <!-- <span class="product-detail--price" v-else>
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
               }).format(this.getProduct.price)
-            }}
-          </span>
-          <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
-          </span>
-          <span class="product-detail--price" v-else>
-            {{
-              Intl.NumberFormat("vn-VN", {
-                style: "currency",
-                currency: "VND",
-              }).format(this.price)
             }}</span
-          >
+          > -->
           <colorSwatch :productID="this.pid" @sendColor="sendColor" />
           <size
             :productID="this.pid"
             @sendPrice="sendPrice"
-            @sendSize="sendSize"
             :colorID="this.color"
           />
           <v-row class="d-flex align-baseline">
@@ -106,7 +105,7 @@ export default {
       select: "1",
       items: ["1"],
       price: "",
-      isHasSize: false,
+      isHasPrice: false,
     };
   },
   computed: {
@@ -122,28 +121,21 @@ export default {
         price: product.product_detail.price,
       });
     },
-    sendPrice(price) {
-      console.log("price detail: " + price);
-      this.price = price;
+    sendPrice(priceFromSize) {
+      if (priceFromSize != "") {
+        this.isHasPrice = true;
+      }
+      this.price = priceFromSize;
     },
     sendColor(colorID) {
       if (colorID != "") {
         this.color = colorID;
       }
     },
-    sendSize(size) {
-      if (size != null) {
-        this.isHasSize = true;
-      } else {
-        this.isHasSize = false;
-      }
-    },
   },
   created() {
     this.pid = this.$route.params.id;
     this.$store.dispatch("getProductWithPrice", this.pid);
-    this.color = 1;
-    this.size = 1;
   },
 };
 </script>

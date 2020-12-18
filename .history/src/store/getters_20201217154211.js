@@ -27,6 +27,7 @@ export const cart = (state) => {
 };
 
 export const price = (state) => {
+  console.log("price ne: " + state.price);
   return state.price;
 };
 

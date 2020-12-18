@@ -18,7 +18,7 @@ export default {
   //colors,size of product
   colors: [],
   sizes: [],
-  price: null,
+  price: 0,
 
   //customer payment
   bill: [],

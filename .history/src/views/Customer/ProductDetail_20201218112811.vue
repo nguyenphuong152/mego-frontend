@@ -19,7 +19,7 @@
             this.getProduct.product.name
           }}</span>
           <br />
-          <span class="product-detail--price" v-if="!isHasSize">
+          <span class="product-detail--price" v-if="isHasSize">
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
@@ -28,7 +28,8 @@
             }}
           </span>
           <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
+            Sản phẩm tạm hết hàng. Hãy chọn màu sắc khác hoặc kích thước khác
+            nhé!
           </span>
           <span class="product-detail--price" v-else>
             {{

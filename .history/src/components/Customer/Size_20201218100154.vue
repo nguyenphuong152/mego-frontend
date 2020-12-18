@@ -5,17 +5,17 @@
     </v-col>
     <v-col>
       <v-btn-toggle
-        v-model="text"
         tile
         color="cyan accent-5"
         group
         class="admin"
+        v-model="val"
       >
         <v-btn
           v-for="(size, i) in sizes"
           :key="i"
           :value="size.name"
-          @click="getMoney(size.id)"
+          @click="sendSize(size.id)"
         >
           {{ size.name }}
         </v-btn>
@@ -26,20 +26,28 @@
 
 <script>
 export default {
-  props: ["productID"],
+  props: ["productID", "colorID"],
   data() {
     return {
-      text: "",
+      val: 1,
     };
   },
   methods: {
-    getMoney: function(index) {
-      this.$store.dispatch("getPriceWithColorSize", {
+    async sendSize(index) {
+      // if (this.checkNull(index, this.colorID)) {
+
+      // }
+      // } else {
+      //   this.warning = "Please select all fields";
+      // }
+      console.log(this.colorID + " " + index);
+      await this.$store.dispatch("getPriceWithColorSize", {
         productId: this.productID,
-        colorId: 1,
+        colorId: this.colorID,
         sizeId: index,
       });
-      this.$emit("sendPrice", this.getPriceFromSize);
+      await console.log(this.getPriceFromSize);
+      this.$emit("sendSize", index);
     },
   },
   mounted() {

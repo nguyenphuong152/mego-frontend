@@ -19,29 +19,25 @@
             this.getProduct.product.name
           }}</span>
           <br />
-          <span class="product-detail--price" v-if="!isHasSize">
+          <span class="product-detail--price">
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
               }).format(this.getProduct.price)
-            }}
-          </span>
-          <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
-          </span>
-          <span class="product-detail--price" v-else>
+            }}</span
+          >
+          <!-- <span class="product-detail--price" v-else>
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
-              }).format(this.price)
+              }).format(this.getProduct.price)
             }}</span
-          >
+          > -->
           <colorSwatch :productID="this.pid" @sendColor="sendColor" />
           <size
             :productID="this.pid"
-            @sendPrice="sendPrice"
             @sendSize="sendSize"
             :colorID="this.color"
           />
@@ -106,7 +102,7 @@ export default {
       select: "1",
       items: ["1"],
       price: "",
-      isHasSize: false,
+      isHasPrice: false,
     };
   },
   computed: {
@@ -123,19 +119,14 @@ export default {
       });
     },
     sendPrice(price) {
-      console.log("price detail: " + price);
-      this.price = price;
+      if (price != "") {
+        //this.isHasPrice = true;
+        this.price = price;
+      }
     },
     sendColor(colorID) {
       if (colorID != "") {
         this.color = colorID;
-      }
-    },
-    sendSize(size) {
-      if (size != null) {
-        this.isHasSize = true;
-      } else {
-        this.isHasSize = false;
       }
     },
   },

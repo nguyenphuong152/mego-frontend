@@ -19,30 +19,26 @@
             this.getProduct.product.name
           }}</span>
           <br />
-          <span class="product-detail--price" v-if="!isHasSize">
+          <span class="product-detail--price" v-if="this.price==0">
+            <!-- {{
+              Intl.NumberFormat("vn-VN", {
+                style: "currency",
+                currency: "VND",
+              }).format(this.price)
+            }}</span -->Sản phẩm tạm hết hàng
+          >
+          <!-- <span class="product-detail--price" v-else>
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
               }).format(this.getProduct.price)
-            }}
-          </span>
-          <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
-          </span>
-          <span class="product-detail--price" v-else>
-            {{
-              Intl.NumberFormat("vn-VN", {
-                style: "currency",
-                currency: "VND",
-              }).format(this.price)
             }}</span
-          >
+          > -->
           <colorSwatch :productID="this.pid" @sendColor="sendColor" />
           <size
             :productID="this.pid"
             @sendPrice="sendPrice"
-            @sendSize="sendSize"
             :colorID="this.color"
           />
           <v-row class="d-flex align-baseline">
@@ -106,7 +102,7 @@ export default {
       select: "1",
       items: ["1"],
       price: "",
-      isHasSize: false,
+      isHasPrice: false,
     };
   },
   computed: {
@@ -129,13 +125,6 @@ export default {
     sendColor(colorID) {
       if (colorID != "") {
         this.color = colorID;
-      }
-    },
-    sendSize(size) {
-      if (size != null) {
-        this.isHasSize = true;
-      } else {
-        this.isHasSize = false;
       }
     },
   },

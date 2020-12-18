@@ -5,7 +5,7 @@
     </v-col>
     <v-col>
       <v-btn-toggle
-        v-model="text"
+        v-model="val"
         tile
         color="cyan accent-5"
         group
@@ -21,24 +21,39 @@
         </v-btn>
       </v-btn-toggle>
     </v-col>
+    <span class="admin red--text pl-3">{{ warning }}</span>
   </v-row>
 </template>
 
 <script>
 export default {
-  props: ["productID"],
+  props: ["productID", "colorID"],
   data() {
     return {
-      text: "",
+      val: "",
+      warning: "",
     };
   },
   methods: {
+    checkNull: function(colorID, index) {
+      if (colorID === "" || index === "") {
+        return false;
+      }
+      return true;
+    },
     getMoney: function(index) {
+      // if (this.checkNull(index, this.colorID)) {
+
+      // }
+      // } else {
+      //   this.warning = "Please select all fields";
+      // }
       this.$store.dispatch("getPriceWithColorSize", {
         productId: this.productID,
-        colorId: 1,
+        colorId: this.colorID,
         sizeId: index,
       });
+      console.log(this.getPriceFromSize);
       this.$emit("sendPrice", this.getPriceFromSize);
     },
   },

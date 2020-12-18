@@ -78,11 +78,15 @@ export const SET_LIST_PRODUCT_FITLER = (state, listProducts) => {
 };
 
 export const SET_PRICE_OF_PRODUCT = (state, prod) => {
+  console.log("price befor " + state.price);
   if (prod.length == 0) {
     state.price = 0;
+    console.log("get null nhe");
   } else {
+    console.log("not null");
     state.price = prod[0].price;
   }
+  console.log("price after " + state.price);
 };
 
 export const ADD_TO_BILL = (state, { total, shipping }) => {

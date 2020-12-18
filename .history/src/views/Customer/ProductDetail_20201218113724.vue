@@ -28,7 +28,7 @@
             }}
           </span>
           <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
+            o
           </span>
           <span class="product-detail--price" v-else>
             {{

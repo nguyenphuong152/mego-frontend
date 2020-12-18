@@ -15,35 +15,36 @@
         </v-col>
         <v-divider vertical></v-divider>
         <v-col class="text-start">
+          <!-- <productInfo
+            :id="this.pid"
+            :price="this.price"
+            :isHasPrice="this.isHasPrice"
+          /> -->
           <span class="product-detail--title">{{
             this.getProduct.product.name
           }}</span>
           <br />
-          <span class="product-detail--price" v-if="!isHasSize">
+          <span class="product-detail--price">
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
               }).format(this.getProduct.price)
-            }}
-          </span>
-          <span class="product-detail--price" v-else-if="this.price == 0">
-            Sold out!
-          </span>
-          <span class="product-detail--price" v-else>
+            }}</span
+          >
+          <!-- <span class="product-detail--price" v-else>
             {{
               Intl.NumberFormat("vn-VN", {
                 style: "currency",
                 currency: "VND",
-              }).format(this.price)
+              }).format(this.getProduct.price)
             }}</span
-          >
+          > -->
           <colorSwatch :productID="this.pid" @sendColor="sendColor" />
           <size
             :productID="this.pid"
-            @sendPrice="sendPrice"
             @sendSize="sendSize"
-            :colorID="this.color"
+            :color="this.color"
           />
           <v-row class="d-flex align-baseline">
             <v-col class="text-start">
@@ -105,8 +106,8 @@ export default {
       rating: 5,
       select: "1",
       items: ["1"],
-      price: "",
-      isHasSize: false,
+      size: "",
+      isHasPrice: false,
     };
   },
   computed: {
@@ -122,20 +123,17 @@ export default {
         price: product.product_detail.price,
       });
     },
-    sendPrice(price) {
-      console.log("price detail: " + price);
-      this.price = price;
+    sendSize(size) {
+      if (size != "") {
+        //this.isHasPrice = true;
+        this.size = size;
+        console.log("size" + size);
+      }
     },
     sendColor(colorID) {
       if (colorID != "") {
         this.color = colorID;
-      }
-    },
-    sendSize(size) {
-      if (size != null) {
-        this.isHasSize = true;
-      } else {
-        this.isHasSize = false;
+        console.log("col" + colorID);
       }
     },
   },

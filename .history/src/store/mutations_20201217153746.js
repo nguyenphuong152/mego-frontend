@@ -80,7 +80,9 @@ export const SET_LIST_PRODUCT_FITLER = (state, listProducts) => {
 export const SET_PRICE_OF_PRODUCT = (state, prod) => {
   if (prod.length == 0) {
     state.price = 0;
+    console.log("yes");
   } else {
+    console.log("nooooo");
     state.price = prod[0].price;
   }
 };
