@@ -17,24 +17,32 @@
 
         <v-btn color="teal" 
         @click="handleLogin(email,password)"> Có ngon bấm vào bố mày xem </v-btn>
-      </v-form>
+        <br><br>
+        <div v-if="isClicked === true" >
+          <v-progress-circular
+            indeterminate
+            color="primary"
+          ></v-progress-circular>
+      </div>
+      </v-form>     
 </template>
 
 <script>
+
 export default {
   data() {
     return {  
       show : false,
       email: '',
       password: '',
+      isClicked :false,
     };
   },
     methods:{
       handleLogin(email,password){
-          this.$store.dispatch('handleLogin',{ email:email, password:password});
-          console.log('co token', this.$store.getters.getToken);
-          this.$router.push('/admin/dashboard');
-        },
+        this.isClicked = true;
+        this.$store.dispatch('handleLogin',{ email, password}).catch(err=>console.log(err));
+      },
       clearLocalStorage(){
         localStorage.removeItem("token");
       }

@@ -86,21 +86,6 @@ export const SET_PRODUCTS = (state, products) => {
   }
 
 
-<<<<<<< HEAD
-  //------------------------------ADMIN---------------------------------//
-  export const productDetail_Admin = (state,productDetail_Admin)=>{
-    state.productDetail_Admin =productDetail_Admin
-  }
-    
-  export const SET_MODELS_ADMIN = (state, models) => {
-    state.models_Admin = models;
-  };
-
-  export const SET_GENDERS_ADMIN = (state,genders) =>{
-    state.genders_Admin = genders;
-  }
-  
-=======
   //---------------------------------------------ADMIN---------------------------------------------------
   export const SET_PRODUCT_DETAIL_ADMIN  = (state,productDetail)=>{
     state.productDetail_Admin = productDetail;
@@ -108,10 +93,18 @@ export const SET_PRODUCTS = (state, products) => {
   export const SET_TOKENS = (state, token) => {
     state.token = JSON.stringify(token);
     localStorage.setItem("token",JSON.stringify(token));
+    console.log(state.token);
   }
 
   export const HANDLE_LOGIN = (state,{email,password})=>{
     state.Account.email = email,
     state.Account.password = password;
   }
->>>>>>> main
+
+  export const SET_MODELS_ADMIN = (state, models) => {
+    state.models_Admin = models;
+  };
+
+  export const SET_GENDERS_ADMIN = (state,genders) =>{
+    state.genders_Admin = genders;
+  }

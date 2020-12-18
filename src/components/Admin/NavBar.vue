@@ -7,11 +7,7 @@
         </v-list-item-avatar>
 
         <v-list-item-content class="admin-nav">
-<<<<<<< HEAD
-          <v-list-item-title class="text-start">Đạt đẹp trai siu cấp dzũ trụ</v-list-item-title>
-=======
           <v-list-item-title class="text-start">Đạt đẹp trai siêu cấp dzu trụ</v-list-item-title>
->>>>>>> main
         </v-list-item-content>
       </v-list-item>
 
