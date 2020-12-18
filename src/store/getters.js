@@ -42,9 +42,11 @@ export const bill = (state) => {
   return state.bill;
 };
 
+
 export const increment = (state) => {
   return state.increment;
 };
+
 
 
 //----------------------------------ADMIN-----------------------------------
@@ -60,5 +62,10 @@ export const genders_Admin = (state) =>{
 
 export const getToken = (state) => {
     return state.token
+}
+
+
+export const productDetail_Admin = (state)=>{
+    return state.productDetail_Admin
 }
 

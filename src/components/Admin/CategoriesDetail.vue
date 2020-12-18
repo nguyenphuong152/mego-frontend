@@ -87,8 +87,8 @@ export default {
     },
   },
   mounted() {
-    this.$store.dispatch("getListGenders"); //get List Gender
-    this.$store.dispatch("getListModels"); //, { colID: 1, brandID: "", modelID:"" });
+    this.$store.dispatch("getListGenders_Admin"); //get List Gender
+    this.$store.dispatch("getListModels_Admin"); //, { colID: 1, brandID: "", modelID:"" });
   },
 };
 </script>

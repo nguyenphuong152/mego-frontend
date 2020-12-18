@@ -125,6 +125,9 @@ export const SET_INCREMENT = (state) => {
 //   state.productDetail_Admin = productDetail;
 // };
 
+
+  //---------------------------------------------ADMIN---------------------------------------------------
+
   export const productDetail_Admin = (state,productDetail_Admin)=>{
     state.productDetail_Admin =productDetail_Admin
   }
@@ -143,10 +146,20 @@ export const SET_INCREMENT = (state) => {
   export const SET_TOKENS = (state, token) => {
     state.token = JSON.stringify(token);
     localStorage.setItem("token",JSON.stringify(token));
+    console.log(state.token);
   }
 
   export const HANDLE_LOGIN = (state,{email,password})=>{
     state.Account.email = email,
     state.Account.password = password;
+  }
+
+
+  export const SET_MODELS_ADMIN = (state, models) => {
+    state.models_Admin = models;
+  };
+
+  export const SET_GENDERS_ADMIN = (state,genders) =>{
+    state.genders_Admin = genders;
   }
 

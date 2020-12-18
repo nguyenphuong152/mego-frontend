@@ -11,7 +11,7 @@ import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue";
 import ProductDetail from "../views/Admin/ProductDetail.vue";
-import state from "../store/state";
+import state from "../store/state"
 
 Vue.use(VueRouter);
 const routes = [
@@ -210,11 +210,23 @@ router.beforeEach((to, from, next) => { //Duyệt luồng truy cập
    '/admin/dashboard',
   ];
   const authRequired = RestrictedPage.includes(to.path);    //Paths thats are restricted 
-  const loggedIn = localStorage.getItem(`token`);           //Have Token
-  if(authRequired){
-    if(!loggedIn)
-    console.log('co token: '+state.token);
-      return next('/adminlogin');
+  const loggedIn = state.token;           //loggedIn = have Token
+  if(authRequired && !loggedIn){
+    return next('/adminlogin');
   }
   next();
 })
+
+
+// router.beforeEach((to, from, next) => {
+//   // redirect to login page if not logged in and trying to access a restricted page
+//   const publicPages = ['/adminlogin', '/adminregister','/'];
+//   const authRequired = !publicPages.includes(to.path);
+//   const loggedIn = localStorage.getItem('user');
+
+//   if (authRequired && !loggedIn) {
+//     return next('/adminlogin');
+//   }
+
+//   next();
+// })

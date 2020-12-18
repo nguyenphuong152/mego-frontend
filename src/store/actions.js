@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "../router";
 
 export const getProducts = ({ commit }) => {
   axios
@@ -162,7 +163,9 @@ export const getListGenders_Admin = ({ commit }) => {
     })
     .catch((error) => console.log(error));
 };
-export const getProductDetailByID = ({ commit, product_id }) => {
+
+export const getProductDetailByID = ({ commit },{product_id }) => {
+  console.log('id: ',product_id);
   axios
     .get(
       `https://mego-backend.herokuapp.com/api/guest/product_details/${product_id}`
@@ -174,9 +177,18 @@ export const getProductDetailByID = ({ commit, product_id }) => {
 };
 
 
+export const handleLogin= ({commit},{email,password})=>{
+  axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
+      commit('SET_TOKENS',response.data);     
+      router.push('/admin/dashboard/');
+  }).catch((error)=>console.log(error));
+}
+
+
 // export const handleLogin= ({commit},{email,password})=>{
 //   axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
 //       commit('SET_TOKENS',response.data)
 //   }).catch((error)=>console.log(error));
 // }
+
 

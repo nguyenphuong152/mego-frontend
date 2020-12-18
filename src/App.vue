@@ -96,10 +96,24 @@ export default {
     Footer,
   },
 
+
+  data: () => ({
+    //
+  }),
+  methods:{  
+      clearLocalStorage(){
+        localStorage.removeItem("token");
+      }
+    },
+    mounted:function(){
+      this.clearLocalStorage();
+    }
+
   watch: {
     $route(to) {
       document.title = `${to.meta.title}`;
     },
   },
+
 };
 </script>
