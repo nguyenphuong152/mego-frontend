@@ -135,15 +135,12 @@ export default {
   },
   methods: {
     goDetail: function(products, id) {
-<<<<<<< HEAD
+
       // const path = `/admin/product/${id}`
       // if (this.$route.path !== path) this.$router.push(path)
       this.$router.push({ name: "ProductDetailAdmin", params: { id } });
       this.$store.dispatch("getProductDetailByID", products);
-=======
-      this.$router.push({name:"ProductDetailAdmin",params: { id } });
-      //this.$store.dispatch("getProductInfo", products);
->>>>>>> main
+
     },
   }
 };
