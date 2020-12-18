@@ -1,3 +1,4 @@
+
 <template>
   <v-app class="admin">
     <v-main>
@@ -27,12 +28,8 @@
             <v-row>
               <v-col>{{ products.id }}</v-col>
               <v-col style="margin-right: 20px">{{ products.name }}</v-col>
-              <v-col style="margin-right: 20px">{{
-                products.model.name
-              }}</v-col>
-              <v-col style="margin-right: 25px">{{
-                products.brand.name
-              }}</v-col>
+              <v-col style="margin-right: 20px">{{ products.model.name }}</v-col>
+              <v-col style="margin-right: 25px">{{ products.brand.name }}</v-col>
               <v-btn
                 color="blue"
                 style="margin: 5px"
@@ -63,10 +60,10 @@ export default {
   },
   methods: {
     goDetail: function(products, id) {
+
       this.$router.push({ name: "ProductDetailAdmin", params: { id } });
       this.$store.dispatch("getProductDetailByID", products);
-    },
-  },
+  }
 };
 </script>
 
