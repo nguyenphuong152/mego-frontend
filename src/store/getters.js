@@ -33,6 +33,7 @@ export const price = (state) => {
   return state.price;
 };
 
+
 export const listProductFilter = (state) => {
   return state.listProductFilter;
 };
@@ -45,12 +46,19 @@ export const increment = (state) => {
   return state.increment;
 };
 
+
 //----------------------------------ADMIN-----------------------------------
 
 export const models_Admin = (state) => {
   return state.models_Admin;
 };
 
-export const genders_Admin = (state) => {
-  return state.genders_Admin;
-};
+
+export const genders_Admin = (state) =>{
+    return state.genders_Admin;
+}
+
+export const getToken = (state) => {
+    return state.token
+}
+

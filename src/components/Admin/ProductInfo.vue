@@ -1,4 +1,26 @@
 <template>
+<<<<<<< HEAD
+  <v-container class="text-start pa-0">
+    <v-container pa-0 v-if="product">
+      <span class="product-detail--title">{{ this.product.name }}</span>
+      <br />
+      <span class="product-detail--price" v-if="this.isHasPrice">
+        {{
+          Intl.NumberFormat("vn-VN", {
+            style: "currency",
+            currency: "VND",
+          }).format(this.price)
+        }}</span
+      >
+      <span class="product-detail--price" v-else>
+        {{
+          Intl.NumberFormat("vn-VN", {
+            style: "currency",
+            currency: "VND",
+          }).format(this.product.product_detail_min_price.price)
+        }}</span
+      >
+=======
   <v-container>
     <v-container>
         <v-row>
@@ -56,14 +78,22 @@
             ></v-text-field>
           </v-col>
         </v-row>
+>>>>>>> main
     </v-container>
   </v-container>
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
+  props: ["product", "price", "isHasPrice"],
   data() {
     return {
+      p: "",
+=======
+  data() {
+    return {
+>>>>>>> main
     };
   },
   methods: {},

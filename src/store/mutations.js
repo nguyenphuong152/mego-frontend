@@ -42,6 +42,31 @@ export const DELETE_FROM_CART = (state, product) => {
   }
   if (index > -1) {
     state.cart.splice(index, 1);
+  };
+  
+  export const SET_COLLECTIONS = (state, collections) => {
+    state.collections = collections;
+  };
+
+  
+  export const SET_LISTPRODUCTS_PRICE = (state, listProductWithPrice) => {
+    state.listProductWithPrice = listProductWithPrice;
+  };
+  
+  export const SET_BRANDS = (state, brands) => {
+    state.brands = brands;
+  };
+  
+  export const SET_COLOR_OF_PRODUCT = (state, colors) => {
+    state.colors = colors;
+  };
+  
+  export const SET_SIZE_OF_PRODUCT = (state, sizes) => {
+    state.sizes = sizes;
+  };
+  
+  export const SET_LIST_PRODUCT_FITLER = (state,listProducts)=>{
+    state.listProductFilter = listProducts
   }
 };
 
@@ -95,6 +120,33 @@ export const SET_INCREMENT = (state) => {
   state.increment++;
 };
 
-export const SET_PRODUCT_DETAIL_ADMIN = (state, productDetail) => {
-  state.productDetail_Admin = productDetail;
-};
+// <<<<<<< phuong
+// export const SET_PRODUCT_DETAIL_ADMIN = (state, productDetail) => {
+//   state.productDetail_Admin = productDetail;
+// };
+
+  export const productDetail_Admin = (state,productDetail_Admin)=>{
+    state.productDetail_Admin =productDetail_Admin
+  }
+    
+  export const SET_MODELS_ADMIN = (state, models) => {
+    state.models_Admin = models;
+  };
+
+  export const SET_GENDERS_ADMIN = (state,genders) =>{
+    state.genders_Admin = genders;
+  }
+  
+  export const SET_PRODUCT_DETAIL_ADMIN  = (state,productDetail)=>{
+    state.productDetail_Admin = productDetail;
+  }
+  export const SET_TOKENS = (state, token) => {
+    state.token = JSON.stringify(token);
+    localStorage.setItem("token",JSON.stringify(token));
+  }
+
+  export const HANDLE_LOGIN = (state,{email,password})=>{
+    state.Account.email = email,
+    state.Account.password = password;
+  }
+

@@ -16,10 +16,13 @@
 
 <script>
 export default {
-  method:{
+  data(){
+    
+  },
+  methods:{
     LogOut(){
-      localStorage.clear(),
-      this.$router.push('/adminlogin')
+      localStorage.clear();
+      this.$router.push('/adminlogin');
     }
   }
 };

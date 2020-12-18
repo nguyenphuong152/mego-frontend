@@ -1,32 +1,39 @@
 export default {
-  //product field
-  products: [],
-  product: null,
-  productDetail: null,
-  listProductWithPrice: [],
-  productWithPrice: null,
-  listProductFilter: [],
 
-  //cart field
-  cart: [],
+    //product field
+    products: [],
+    product: null,
+    productDetail: null,
+    listProductWithPrice:[],
+    productWithPrice: null,
+    listProductFilter:[],
 
-  //view field
-  collections: [],
-  models: [],
-  brands: [],
+    //cart field
+    cart:[],
 
-  //colors,size of product
-  colors: [],
-  sizes: [],
-  price: null,
+    //view field
+    collections:[],
+    models:[],
+    brands:[],
 
-  //customer payment
-  bill: [],
+    //colors,size of product
+    colors:[],   
+    sizes: [],
+    price:null,
 
-  //toggle re-rendering
-  increment: null,
 
-  //-------------------------------ADMIN------------------------------------
-  models_Admin: [],
-  genders_Admin: [],
-};
+    //customer payment
+    bill:[],
+
+
+    //toggle re-rendering
+    increment:null,
+
+    //-------------------------------ADMIN------------------------------------
+    models_Admin:[],
+    genders_Admin:[],
+    productDetail_Admin: null,
+    token:null,
+    Account:null
+}
+
