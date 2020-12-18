@@ -33,16 +33,14 @@ export default {
     };
   },
   methods: {
-     getMoney:function(index)
-      {
-        this.$store.dispatch("getPriceWithColorSize", {
-          productId: this.productID,
-          colorId: 1,
-          sizeId: index,
-        });
-        this.$emit("sendPrice", this.getPriceFromSize);
-        console.log("price ne"+this.getPriceFromSize)
-      }
+    getMoney: function(index) {
+      this.$store.dispatch("getPriceWithColorSize", {
+        productId: this.productID,
+        colorId: 1,
+        sizeId: index,
+      });
+      this.$emit("sendPrice", this.getPriceFromSize);
+    },
   },
   mounted() {
     this.$store.dispatch("getSizesOfOneProduct", this.productID);

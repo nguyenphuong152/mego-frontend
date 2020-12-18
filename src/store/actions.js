@@ -39,8 +39,13 @@ export const deleteProductFromCart = ({ commit }, product) => {
   commit("DELETE_FROM_CART", product);
 };
 
-export const getProductWithPrice = ({ commit }, product) => {
-  commit("SET_PRODUCT_PRICE", product);
+export const getProductWithPrice = ({ commit }, id) => {
+  axios
+    .get(`https://mego-backend.herokuapp.com/api/guest/product_details/${id}`)
+    .then((response) => {
+      commit("SET_PRODUCT_PRICE", response.data);
+    })
+    .catch((error) => console.log(error));
 };
 
 export const getCollections = ({ commit }, gender) => {
@@ -54,6 +59,7 @@ export const getCollections = ({ commit }, gender) => {
     .catch((error) => console.log(error));
 };
 
+//coi coi co xai k thi xoa di nhe
 // export const getProductModels = ({commit},gender) =>{
 //     axios.get(`https://mego-backend.herokuapp.com/api/guest/models/gender/${gender}`).then(response=>{
 //         commit('SET_MODELS', response.data)
@@ -139,7 +145,6 @@ export const toggleRerender = ({ commit }) => {
   commit("SET_INCREMENT");
 };
 
-
 //------------------------------------------Admin---------------------------------------//
 
 export const getListModels_Admin = ({ commit }) => {
@@ -158,15 +163,19 @@ export const getListGenders_Admin = ({ commit }) => {
     })
     .catch((error) => console.log(error));
 };
+
 export const getProductDetailByID = ({ commit },{product_id }) => {
   console.log('id: ',product_id);
   axios
-    .get(`https://mego-backend.herokuapp.com/api/guest/product_details/${product_id}`)
+    .get(
+      `https://mego-backend.herokuapp.com/api/guest/product_details/${product_id}`
+    )
     .then((response) => {
       commit("SET_PRODUCT_DETAIL_ADMIN", response.data);
     })
     .catch((error) => console.log(error));
 };
+
 
 export const handleLogin= ({commit},{email,password})=>{
   axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
@@ -174,4 +183,12 @@ export const handleLogin= ({commit},{email,password})=>{
       router.push('/admin/dashboard/');
   }).catch((error)=>console.log(error));
 }
+
+
+// export const handleLogin= ({commit},{email,password})=>{
+//   axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
+//       commit('SET_TOKENS',response.data)
+//   }).catch((error)=>console.log(error));
+// }
+
 
