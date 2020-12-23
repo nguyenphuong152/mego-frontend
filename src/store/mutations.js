@@ -98,10 +98,6 @@ export const SET_INCREMENT = (state) => {
 
 //---------------------------------------------ADMIN---------------------------------------------------
 
-export const productDetail_Admin = (state, productDetail_Admin) => {
-  state.productDetail_Admin = productDetail_Admin;
-};
-
 export const SET_MODELS_ADMIN = (state, models) => {
   state.models_Admin = models;
 };

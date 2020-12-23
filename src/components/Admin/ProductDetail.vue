@@ -1,6 +1,6 @@
 
 <template>
-  <v-container>
+  <v-main>
     <v-app class="admin">
       <v-row>
         <v-col cols="7"> 
@@ -8,7 +8,7 @@
         </v-col>
         <v-divider vertical></v-divider>
         <v-col>
-          <ProductInfo/>
+          <product-info :productDetail="this.productDetail" />
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -21,7 +21,7 @@
         </v-btn>
       </div>
     </v-app>
-  </v-container>
+  </v-main>
 </template>
 
 <script>
@@ -36,17 +36,12 @@ export default {
   data(){
     return{
       pid: "",
-      productDetail_Admin:null,
+      productDetail:null,
     }
   },
-  method: {
-    getProductDetailByID() {
-      this.$store.dispatch("getProdutDetailByID");
-      return this.$store.state.productDetail_Admin;
-    },
-    created() {
+  created:function(){
     this.pid = this.$route.params.id;
-    },
-  },
+    this.productDetail = this.$store.state.productDetail_Admin;
+  }
 };
 </script>
