@@ -25,9 +25,6 @@ export const sizesOfOneProduct = (state) => {
 export const cart = (state) => {
   return state.cart;
 };
-export const productDetail_Admin = (state) => {
-  return state.productDetail_Admin;
-};
 
 export const price = (state) => {
   return state.price;
@@ -59,6 +56,6 @@ export const getToken = (state) => {
   return state.token;
 };
 
-// export const productDetail_Admin = (state)=>{
-//     return state.productDetail_Admin
-// }
+export const getProductDetail_Admin = (state)=>{
+    return state.productDetail_Admin;
+}

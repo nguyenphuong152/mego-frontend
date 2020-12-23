@@ -22,8 +22,8 @@ export const getProduct = ({ commit }, productId) => {
 export const getProductDetail = ({ commit }, productId) => {
   axios
     .get(
-      `http://mego-backend.herokuapp.com/api/guest/product_details/${productId}`
-    )
+      `http://mego-backend.herokuapp.com/api/guest/product_details/${productId.id}`,
+      { params: { id: productId.id} })
     .then((response) => {
       commit("SET_PRODUCT_DETAIL", response.data);
     })
@@ -164,11 +164,11 @@ export const getListGenders_Admin = ({ commit }) => {
     .catch((error) => console.log(error));
 };
 
-export const getProductDetailByID = ({ commit },{product_id }) => {
-  console.log('id: ',product_id);
+export const getProductDetailByID = ({ commit }, id ) => {
   axios
     .get(
-      `https://mego-backend.herokuapp.com/api/guest/product_details/${product_id}`
+      `https://mego-backend.herokuapp.com/api/guest/product_details/${id}`,
+      { params: {id} }
     )
     .then((response) => {
       commit("SET_PRODUCT_DETAIL_ADMIN", response.data);
@@ -180,7 +180,7 @@ export const getProductDetailByID = ({ commit },{product_id }) => {
 export const handleLogin= ({commit},{email,password})=>{
   axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
       commit('SET_TOKENS',response.data);     
-      router.push('/admin/dashboard/');
+      router.replace('/admin/dashboard/');
   }).catch((error)=>console.log(error));
 }
 

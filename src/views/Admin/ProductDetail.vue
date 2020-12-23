@@ -10,7 +10,7 @@
       <h1 style="margin-left:355px;">Chi tiết sản phẩm</h1>
       </v-row>    
       <div>
-        <ProductDetail />
+        <ProductDetail/>
       </div>
   </v-app>
 </template> 

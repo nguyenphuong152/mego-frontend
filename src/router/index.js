@@ -10,7 +10,7 @@ import Category from "../views/Admin/Category.vue";
 import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue";
-import ProductDetail from "../views/Admin/ProductDetail.vue";
+import ProductDetailAdmin from "../views/Admin/ProductDetail.vue";
 import state from "../store/state"
 
 Vue.use(VueRouter);
@@ -152,16 +152,14 @@ const routes = [
         path: "/admin/product",
         name: "Product",
         component: Product,
-        children: [
-          {
-            path: "/admin/product/:id",
-            name: "ProductDetailAdmin",
-            component: ProductDetail,
-            meta: {
-              title: "Product Detail",
-            },
-          },
-        ],
+      },
+      {
+        path: "/admin/product/:id",
+        name: "ProductDetailAdmin",
+        component: ProductDetailAdmin,
+        meta: {
+          title: "Product Detail",
+        },
       },
       {
         path: "/admin/manageuser",

@@ -7,7 +7,6 @@
           Add new Product
         </v-btn>
       </v-row>
-      <v-content>
         <v-container width="100%">
           <div>
             <v-row class="flex-table">
@@ -20,8 +19,8 @@
             </v-row>
           </div>
           <div
-            v-for="(products, index) in listProduct"
-            :key="index"
+            v-for="(products,index) in this.$store.state.products"
+            :key ="index"
             class="flex-table"
           >
             <v-row>
@@ -36,14 +35,13 @@
               <v-btn
                 color="blue"
                 style="margin: 5px"
-                @click="goDetail(products, products.id)"
+                @click="goDetail(products.id)"
                 >View</v-btn
               >
               <v-btn color="red " style="margin: 5px"> Delete </v-btn>
             </v-row>
           </div>
         </v-container>
-      </v-content>
     </v-main>
   </v-app>
 </template>
@@ -53,20 +51,28 @@ export default {
   components: {},
   data: () => ({
     isShowProductDetail: false,
-    products: [],
   }),
-  computed: {
+  methods: {
+    goDetail: function(id) {
+      // this.$store.dispatch('getProductDetailByID',id
+      // ).then(()=>{
+      //     setTimeout(() => 
+      //       this.$router.push({ name: "ProductDetailAdmin", params: { id }},2000));
+      //   }).catch(()=>{});
+      setTimeout(() => {
+         this.$router.push({ name: "ProductDetailAdmin", params: { id }});
+      }, 1000);
+       this.$store.dispatch('getProductDetailByID',id);
+   
+    },
     listProduct() {
       this.$store.dispatch("getProducts");
       return this.$store.state.products;
     },
   },
-  methods: {
-    goDetail: function(products, id) {
-      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
-      this.$store.dispatch("getProductDetailByID", products);
-    },
-  },
+  mounted:function(){
+    this.listProduct()
+  }
 };
 </script>
 

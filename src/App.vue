@@ -99,14 +99,6 @@ export default {
   data: () => ({
     //
   }),
-  methods: {
-    clearLocalStorage() {
-      localStorage.removeItem("token");
-    },
-  },
-  mounted: function() {
-    this.clearLocalStorage();
-  },
 
   watch: {
     $route(to) {
