@@ -184,6 +184,30 @@ export const handleLogin= ({commit},{email,password})=>{
   }).catch((error)=>console.log(error));
 }
 
+export const getProductModelByID = ({commit},id)=>{
+  axios
+    .get(
+      `https://mego-backend.herokuapp.com/api/guest/models/${id}`,
+      {params: {id}}
+    )
+    .then((response)=>{
+      commit("SET_PRODUCT_MODEL_ADMIN",response.data);
+    })
+    .catch((error) => console.log(error));
+};
+
+export const getProductBrandByID = ({commit},id)=>{
+  axios
+    .get(
+      `https://mego-backend.herokuapp.com/api/guest/brands/${id}`,
+      {params: {id}}
+    )
+    .then((response)=>{
+      commit("SET_PRODUCT_BRAND_ADMIN",response.data);
+    })
+    .catch((error) => console.log(error));
+};
+
 
 // export const handleLogin= ({commit},{email,password})=>{
 //   axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{

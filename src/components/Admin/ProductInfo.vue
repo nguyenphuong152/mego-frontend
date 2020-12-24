@@ -28,8 +28,8 @@
           <v-col cols="1" sm="10" md="5">
             <v-text-field 
               label="Color" 
-              placeholder="Red"
-              clearable><!--Color get bang ham khac-->
+              v-model="this.productDetail.color.name" 
+              clearable>
             </v-text-field>
           </v-col>
         </v-row>
@@ -43,7 +43,7 @@
           </v-col>
           <v-col cols="1" sm="10" md="5">
             <v-text-field
-              label="Model"
+              label="Collection"
               placeholder="Spring"
               clearable>
             </v-text-field>
@@ -53,7 +53,14 @@
           <v-col cols="1" sm="1" md="5">
             <v-text-field
               label="Brand"
-              placeholder="Nike"
+              v-model="this.productBrand.name" 
+              clearable>
+            </v-text-field>
+          </v-col>
+            <v-col cols="1" sm="1" md="5">
+            <v-text-field
+              label="Model"
+              v-model="this.productModel.name" 
               clearable>
             </v-text-field>
           </v-col>
@@ -64,7 +71,9 @@
 
 <script>
 export default {
-props:["productDetail"],
+  props:["productDetail",
+        "productBrand",
+        "productModel"],
   data() {
     return{
     }

@@ -7,8 +7,12 @@
           <product-image :productID="this.pid" /> 
         </v-col>
         <v-divider vertical></v-divider>
-        <v-col>
-          <product-info :productDetail="this.productDetail" />
+        <v-col >
+          <div>
+            <product-info :productDetail="this.getDetail" 
+                          :productBrand="this.getBrand"
+                          :productModel="this.getModel" />
+          </div>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -37,11 +41,28 @@ export default {
     return{
       pid: "",
       productDetail:null,
+      productBrandID:null,
+      productModelID:null,
     }
+  },
+  computed:{
+    getDetail:function() {
+      return this.$store.state.productDetail_Admin;
+    },
+    getModel:function(){
+      console.log(this.$store.state.productModel_Admin.name);
+      return this.$store.state.productModel_Admin;
+    },
+    getBrand:function() {
+      console.log(this.$store.state.productBrand_Admin.name);
+      return this.$store.state.productBrand_Admin;
+    },
   },
   created:function(){
     this.pid = this.$route.params.id;
-    this.productDetail = this.$store.state.productDetail_Admin;
+    this.$store.dispatch('getProductDetailByID',this.pid);
+    this.$store.dispatch('getProductModelByID',this.pid);
+    this.$store.dispatch('getProductBrandByID',this.pid);
   }
 };
 </script>

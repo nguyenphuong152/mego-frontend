@@ -14,7 +14,6 @@
               <v-col>Name</v-col>
               <v-col>Model</v-col>
               <v-col>Brand</v-col>
-              <!-- <v-col>Description</v-col> -->
               <v-col>Action</v-col>
             </v-row>
           </div>
@@ -47,23 +46,23 @@
 </template>
 
 <script>
+
+
 export default {
   components: {},
   data: () => ({
     isShowProductDetail: false,
   }),
   methods: {
-    goDetail: function(id) {
-      // this.$store.dispatch('getProductDetailByID',id
-      // ).then(()=>{
-      //     setTimeout(() => 
-      //       this.$router.push({ name: "ProductDetailAdmin", params: { id }},2000));
-      //   }).catch(()=>{});
-      setTimeout(() => {
-         this.$router.push({ name: "ProductDetailAdmin", params: { id }});
-      }, 1000);
-       this.$store.dispatch('getProductDetailByID',id);
+    // goDetail: function(id) {
+    //   setTimeout(() => {
+    //      this.$router.push({ name: "ProductDetailAdmin", params: { id }});
+    //   }, 500);
+    //    this.$store.dispatch('getProductDetailByID',id);
    
+    // },
+    goDetail: function(id) {
+    this.$router.push({ name: "ProductDetailAdmin", params: { id }});
     },
     listProduct() {
       this.$store.dispatch("getProducts");
@@ -72,7 +71,7 @@ export default {
   },
   mounted:function(){
     this.listProduct()
-  }
+  },
 };
 </script>
 
