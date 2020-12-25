@@ -116,3 +116,12 @@ export const SET_PRODUCT_MODEL_ADMIN = (state, model) => {
 export const SET_PRODUCT_BRAND_ADMIN = (state, brand) =>{
   state.productBrand_Admin = brand;
 }
+export const SET_ORDER_LIST_ADMIN = (state, orderList) =>{
+  state.orderList = orderList;
+}
+export const SET_USER_LIST_ADMIN = (state, userList) =>{
+  state.userList = userList;
+}
+export const SET_BRANDS_LIST_ADMIN = (state, brandList) =>{
+  state.brandList = brandList;
+}

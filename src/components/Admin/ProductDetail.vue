@@ -50,11 +50,9 @@ export default {
       return this.$store.state.productDetail_Admin;
     },
     getModel:function(){
-      console.log(this.$store.state.productModel_Admin.name);
       return this.$store.state.productModel_Admin;
     },
     getBrand:function() {
-      console.log(this.$store.state.productBrand_Admin.name);
       return this.$store.state.productBrand_Admin;
     },
   },

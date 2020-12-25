@@ -7,7 +7,6 @@
           Add new Product
         </v-btn>
       </v-row>
-        <v-container width="100%">
           <div>
             <v-row class="flex-table">
               <v-col>Product ID</v-col>
@@ -40,7 +39,6 @@
               <v-btn color="red " style="margin: 5px"> Delete </v-btn>
             </v-row>
           </div>
-        </v-container>
     </v-main>
   </v-app>
 </template>
@@ -54,13 +52,6 @@ export default {
     isShowProductDetail: false,
   }),
   methods: {
-    // goDetail: function(id) {
-    //   setTimeout(() => {
-    //      this.$router.push({ name: "ProductDetailAdmin", params: { id }});
-    //   }, 500);
-    //    this.$store.dispatch('getProductDetailByID',id);
-   
-    // },
     goDetail: function(id) {
     this.$router.push({ name: "ProductDetailAdmin", params: { id }});
     },

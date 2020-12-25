@@ -57,5 +57,17 @@ export const getToken = (state) => {
 };
 
 export const getProductDetail_Admin = (state)=>{
-    return state.productDetail_Admin;
+  return state.productDetail_Admin;
+}
+
+export const getOrderList_Admin = (state) =>{
+  return state.orderList;
+}
+
+export const getUserList_Admin = (state) =>{
+  return state.userList;
+}
+
+export const getBrandList_Admin = (state) =>{
+  return state.brandList;
 }

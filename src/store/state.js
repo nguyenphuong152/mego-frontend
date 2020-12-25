@@ -37,5 +37,8 @@ export default {
     Account:null,
     productModel_Admin:null,
     productBrand_Admin:null,
+    orderList:[],
+    userList:[],
+    brandList:[],
 }
 
