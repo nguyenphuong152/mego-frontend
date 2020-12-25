@@ -34,6 +34,11 @@ export default {
     genders_Admin:[],
     productDetail_Admin: null,
     token:null,
-    Account:null
+    Account:null,
+    productModel_Admin:null,
+    productBrand_Admin:null,
+    orderList:[],
+    userList:[],
+    brandList:[],
 }
 

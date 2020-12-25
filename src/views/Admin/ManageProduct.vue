@@ -7,14 +7,12 @@
           Add new Product
         </v-btn>
       </v-row>
-        <v-container width="100%">
           <div>
             <v-row class="flex-table">
               <v-col>Product ID</v-col>
               <v-col>Name</v-col>
               <v-col>Model</v-col>
               <v-col>Brand</v-col>
-              <!-- <v-col>Description</v-col> -->
               <v-col>Action</v-col>
             </v-row>
           </div>
@@ -41,12 +39,13 @@
               <v-btn color="red " style="margin: 5px"> Delete </v-btn>
             </v-row>
           </div>
-        </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
+
+
 export default {
   components: {},
   data: () => ({
@@ -54,16 +53,7 @@ export default {
   }),
   methods: {
     goDetail: function(id) {
-      // this.$store.dispatch('getProductDetailByID',id
-      // ).then(()=>{
-      //     setTimeout(() => 
-      //       this.$router.push({ name: "ProductDetailAdmin", params: { id }},2000));
-      //   }).catch(()=>{});
-      setTimeout(() => {
-         this.$router.push({ name: "ProductDetailAdmin", params: { id }});
-      }, 1000);
-       this.$store.dispatch('getProductDetailByID',id);
-   
+    this.$router.push({ name: "ProductDetailAdmin", params: { id }});
     },
     listProduct() {
       this.$store.dispatch("getProducts");
@@ -72,7 +62,7 @@ export default {
   },
   mounted:function(){
     this.listProduct()
-  }
+  },
 };
 </script>
 

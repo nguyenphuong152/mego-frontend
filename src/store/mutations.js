@@ -91,11 +91,6 @@ export const SET_INCREMENT = (state) => {
   state.increment++;
 };
 
-// <<<<<<< phuong
-// export const SET_PRODUCT_DETAIL_ADMIN = (state, productDetail) => {
-//   state.productDetail_Admin = productDetail;
-// };
-
 //---------------------------------------------ADMIN---------------------------------------------------
 
 export const SET_MODELS_ADMIN = (state, models) => {
@@ -114,3 +109,19 @@ export const SET_TOKENS = (state, token) => {
 export const HANDLE_LOGIN = (state, { email, password }) => {
   (state.Account.email = email), (state.Account.password = password);
 };
+
+export const SET_PRODUCT_MODEL_ADMIN = (state, model) => {
+  state.productModel_Admin = model;
+}
+export const SET_PRODUCT_BRAND_ADMIN = (state, brand) =>{
+  state.productBrand_Admin = brand;
+}
+export const SET_ORDER_LIST_ADMIN = (state, orderList) =>{
+  state.orderList = orderList;
+}
+export const SET_USER_LIST_ADMIN = (state, userList) =>{
+  state.userList = userList;
+}
+export const SET_BRANDS_LIST_ADMIN = (state, brandList) =>{
+  state.brandList = brandList;
+}

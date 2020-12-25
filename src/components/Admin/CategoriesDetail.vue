@@ -1,83 +1,156 @@
 <template>
   <v-container>
-      <div>
-        <v-container>
-          <v-row>
-            <v-btn color="teal" style="margin-left:10px"> Add new gender </v-btn>
-          </v-row>
-          <v-row>
-            <v-container>
-              <v-card class="text-start">
-                <v-list dense>
-                  <a class="admin pl-4 font-weight-black" style="color: teal"
-                    >Customers</a
-                  >
-                  <v-list-item-group color="teal">
-                    <v-list-item
-                      v-for="(genders_Admin, index) in listGenders"
-                      :key="index"
-                    >
-                      <v-list-item-content>
-                        <v-list-item-title
-                          v-text="genders_Admin.name"
-                          class="text-start"
-                        ></v-list-item-title>
-                      </v-list-item-content>
-                      <div>
-                        <v-btn outlined small class="mr-2">
-                          <v-icon teal> mdi-delete </v-icon>
-                        </v-btn>
-                      </div>
-                    </v-list-item>
-                  </v-list-item-group>
-                </v-list>
-              </v-card>
-            </v-container>
-          </v-row>
-        </v-container>
-
-        <v-container>
-          <v-row>
-            <v-btn color="teal" style="margin-left:10px"> Add new type </v-btn>
-          </v-row>
-          <v-row>
-            <v-container>
-          <v-card class="text-start">
-            <v-list dense>
-              <a class="admin pl-4 font-weight-black" style="color: teal"
-                >Product types</a
-              >
-              <v-list-item-group color="teal">
-                <v-list-item
-                  v-for="(models_Admin, index) in listModels"
-                  :key="index"
+    <div>
+      <v-container>
+        <v-row>
+          <v-container>
+            <v-card class="text-start">
+              <v-list dense>
+                <a class="admin pl-4 font-weight-black" style="color: teal"
+                  >Customers</a
                 >
-                  <v-list-item-content>
-                    <v-list-item-title
-                      v-text="models_Admin.name"
-                      class="text-start"
-                    ></v-list-item-title>
-                  </v-list-item-content>
-                  <div>
-                    <v-btn outlined small class="mr-2">
-                      <v-icon teal> mdi-delete </v-icon>
-                    </v-btn>
-                  </div>
-                </v-list-item>
-              </v-list-item-group>
-            </v-list>
-          </v-card>
+                <v-list-item-group color="teal">
+                  <v-list-item
+                    v-for="(genders_Admin, index) in listGenders"
+                    :key="index"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-text="genders_Admin.name"
+                        class="text-start"
+                      ></v-list-item-title>
+                    </v-list-item-content>
+                    <div>
+                      <v-btn
+                        outlined
+                        small
+                        class="mr-2"
+                        @click="deleteGender()"
+                      >
+                        <v-icon teal> mdi-delete </v-icon>
+                      </v-btn>
+                    </div>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-card>
           </v-container>
-          </v-row>
-          
-        </v-container>
+        </v-row>
+      </v-container>
+
+      <v-container>
+        <v-row>
+          <v-container>
+            <v-card class="text-start">
+              <v-list dense>
+                <a class="admin pl-4 font-weight-black" style="color: teal"
+                  >Product types</a
+                >
+                <v-list-item-group color="teal">
+                  <v-list-item
+                    v-for="(models_Admin, index) in listModels"
+                    :key="index"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-text="models_Admin.name"
+                        class="text-start"
+                      ></v-list-item-title>
+                    </v-list-item-content>
+                    <div>
+                      <v-btn outlined small class="mr-2" @click="deleteModel()">
+                        <v-icon teal> mdi-delete </v-icon>
+                      </v-btn>
+                    </div>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-card>
+          </v-container>
+        </v-row>
+      </v-container>
+
+      <v-container>
+        <v-row>
+          <v-container>
+            <v-card class="text-start">
+              <v-list dense>
+                <a class="admin pl-4 font-weight-black" style="color: teal"
+                  >Brands</a
+                >
+                <v-list-item-group color="teal">
+                  <v-list-item
+                    v-for="(brands, index) in listBrands"
+                    :key="index"
+                  >
+                    <v-list-item-content>
+                      <v-list-item-title
+                        v-text="brands.name"
+                        class="text-start"
+                      ></v-list-item-title>
+                    </v-list-item-content>
+                    <div>
+                      <v-btn outlined small class="mr-2" @click="deleteBrand()">
+                        <v-icon teal> mdi-delete </v-icon>
+                      </v-btn>
+                    </div>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </v-card>
+          </v-container>
+        </v-row>
+      </v-container>
+
+      <div style="padding: 10px; margin-top: 20px">
+        <v-row>
+          <v-col cols="1" sm="10" md="3">
+            <v-combobox
+              dense
+              filled
+              outlined
+              solo
+              :items="items"
+              style="width: 200px; margin-top: 10px"
+            ></v-combobox>
+          </v-col>
+          <v-col cols="2" sm="1" md="3">
+            <v-text-field
+              label="Input"
+              single-line
+              style="width: 250px; margin-bottom: 100px"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="3" sm="1" md="3">
+            <v-btn color="teal" style="margin-right: 1000px; margin-top: 10px">
+              Add
+            </v-btn>
+          </v-col>
+        </v-row>
       </div>
+    </div>
   </v-container>
 </template>
 
 <script>
 export default {
-  data: () => ({}),
+  props: ["Gender", "Type", "Brand"],
+  data() {
+    return {
+      items: ["Gender", "Type", "Brand"],
+    };
+  },
+  method: {
+    deleteGender: function (id) {
+      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
+    },
+    deleteModel: function (id) {
+      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
+    },
+    deleteBrand: function (id) {
+      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
+    },
+  },
   computed: {
     listModels() {
       return this.$store.getters.models_Admin;
@@ -85,12 +158,16 @@ export default {
     listGenders() {
       return this.$store.getters.genders_Admin;
     },
+    listBrands() {
+      return this.$store.getters.getBrandList_Admin;
+    },
   },
   mounted() {
     this.$store.dispatch("getListGenders_Admin"); //get List Gender
     this.$store.dispatch("getListModels_Admin"); //, { colID: 1, brandID: "", modelID:"" });
+    this.$store.dispatch("getListBrand_Admin");
   },
 };
 </script>
-<style>
-</style>
+<styl>
+</styl>

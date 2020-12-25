@@ -1,6 +1,12 @@
 import axios from "axios";
 import router from "../router";
 
+var FormData = require('form-data');
+var data = new FormData();
+data.append('name', '');
+var currentToken = '453|HMZD5kCPJKvsEGrdKxXfUYx8BFdbLRqc547Z91a5';
+var Bearer = '';
+
 export const getProducts = ({ commit }) => {
   axios
     .get("http://mego-backend.herokuapp.com/api/guest/products")
@@ -145,50 +151,153 @@ export const toggleRerender = ({ commit }) => {
   commit("SET_INCREMENT");
 };
 
+//----------------------------------------------------------------------------------------
 //------------------------------------------Admin---------------------------------------//
+//----------------------------------------------------------------------------------------
+
+export const handleLogin= ({commit},{email,password})=>{
+  axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}
+  ).then(response=>{
+      commit('SET_TOKENS',response.data);     
+      axios.defaults.headers.common['Authorization']=response.data;//Code de truyen Login Token
+      router.replace(`admin/dashboard/`);
+  }).catch((error)=>console.log(error));
+}
 
 export const getListModels_Admin = ({ commit }) => {
-  axios
-    .get(`https://mego-backend.herokuapp.com/api/guest/models`)
-    .then((response) => {
-      commit("SET_MODELS_ADMIN", response.data);
-    })
-    .catch((error) => console.log(error));
+  Bearer = ('Bearer '+currentToken);
+  var config={
+    method: 'get',
+    url: 'https://mego-backend.herokuapp.com/api/models',
+    headers: { 
+      'Authorization' : Bearer,
+      ...data.getHeaders
+    },
+    data : data
+  }; 
+  axios(config)
+  .then((response)=> {
+    commit("SET_MODELS_ADMIN", response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });  
 };
+
 export const getListGenders_Admin = ({ commit }) => {
-  axios
-    .get(`https://mego-backend.herokuapp.com/api/guest/genders`)
-    .then((response) => {
-      commit("SET_GENDERS_ADMIN", response.data);
-    })
-    .catch((error) => console.log(error));
+  Bearer = ('Bearer '+currentToken);
+  var config={
+    method: 'get',
+    url: 'https://mego-backend.herokuapp.com/api/genders',
+    headers: { 
+      'Authorization' : Bearer,
+      ...data.getHeaders
+    },
+    data : data
+  }; 
+  axios(config)
+  .then((response)=> {
+    commit("SET_GENDERS_ADMIN", response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 };
 
 export const getProductDetailByID = ({ commit }, id ) => {
   axios
     .get(
       `https://mego-backend.herokuapp.com/api/guest/product_details/${id}`,
-      { params: {id} }
+      {params:{ id:{id}}}
     )
     .then((response) => {
       commit("SET_PRODUCT_DETAIL_ADMIN", response.data);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error));   
 };
 
 
-export const handleLogin= ({commit},{email,password})=>{
-  axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
-      commit('SET_TOKENS',response.data);     
-      router.replace('/admin/dashboard/');
-  }).catch((error)=>console.log(error));
-}
+export const getProductModelByID = ({commit},id)=>{
+  axios
+    .get(
+      `https://mego-backend.herokuapp.com/api/guest/models/${id}`,
+      {params:{ id:{id}}}
+    )
+    .then((response)=>{
+      commit("SET_PRODUCT_MODEL_ADMIN",response.data);
+    })
+    .catch((error) => console.log(error));   
+};
 
+export const getProductBrandByID = ({commit},id)=>{
+  axios
+    .get(
+      `https://mego-backend.herokuapp.com/api/guest/brands/${id}`,
+      {params:{ id:{id}}}
+    )
+    .then((response)=>{
+      commit("SET_PRODUCT_BRAND_ADMIN",response.data);
+    })
+    .catch((error) => console.log(error));   
+};
 
-// export const handleLogin= ({commit},{email,password})=>{
-//   axios.post(`https://mego-backend.herokuapp.com/api/login`,{email,password}).then(response=>{
-//       commit('SET_TOKENS',response.data)
-//   }).catch((error)=>console.log(error));
-// }
+export const getOrderList_Admin = ({ commit }) => {
+  Bearer = ('Bearer '+currentToken);
+  var config={
+    method: 'get',
+    url: 'https://mego-backend.herokuapp.com/api/orders',
+    headers: { 
+      'Authorization' : Bearer,
+      ...data.getHeaders
+    },
+    data : data
+  }; 
+  axios(config)
+  .then((response)=> {
+    commit("SET_ORDER_LIST_ADMIN", response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+};
 
+export const getUserList_Admin = ({ commit }) => {
+  Bearer = ('Bearer '+currentToken);
+  var config={
+    method: 'get',
+    url: 'https://mego-backend.herokuapp.com/api/users',
+    headers: { 
+      'Authorization' : Bearer,
+      ...data.getHeaders
+    },
+    data : data
+  }; 
+  axios(config)
+  .then((response)=> {
+    commit("SET_USER_LIST_ADMIN", response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+};
+
+export const getListBrand_Admin = ({ commit }) => {
+  Bearer = ('Bearer '+currentToken);
+  var config={
+    method: 'get',
+    url: 'https://mego-backend.herokuapp.com/api/brands',
+    headers: { 
+      'Authorization' : Bearer,
+      ...data.getHeaders
+    },
+    data : data
+  }; 
+  axios(config)
+  .then((response)=> {
+    commit("SET_BRANDS_LIST_ADMIN", response.data);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+};
 
