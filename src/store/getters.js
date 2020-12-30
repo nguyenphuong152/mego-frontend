@@ -71,3 +71,12 @@ export const getUserList_Admin = (state) =>{
 export const getBrandList_Admin = (state) =>{
   return state.brandList;
 }
+
+export const getBannerList = (state) =>{
+  return state.bannerList;
+}
+
+// export const getBannerImageListByPriority = (state) =>{
+//   return state.bannerImageListByPriority;
+// }
+

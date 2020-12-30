@@ -40,5 +40,8 @@ export default {
     orderList:[],
     userList:[],
     brandList:[],
+    bannerList:[],
+    //bannerImageListByPriority:[],
+
 }
 

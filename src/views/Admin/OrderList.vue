@@ -48,7 +48,10 @@
               <v-col>{{ orders.created_at }}</v-col>             
               <v-col>{{ orders.Total }}</v-col>
               <v-col class="text-start">{{ orders.status }}</v-col>
-              <v-btn color="blue" style="margin: 5px"> View </v-btn>
+              <v-btn 
+                color="blue" 
+                style="margin: 5px"
+                > View </v-btn>
               <v-btn color="teal" style="margin: 5px"> Ship </v-btn>
             </v-row>
           </div>
