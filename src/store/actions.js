@@ -301,3 +301,30 @@ export const getListBrand_Admin = ({ commit }) => {
   });
 };
 
+
+export const getBannerList = ({ commit }) => {
+  axios
+    .get(
+      `https://mego-backend.herokuapp.com/api/image/banners`
+    )
+    .then((response) => {
+      commit("SET_BANNER_LIST_ADMIN", response.data);
+    })
+    .catch((error) => console.log(error));   
+};
+
+// export const getBannerImageListByPriority = ({ commit },prio) => {
+//   axios
+//     .get(
+//       `https://mego-backend.herokuapp.com/api/image/banners/${prio}`,
+//       {params:{ priotity:{prio}}}
+//     ) 
+//     .then((response) => {
+//       console.log("action: ",response.data);
+//       commit("SET_BANNER_IMAGE_LIST_ADMIN", response.data,prio);
+//     })
+//     .catch((error) => console.log(error));   
+// };
+
+
+

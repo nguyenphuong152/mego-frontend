@@ -3,7 +3,7 @@
     <v-main>
       <h1>Preview</h1>
         <div>
-            <Banner/>  
+            <Banner :bannerPriorityList="this.getBannerInfo"/>  
             <BannerDetail/>  
             <v-col style="mt-8;margin-left:450px">
                 <v-btn elevation="2" style="margin:5px">Add</v-btn>
@@ -23,18 +23,18 @@ export default {
     Banner,
     BannerDetail,
   },
-
   data() {
     return {
-      colors: [
-        "indigo",
-        "warning",
-        "pink darken-2",
-        "red lighten-1",
-        "deep-purple accent-4",
-      ],
-      slides: ["First", "Second", "Third", "Fourth", "Fifth"],
+      bannerPriority:null,
     };
   },
+  computed:{
+    getBannerInfo:function() { 
+      return this.$store.state.bannerList;
+    },
+  },
+  mounted:function(){
+    this.$store.dispatch('getBannerList');
+  }
 };
 </script>

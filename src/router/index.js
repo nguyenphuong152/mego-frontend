@@ -11,6 +11,7 @@ import ManageUser from "../views/Admin/ManageUser.vue";
 import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue";
 import ProductDetailAdmin from "../views/Admin/ProductDetail.vue";
+import UserDetailAdmin from "../views/Admin/UserDetail.vue";
 import state from "../store/state"
 
 Vue.use(VueRouter);
@@ -167,6 +168,14 @@ const routes = [
         component: ManageUser,
         meta: {
           title: "User Management",
+        },
+      },
+      {
+        path: "/admin/manageuser/:id",
+        name: "UserDetailAdmin",
+        component: UserDetailAdmin,
+        meta: {
+          title: "User Detail",
         },
       },
       {

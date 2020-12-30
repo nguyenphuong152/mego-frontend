@@ -13,6 +13,7 @@
           'AdminLogin',
           'AdminRegister',
           'ProductDetailAdmin',
+          'UserDetailAdmin',
         ].includes($route.name)
       "
     >
@@ -78,6 +79,7 @@
           'AdminLogin',
           'AdminRegister',
           'ProductDetailAdmin',
+          'UserDetailAdmin',
         ].includes($route.name)
       "
     />

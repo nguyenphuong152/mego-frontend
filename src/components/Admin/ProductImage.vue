@@ -1,7 +1,7 @@
 <template>
 <v-container>
-    <v-img :src="`https://picsum.photos/500/300?image=${this.productID * 100}`"
-  :lazy-src="`https://picsum.photos/10/6?image=${this.productID *100}`"
+    <v-img :src="`https://mego-backend.herokuapp.com/api/image/product/${this.productID}`"
+  :lazy-src="`https://mego-backend.herokuapp.com/api/image/product/${this.productID}`"
   max-height="700" max-width="700"/>
   <v-btn
     block

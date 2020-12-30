@@ -10,8 +10,8 @@
     >
       <v-card class="mx-autoS" max-width="300" max-height="400" outlined>
         <v-img
-          :src="`https://picsum.photos/500/300?image=${product.id * 100}`"
-          :lazy-src="`https://picsum.photos/10/6?image=${product.id * 100}`"
+          :src="`https://mego-backend.herokuapp.com/api/image/product/${product.id}`"
+          :lazy-src="`https://mego-backend.herokuapp.com/api/image/product/${product.id}`"
           aspect-ratio="1"
           class="grey lighten-2"
           height="200"

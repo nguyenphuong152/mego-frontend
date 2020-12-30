@@ -54,7 +54,7 @@ export default {
     },
     getBrand:function() {
       return this.$store.state.productBrand_Admin;
-    },
+    },  
   },
   created:function(){
     this.pid = this.$route.params.id;

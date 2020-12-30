@@ -35,7 +35,11 @@
               <v-col>{{ User.phone }}</v-col>
               <v-col>{{ User.create_at }}</v-col>
               <v-col class="text-start">{{ User.Status }}</v-col>
-              <v-btn color="orange" style="margin: 5px"> Update </v-btn>
+              <v-btn
+                color="orange"
+                style="margin: 5px"
+                @click="goDetail(User.id)"
+              > Update </v-btn>
               <v-btn color="red" style="margin: 5px"> Delete </v-btn>
             </v-row>
           </div>
@@ -54,6 +58,9 @@ export default {
       ],
   }),
   methods:{
+  goDetail: function(id) {
+    this.$router.push({ name: "UserDetailAdmin", params: { id }});
+  },
     getUserList:function(){
       return this.$store.state.userList;
     }
