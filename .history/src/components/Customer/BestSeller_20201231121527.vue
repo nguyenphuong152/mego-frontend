@@ -1,0 +1,102 @@
+<template>
+  <v-row class="mt-8">
+    <v-col
+      class="d-flex child-flex"
+      cols="12"
+      md="3"
+      sm="6"
+      v-for="(product, index) in collection[0].products"
+      :key="index"
+    >
+      <v-card class="mx-auto" max-width="300" max-height="400" outlined>
+        <v-img
+          v-if="
+            product.product_detail_min_price.id <= 15
+              ? (x = product.product_detail_min_price.id)
+              : (x = Math.floor(Math.random() * 15) + 1)
+          "
+          :src="`https://mego-backend.herokuapp.com/api/image/product/${x} `"
+          aspect-ratio="1"
+          class="grey lighten-2"
+          height="200"
+          @click="goDetail(product.product_detail_min_price.id)"
+        >
+          <template v-slot:placeholder>
+            <v-row class="fill-height ma-0" align="center" justify="center">
+              <v-progress-linear
+                indeterminate
+                color="yellow darken-2"
+              ></v-progress-linear>
+            </v-row>
+          </template>
+        </v-img>
+        <v-row>
+          <v-col class="pl-10">
+            <v-row>
+              <span class="product-name float-left"> {{ product.name }}</span>
+            </v-row>
+            <v-row>
+              <span class="product-price">
+                {{
+                  Intl.NumberFormat("vn-VN", {
+                    style: "currency",
+                    currency: "VND",
+                  }).format(product.product_detail_min_price.price)
+                }}
+              </span>
+            </v-row>
+          </v-col>
+          <v-col>
+            <v-card-actions class="float-right">
+              <v-btn icon>
+                <HeartIcon class="logo"> </HeartIcon>
+              </v-btn>
+              <v-btn icon @click="addToCart(product)">
+                <CartIcon class="logo"> </CartIcon>
+              </v-btn>
+            </v-card-actions>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
+</template>
+
+<script>
+import CartIcon from "../../assets/shopping-cart.svg";
+import HeartIcon from "../../assets/heart.svg";
+
+export default {
+  components: {
+    CartIcon,
+    HeartIcon,
+  },
+  computed: {
+    collection() {
+      return this.$store.getters.listProductFilter;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("getListProductFilter", {
+      colID: 1,
+      brandID: "",
+      modelID: "",
+    });
+    console.log(this.collection);
+  },
+  methods: {
+    goDetail: function(id) {
+      this.$router.push({ name: "ProductDetail", params: { id } });
+    },
+    addToCart(product) {
+      this.$store.dispatch("addProductToCart", {
+        product: product,
+        quantity: Number(this.select),
+        price: product.product_detail_min_price.price,
+      });
+    },
+  },
+};
+</script>
+
+<style></style>
