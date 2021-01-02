@@ -55,13 +55,9 @@ export default {
     goDetail: function(id) {
     this.$router.push({ name: "ProductDetailAdmin", params: { id }});
     },
-    listProduct() {
-      this.$store.dispatch("getProducts");
-      return this.$store.state.products;
-    },
   },
-  mounted:function(){
-    this.listProduct()
+  created:function(){
+    this.$store.dispatch("getProducts");
   },
 };
 </script>

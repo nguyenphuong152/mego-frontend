@@ -25,7 +25,7 @@
                         outlined
                         small
                         class="mr-2"
-                        @click="deleteGender()"
+                        @click="deleteGender(genders_Admin.id)"
                       >
                         <v-icon teal> mdi-delete </v-icon>
                       </v-btn>
@@ -53,12 +53,16 @@
                   >
                     <v-list-item-content>
                       <v-list-item-title
-                        v-text="models_Admin.name"
+                        v-text="models_Admin.name +` ( `+models_Admin.gender_id+` )`"
                         class="text-start"
                       ></v-list-item-title>
                     </v-list-item-content>
                     <div>
-                      <v-btn outlined small class="mr-2" @click="deleteModel()">
+                      <v-btn 
+                        outlined 
+                        small 
+                        class="mr-2" 
+                        @click="deleteModel(models_Admin.id)">
                         <v-icon teal> mdi-delete </v-icon>
                       </v-btn>
                     </div>
@@ -90,7 +94,11 @@
                       ></v-list-item-title>
                     </v-list-item-content>
                     <div>
-                      <v-btn outlined small class="mr-2" @click="deleteBrand()">
+                      <v-btn 
+                        outlined 
+                        small 
+                        class="mr-2" 
+                        @click="deleteBrand(brands.id)">
                         <v-icon teal> mdi-delete </v-icon>
                       </v-btn>
                     </div>
@@ -110,19 +118,24 @@
               filled
               outlined
               solo
+              v-model="cate"
               :items="items"
               style="width: 200px; margin-top: 10px"
             ></v-combobox>
           </v-col>
           <v-col cols="2" sm="1" md="3">
             <v-text-field
+              v-model="input"
               label="Input"
               single-line
               style="width: 250px; margin-bottom: 100px"
             ></v-text-field>
           </v-col>
           <v-col cols="3" sm="1" md="3">
-            <v-btn color="teal" style="margin-right: 1000px; margin-top: 10px">
+            <v-btn 
+              color="teal" 
+              style="margin-right: 1000px; margin-top: 10px"
+              @click="addCategory()" >
               Add
             </v-btn>
           </v-col>
@@ -134,23 +147,42 @@
 
 <script>
 export default {
-  props: ["Gender", "Type", "Brand"],
+  props: ["Gender", "Model", "Brand"],
   data() {
     return {
-      items: ["Gender", "Type", "Brand"],
+      cate:'',
+      input:'',
+      items: ["Gender", "Model", "Brand"],
     };
   },
-  method: {
-    deleteGender: function (id) {
-      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
+  methods: {
+    deleteGender:function(genderId) {
+      console.log("gender:",genderId);
+      this.$store.dispatch("deleteGender",{genderId});
     },
-    deleteModel: function (id) {
-      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
+    deleteModel: function (modelID) {
+      console.log("model: ",modelID);
+      this.$store.dispatch("deleteGender",{modelID});
     },
-    deleteBrand: function (id) {
-      this.$router.push({ name: "ProductDetailAdmin", params: { id } });
+    deleteBrand: function (brandID) {
+      console.log("brand: ",brandID);
+      this.$store.dispatch("deleteGender",{brandID});
     },
-  },
+    addCategory(){
+      console.log(this.cate);
+      console.log(this.input);
+      if (this.cate === "Gender")
+      {
+        this.$store.dispatch("addGender",this.input);
+      }else if (this.cate === "Model")
+        {
+          this.$store.dispatch("addModel",this.input);
+        }else
+          {
+            this.$store.dispatch("addBrand",this.input);
+          }
+        }
+      },
   computed: {
     listModels() {
       return this.$store.getters.models_Admin;

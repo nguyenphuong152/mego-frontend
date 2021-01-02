@@ -1,5 +1,5 @@
 <template> 
-    <v-carousel
+      <v-carousel
       cycle
       height="450"
       hide-delimiter-background

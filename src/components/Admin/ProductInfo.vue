@@ -1,4 +1,5 @@
 <template>
+<v-form ref="form">
   <v-container>
     <v-container>
         <v-row>
@@ -20,7 +21,8 @@
         <v-row>
           <v-col cols="1" sm="10" md="5">
             <v-text-field 
-              label="Price" 
+              label="price" 
+              id="price"
               v-model="this.productDetail.price" 
               clearable>
             </v-text-field>
@@ -64,9 +66,18 @@
               clearable>
             </v-text-field>
           </v-col>
+          <div>
+            <v-btn
+              color="teal"
+              style="width:90px"
+              @click="UpdateProductDetail()">
+              Save
+              </v-btn>
+          </div>
         </v-row>
     </v-container>
   </v-container>
+  </v-form>
 </template>
 
 <script>
@@ -76,9 +87,13 @@ export default {
         "productModel"],
   data() {
     return{
+      price:'',
     }
   },
   methods:{
+    UpdateProductDetail:function(){
+      console.log("Info: ",this.productDetail.price);
+    }
   },
 };
 </script>

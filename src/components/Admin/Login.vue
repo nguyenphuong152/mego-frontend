@@ -16,7 +16,7 @@
         ></v-text-field>
 
         <v-btn color="teal" 
-        @click="handleLogin(email,password)"> Có ngon bấm vào bố mày xem </v-btn>
+        @click="handleLogin(email,password)"> Đăng nhập </v-btn>
         <br><br>
         <div v-if="isClicked === true" >
           <v-progress-circular
@@ -45,7 +45,7 @@ export default {
       },
       clearLocalStorage(){
         localStorage.removeItem("token");
-      }
+      },
     },
     mounted:function(){
       this.clearLocalStorage();

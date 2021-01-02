@@ -219,8 +219,8 @@ router.beforeEach((to, from, next) => { //Duyệt luồng truy cập
   const authRequired = RestrictedPage.includes(to.path);    //Paths thats are restricted 
   const loggedIn = state.token;           //loggedIn = have Token
   if(authRequired && !loggedIn){
-    return next('/adminlogin');
-  }
+    next('/adminlogin');
+  }else
   next();
 })
 

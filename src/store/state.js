@@ -38,6 +38,6 @@ export default {
   orderList: [],
   userList: [],
   brandList: [],
-  bannerList: [],
+  // bannerList: [],
   //bannerImageListByPriority:[],
 };

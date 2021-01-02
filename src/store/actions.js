@@ -312,14 +312,144 @@ export const getListBrand_Admin = ({ commit }) => {
     });
 };
 
-export const getBannerList = ({ commit }) => {
-  axios
-    .get(`https://mego-backend.herokuapp.com/api/image/banners`)
-    .then((response) => {
-      commit("SET_BANNER_LIST_ADMIN", response.data);
-    })
-    .catch((error) => console.log(error));
-};
+export const deleteGender = ({commit},genderId)=>{
+  console.log(genderId);
+  Bearer = "Bearer " + currentToken;
+  var config = {
+    method: "delete",
+    url: (`https://mego-backend.herokuapp.com/api/genders/`,genderId),
+    headers: {
+      Authorization: Bearer,
+      ...data.getHeaders,
+    },
+    data: data,
+  };
+  axios(config)
+  .then(function (response) {
+    alert("Delete gender success",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+export const deleteBrand = ({commit},brandID)=>{
+  Bearer = "Bearer " + currentToken;
+  var config = {
+    method: "delete",
+    url: (`https://mego-backend.herokuapp.com/api/genders/`,brandID),
+    headers: {
+      Authorization: Bearer,
+      ...data.getHeaders,
+    },
+    data: data,
+  };
+  axios(config)
+  .then(function (response) {
+    alert("Delete brand success",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+export const deleteModel = ({commit},modelID)=>{
+  Bearer = "Bearer " + currentToken;
+  var config = {
+    method: "delete",
+    url: (`https://mego-backend.herokuapp.com/api/genders/`,modelID),
+    headers: {
+      Authorization: Bearer,
+      ...data.getHeaders,
+    },
+    data: data,
+  };
+  axios(config)
+  .then(function (response) {
+    alert("Delete model success",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+export const addGender = ({commit},gender)=>{
+  var config = {
+    method: 'post',
+    url: `https://mego-backend.herokuapp.com/api/genders?name=${gender}`,
+    headers: { 
+      Authorization: Bearer,
+    }
+  };
+  axios(config)
+  .then(function (response) {
+    alert("Add gender success!",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+export const addBrand = ({commit},brand)=>{
+  var config = {
+    method: 'post',
+    url: `https://mego-backend.herokuapp.com/api/brands?name=${brand}`,
+    headers: { 
+      Authorization: Bearer,
+    }
+  };
+  axios(config)
+  .then(function (response) {
+    alert("Add brand success!",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+export const addModel = ({commit},model)=>{
+  var config = {
+    method: 'post',
+    url: `https://mego-backend.herokuapp.com/api/models?name=${model}&gender_id=1`,
+    headers: { 
+      Authorization: Bearer,
+    }
+  };
+  
+  axios(config)
+  
+  config = {
+    method: 'post',
+    url: `https://mego-backend.herokuapp.com/api/models?name=${model}&gender_id=2`,
+    headers: { 
+      Authorization: Bearer,
+    }
+  };
+  
+  axios(config)
+  .then(function (response) {
+    alert("Add model successfully!",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+
+// export const getBannerList = ({ commit }) => {
+//   axios
+//     .get(`https://mego-backend.herokuapp.com/api/image/banners`)
+//     .then((response) => {
+//       commit("SET_BANNER_LIST_ADMIN", response.data);
+//     })
+//     .catch((error) => console.log(error));
+// };
 
 // export const getBannerImageListByPriority = ({ commit },prio) => {
 //   axios

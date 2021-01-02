@@ -4,7 +4,7 @@
       <h1>Preview</h1>
         <div>
             <Banner :bannerPriorityList="this.getBannerInfo"/>  
-            <BannerDetail/>  
+            <!-- <BannerDetail/>   -->
             <v-col style="mt-8;margin-left:450px">
                 <v-btn elevation="2" style="margin:5px">Add</v-btn>
                 <v-btn elevation="2" style="margin:5px">Order</v-btn>
@@ -17,11 +17,11 @@
 
 <script>
 import Banner from "../../components/Admin/Banner";
-import BannerDetail from "../../components/Admin/BannerDetail";
+//import BannerDetail from "../../components/Admin/BannerDetail";
 export default {
   components: {
     Banner,
-    BannerDetail,
+    //BannerDetail,
   },
   data() {
     return {
@@ -33,7 +33,7 @@ export default {
       return this.$store.state.bannerList;
     },
   },
-  mounted:function(){
+  created:function(){
     this.$store.dispatch('getBannerList');
   }
 };
