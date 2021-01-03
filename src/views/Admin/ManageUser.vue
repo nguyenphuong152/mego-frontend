@@ -5,10 +5,10 @@
         <v-container width="100%">
           <v-row>
             <v-col cols="1" sm="10" md="3">
-              <v-text-field size="1" label="ID"></v-text-field>
+              <v-text-field size="1" label="ID" v-model="searchID"></v-text-field>
             </v-col>
             <v-col cols="5" md="1" style="margin-top: 12px">
-              <v-btn color="teal">
+              <v-btn color="teal" @click="goDetail(searchID)">
                 <v-icon> mdi-magnify </v-icon>
               </v-btn>
             </v-col>
@@ -51,11 +51,9 @@
 <script>
 export default {
   data: () => ({
-      Status: [
-        { name: "Pending" },
-        { name: "Shipping" },
-        { name: "Cancelled" },
-      ],
+    return:{
+      searchID:null,
+    }
   }),
   methods:{
   goDetail: function(id) {

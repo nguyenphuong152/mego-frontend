@@ -13,7 +13,7 @@ import Dashboard from "../views/Admin/Dashboard.vue";
 import ProductDetailAdmin from "../views/Admin/ProductDetail.vue";
 import UserDetailAdmin from "../views/Admin/UserDetail.vue";
 import AddProductAdmin from "../views/Admin/AddProduct.vue";
-
+import OrderDetail from "../views/Admin/OrderDetail.vue";
 import state from "../store/state"
 
 Vue.use(VueRouter);
@@ -194,6 +194,14 @@ const routes = [
         component: OrderList,
         meta: {
           title: "OrderList Management",
+        },
+      },
+      {
+        path: "/admin/order/:id",
+        name: "OrderDetail",
+        component: OrderDetail,
+        meta: {
+          title: "Order Detail",
         },
       },
       {

@@ -5,14 +5,9 @@
         <v-container width="100%">
           <v-row>
             <v-col cols="1" sm="10" md="3">
-              <v-text-field size="1" label="ID"></v-text-field>
+              <v-text-field size="1" label="ID" v-model="searchID"></v-text-field>
             </v-col>
-            <v-col cols="2" sm="1" md="3">
-              <v-text-field label="From"></v-text-field>
-            </v-col>
-            <v-col cols="3" sm="1" md="3">
-              <v-text-field label="To"></v-text-field>
-            </v-col>
+
             <v-col cols="4" sm="1" md="2">
               <v-combobox 
                 label="Status"
@@ -20,7 +15,7 @@
                 ></v-combobox>
             </v-col>
             <v-col cols="5" md="1" style="margin-top: 12px">
-              <v-btn color="teal">
+              <v-btn color="teal" @click="goOrderDetail(searchID)">
                 <v-icon> mdi-magnify </v-icon>
               </v-btn>
             </v-col>
@@ -51,6 +46,7 @@
               <v-btn 
                 color="blue" 
                 style="margin: 5px"
+                @click="goOrderDetail(orders.id)"
                 > View </v-btn>
               <v-btn color="teal" style="margin: 5px"> Ship </v-btn>
             </v-row>
@@ -63,6 +59,7 @@
 <script>
 export default {
   data: () => ({
+      searchID:null,
       Status: [
         "Pending" ,
         "Shipping" ,
@@ -70,8 +67,10 @@ export default {
       ],
   }),
   methods:{
+    goOrderDetail: function(id) {
+      this.$router.push({ name: "OrderDetail", params: { id }});
+    },
     getOrderList:function(){
-      console.log('test:',this.$store.state.orderList);
       return this.$store.state.orderList;
     }
   },
