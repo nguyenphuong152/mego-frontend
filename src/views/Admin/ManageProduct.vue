@@ -1,9 +1,12 @@
 <template>
   <v-app class="admin">
-    <v-main>
+    <v-main >
       <v-row style="margin-left: 425px">
         <h1>Product List</h1>
-        <v-btn color="yellow" style="margin-left: 250px">
+        <v-btn 
+        color="yellow" 
+        style="margin-left: 250px"
+        @click="goAddProduct()">
           Add new Product
         </v-btn>
       </v-row>
@@ -21,7 +24,8 @@
             :key ="index"
             class="flex-table"
           >
-            <v-row>
+            <v-row
+            :key="compKey">
               <v-col>{{ products.id }}</v-col>
               <v-col style="margin-right: 20px">{{ products.name }}</v-col>
               <v-col style="margin-right: 20px">{{
@@ -36,7 +40,11 @@
                 @click="goDetail(products.id)"
                 >View</v-btn
               >
-              <v-btn color="red " style="margin: 5px"> Delete </v-btn>
+              <v-btn 
+              color="red " 
+              style="margin: 5px"
+              @click="deleteProduct(products.id)"
+              > Delete </v-btn>
             </v-row>
           </div>
     </v-main>
@@ -50,11 +58,22 @@ export default {
   components: {},
   data: () => ({
     isShowProductDetail: false,
+    compKey : 0,
   }),
   methods: {
     goDetail: function(id) {
-    this.$router.push({ name: "ProductDetailAdmin", params: { id }});
+      this.$router.push({ name: "ProductDetailAdmin", params: { id }});
     },
+    deleteProduct(id){
+      this.$store.dispatch("deleteProduct",id);
+      this.forceUpdate();
+    },
+    forceUpdate(){
+      this.compKey +=1;
+    },
+    goAddProduct(){
+      this.$router.push({ name: "AddProductAdmin"});
+    }
   },
   created:function(){
     this.$store.dispatch("getProducts");

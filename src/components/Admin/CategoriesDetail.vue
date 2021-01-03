@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <div>
-      <v-container>
+      <v-container >
         <v-row>
-          <v-container>
+          <v-container :key="compKey" >
             <v-card class="text-start">
               <v-list dense>
                 <a class="admin pl-4 font-weight-black" style="color: teal"
@@ -146,6 +146,7 @@
 </template>
 
 <script>
+
 export default {
   props: ["Gender", "Model", "Brand"],
   data() {
@@ -153,36 +154,38 @@ export default {
       cate:'',
       input:'',
       items: ["Gender", "Model", "Brand"],
+      compKey:0,
     };
   },
   methods: {
     deleteGender:function(genderId) {
-      console.log("gender:",genderId);
-      this.$store.dispatch("deleteGender",{genderId});
+      this.$store.dispatch("deleteGender",genderId);
+      this.forceUpdate();
     },
     deleteModel: function (modelID) {
-      console.log("model: ",modelID);
-      this.$store.dispatch("deleteGender",{modelID});
+      this.$store.dispatch("deleteModel",modelID);
+      this.forceUpdate();
     },
     deleteBrand: function (brandID) {
-      console.log("brand: ",brandID);
-      this.$store.dispatch("deleteGender",{brandID});
+      this.$store.dispatch("deleteBrand",brandID);
+      this.compKey += 1;
     },
     addCategory(){
-      console.log(this.cate);
-      console.log(this.input);
       if (this.cate === "Gender")
       {
         this.$store.dispatch("addGender",this.input);
+        this.forceUpdate();
       }else if (this.cate === "Model")
         {
           this.$store.dispatch("addModel",this.input);
+          this.forceUpdate();
         }else
           {
             this.$store.dispatch("addBrand",this.input);
+            this.forceUpdate();
           }
-        }
-      },
+    },
+  },
   computed: {
     listModels() {
       return this.$store.getters.models_Admin;

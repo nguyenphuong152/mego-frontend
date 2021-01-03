@@ -312,12 +312,11 @@ export const getListBrand_Admin = ({ commit }) => {
     });
 };
 
-export const deleteGender = ({commit},genderId)=>{
-  console.log(genderId);
+export const deleteGender = ({commit},gender)=>{
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
-    url: (`https://mego-backend.herokuapp.com/api/genders/`,genderId),
+    url: `https://mego-backend.herokuapp.com/api/genders/${gender}`,
     headers: {
       Authorization: Bearer,
       ...data.getHeaders,
@@ -338,7 +337,7 @@ export const deleteBrand = ({commit},brandID)=>{
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
-    url: (`https://mego-backend.herokuapp.com/api/genders/`,brandID),
+    url: `https://mego-backend.herokuapp.com/api/brands/${brandID}`,
     headers: {
       Authorization: Bearer,
       ...data.getHeaders,
@@ -359,7 +358,7 @@ export const deleteModel = ({commit},modelID)=>{
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
-    url: (`https://mego-backend.herokuapp.com/api/genders/`,modelID),
+    url: `https://mego-backend.herokuapp.com/api/models/${modelID}`,
     headers: {
       Authorization: Bearer,
       ...data.getHeaders,
@@ -434,6 +433,27 @@ export const addModel = ({commit},model)=>{
   axios(config)
   .then(function (response) {
     alert("Add model successfully!",commit);
+    console.log(JSON.stringify(response.data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+export const deleteProduct = ({commit},id)=>{
+  Bearer = "Bearer " + currentToken;
+  var config = {
+    method: "delete",
+    url: `https://mego-backend.herokuapp.com/api/product_details/${id}`,
+    headers: {
+      Authorization: Bearer,
+      ...data.getHeaders,
+    },
+    data: data,
+  };
+  axios(config)
+  .then(function (response) {
+    alert("Delete gender success",commit);
     console.log(JSON.stringify(response.data));
   })
   .catch(function (error) {

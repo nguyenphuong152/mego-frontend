@@ -14,6 +14,7 @@
           'AdminRegister',
           'ProductDetailAdmin',
           'UserDetailAdmin',
+          'AddProductAdmin',
         ].includes($route.name)
       "
     >
@@ -80,6 +81,7 @@
           'AdminRegister',
           'ProductDetailAdmin',
           'UserDetailAdmin',
+          'AddProductAdmin',
         ].includes($route.name)
       "
     />

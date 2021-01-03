@@ -66,14 +66,6 @@
               clearable>
             </v-text-field>
           </v-col>
-          <div>
-            <v-btn
-              color="teal"
-              style="width:90px"
-              @click="UpdateProductDetail()">
-              Save
-              </v-btn>
-          </div>
         </v-row>
     </v-container>
   </v-container>
