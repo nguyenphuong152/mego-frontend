@@ -4,7 +4,7 @@ import router from "../router";
 var FormData = require("form-data");
 var data = new FormData();
 data.append("name", "");
-var currentToken = "453|HMZD5kCPJKvsEGrdKxXfUYx8BFdbLRqc547Z91a5";
+var currentToken = localStorage.getItem("token");
 var Bearer = "";
 
 export const getProducts = ({ commit }) => {
@@ -273,6 +273,7 @@ export const getOrderList_Admin = ({ commit }) => {
 };
 
 export const getUserList_Admin = ({ commit }) => {
+  console.log("action: ",currentToken);
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "get",

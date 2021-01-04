@@ -9,7 +9,7 @@
         >
           <v-icon color="black"> mdi-arrow-left </v-icon>
         </v-btn>
-        <h1 style="margin-left:355px;">Add Product</h1>
+        <h1 style="margin-left: 355px">Add Product</h1>
       </v-row>
       <v-row>
         <v-col cols="7">
@@ -36,8 +36,6 @@
                   <v-text-field label="Name" clearable v-model="name">
                   </v-text-field>
                 </v-col>
-              </v-row>
-              <v-row>
                 <v-col cols="1" sm="10" md="5">
                   <v-text-field
                     label="price"
@@ -47,62 +45,48 @@
                   >
                   </v-text-field>
                 </v-col>
-                <v-col cols="1" sm="10" md="5">
-                  <v-combobox
-                    label="Color"
-                    dense
-                    solo
-                    v-model="color"
-                    :items="items"
-                    readonly
-                    style="width: 200px; margin-top: 10px"
-                  ></v-combobox>
-                </v-col>
               </v-row>
               <v-row>
                 <v-col cols="1" sm="10" md="5">
-                  <v-combobox
-                    label="Size"
-                    dense
-                    solo
-                    v-model="size"
-                    :items="items"
-                    style="width: 200px; margin-top: 10px"
-                  ></v-combobox>
-                </v-col>
-                <v-col cols="1" sm="10" md="5">
-                  <v-combobox
-                    label="Collection"
-                    dense
-                    solo
-                    v-model="collection"
-                    :items="items"
-                    style="width: 200px; margin-top: 10px"
-                  ></v-combobox>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="1" sm="1" md="5" >
-                  <v-combobox
-                    label="Brand"
-                    dense
-                    solo
-                    v-model="brand"
-                    v-for="(list,index) in this.getBrandList"
-                    :key ="index"
-                    :items="list.name"
-                    style="width: 200px; margin-top: 10px"
-                  ></v-combobox>
+                  <select
+                    style="
+                      font-size: 16px;
+                      width: 150px;
+                      height: 35px;
+                    "
+                  >
+                    <optgroup label="Model">
+                      <option
+                        v-for="(model, index) in this.getModelList"
+                        :key="index"
+                        style="border: 1px solid #e5e5e5; padding: 10px"
+                      >
+                        <v-text style="padding: 10px">
+                          {{ model.name }}{{model.gender.id}}
+                        </v-text>
+                      </option>
+                    </optgroup>
+                  </select>
                 </v-col>
                 <v-col cols="1" sm="1" md="5">
-                  <v-combobox
-                    label="Model"
-                    dense
-                    solo
-                    v-model="model"
-                    :items="items"
-                    style="width: 200px; margin-top: 10px"
-                  ></v-combobox>
+                  <select
+                    style="
+                      font-size: 16px;
+                      width: 150px;
+                      height: 35px;
+                    "
+                  >
+                    <optgroup label="Brand">
+                      <option
+                        v-for="(brand, index) in this.getBrandList"
+                        :key="index"
+                      >
+                        <v-text style="padding: 10px">
+                          {{ brand.name }}
+                        </v-text>
+                      </option>
+                    </optgroup>
+                  </select>
                 </v-col>
               </v-row>
             </v-container>
@@ -118,8 +102,8 @@
           <v-text-field> </v-text-field>
         </v-container>
       </v-row>
-      <div style="margin-left:955px;">
-        <v-btn color="teal" style="width:90px" @click="addProduct()">
+      <div style="margin-left: 955px">
+        <v-btn color="teal" style="width: 90px" @click="addProduct()">
           Save
         </v-btn>
       </div>
@@ -138,11 +122,6 @@ export default {
         "Featuring the same ripple design of the OG that was inspired by Japanese bullet trains, the Nike Air Max 97 lets you push your style full-speed ahead. Taking the revolutionary full-length Nike Air unit that shook up the running world and adding fresh colours, it lets you ride in first-class comfort.",
       content1:
         "The fabric and synthetic upper keep the fluid look of the OG while adding comfort and durability.Originally designed for performance running,the full-length Max Air unit adds soft, lasting comfort.The foam midsole feels springy and soft.The rubber outsole adds traction and durability.",
-      itemsColor:[],
-      itemsSize:[],
-      itemsCollection:[],
-      itemsBrand:[],
-      itemsModel:[],
     };
   },
   methods: {
@@ -165,18 +144,17 @@ export default {
       this.product.price = this.price;
     },
   },
-  computed:{
-    getBrandList(){
+  computed: {
+    getBrandList() {
       return this.$store.state.brandList;
-    }
+    },
+    getModelList() {
+      return this.$store.state.models_Admin;
+    },
   },
-  created: function() {
-    this.$store.dispatch("getColorList");
-    this.$store.dispatch("getSizeList");
-    this.$store.dispatch("getCollectionList");
+  created: function () {
     this.$store.dispatch("getListBrand_Admin");
     this.$store.dispatch("getListModels_Admin");
-    console.log("Brand: ",this.$store.state.brandList);
   },
 };
 </script>

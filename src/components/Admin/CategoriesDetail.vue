@@ -174,7 +174,8 @@ export default {
       if (this.cate === "Gender")
       {
         this.$store.dispatch("addGender",this.input);
-        this.forceUpdate();
+        this.compKey +=1;
+        console.log("key:",this.compKey);
       }else if (this.cate === "Model")
         {
           this.$store.dispatch("addModel",this.input);
@@ -191,6 +192,7 @@ export default {
       return this.$store.getters.models_Admin;
     },
     listGenders() {
+      console.log("alo");
       return this.$store.getters.genders_Admin;
     },
     listBrands() {
@@ -198,6 +200,7 @@ export default {
     },
   },
   mounted() {
+    console.log("initKey: ",this.compKey);
     this.$store.dispatch("getListGenders_Admin"); //get List Gender
     this.$store.dispatch("getListModels_Admin"); //, { colID: 1, brandID: "", modelID:"" });
     this.$store.dispatch("getListBrand_Admin");

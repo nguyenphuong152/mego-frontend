@@ -61,7 +61,6 @@ export default {
   },
   methods:{
     UpdateProductDetail(){
-      console.log("pd: ",this.$src.components.ProductInfo.price);
     }
   },
   created:function(){

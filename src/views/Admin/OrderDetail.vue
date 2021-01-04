@@ -47,7 +47,7 @@
           </v-row>
           <br /><br />
           <v-row>
-            <v-btn color="red lighten-1" elevation="1" style="width: 350px"
+            <v-btn color="red lighten-1" elevation="1" style="width: 250px"
               >Ship</v-btn
             >
           </v-row>

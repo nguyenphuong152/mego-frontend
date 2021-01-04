@@ -1,3 +1,5 @@
+
+
 export const SET_PRODUCTS = (state, products) => {
   state.products = products;
 };
@@ -109,9 +111,10 @@ export const SET_PRODUCT_DETAIL_ADMIN = (state, productDetail) => {
   state.productDetail_Admin = productDetail;
 };
 export const SET_TOKENS = (state, token) => {
-  state.token = JSON.stringify(token);
-  localStorage.setItem("token", JSON.stringify(token));
+  state.token = JSON.stringify(token.token);
+  localStorage.setItem("token", token.token);
   console.log(state.token);
+
 };
 
 export const HANDLE_LOGIN = (state, { email, password }) => {
