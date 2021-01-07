@@ -84,7 +84,6 @@ export default {
   },
   computed: {
     toggleRerender() {
-      console.log(this.$store.getters.increment);
       return this.$store.getters.increment;
     },
   },
