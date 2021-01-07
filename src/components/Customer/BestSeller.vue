@@ -16,6 +16,7 @@
               : (x = Math.floor(Math.random() * 15) + 1)
           "
           :src="`https://mego-backend.herokuapp.com/api/image/product/${x} `"
+          lazy-src="https://picsum.photos/id/11/10/6"
           aspect-ratio="1"
           class="grey lighten-2"
           height="200"
