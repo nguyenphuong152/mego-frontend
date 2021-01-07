@@ -273,7 +273,6 @@ export const getOrderList_Admin = ({ commit }) => {
 };
 
 export const getUserList_Admin = ({ commit }) => {
-  console.log("action: ",currentToken);
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "get",
@@ -287,6 +286,27 @@ export const getUserList_Admin = ({ commit }) => {
   axios(config)
     .then((response) => {
       commit("SET_USER_LIST_ADMIN", response.data);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
+
+
+export const getUserInfo = ({ commit },id) => {
+  Bearer = "Bearer " + currentToken;
+  var config = {
+    method: "get",
+    url: `https://mego-backend.herokuapp.com/api/users/${id}`,
+    headers: {
+      Authorization: Bearer,
+      ...data.getHeaders,
+    },
+    data: data,
+  };
+  axios(config)
+    .then((response) => {
+      commit("SET_USER_INFO", response.data);
     })
     .catch(function(error) {
       console.log(error);
@@ -463,14 +483,14 @@ export const deleteProduct = ({commit},id)=>{
 }
 
 
-// export const getBannerList = ({ commit }) => {
-//   axios
-//     .get(`https://mego-backend.herokuapp.com/api/image/banners`)
-//     .then((response) => {
-//       commit("SET_BANNER_LIST_ADMIN", response.data);
-//     })
-//     .catch((error) => console.log(error));
-// };
+export const getBannerList = ({ commit }) => {
+  axios
+    .get(`https://mego-backend.herokuapp.com/api/image/banners`)
+    .then((response) => {
+      commit("SET_BANNER_LIST_ADMIN", response.data);
+    })
+    .catch((error) => console.log(error));
+};
 
 // export const getBannerImageListByPriority = ({ commit },prio) => {
 //   axios

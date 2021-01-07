@@ -31,12 +31,10 @@
               <v-col class="text-start">Action</v-col>
             </v-row>
           </div>
-          <div
-            v-for="(orders,index) in getOrderList()"
+
+            <v-row             v-for="(orders,index) in getOrderList()"
             :key ="index"
-            class="flex-table"
-          >
-            <v-row>
+            class="flex-table">
               <v-col>{{ orders.id}}</v-col>
               <v-col>{{ orders.user_id }}</v-col>
               <v-col>{{ orders.address }}</v-col>
@@ -50,7 +48,6 @@
                 > View </v-btn>
               <v-btn color="teal" style="margin: 5px"> Ship </v-btn>
             </v-row>
-          </div>
         </v-container>
     </v-main>
   </v-app>

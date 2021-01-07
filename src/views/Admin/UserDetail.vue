@@ -17,7 +17,10 @@
         <v-row>
           <v-col cols="1" sm="1" md="3" style="margin-top: 22px"> Name: </v-col>
           <v-col cols="1" sm="1" md="4">
-            <v-text-field clearable> </v-text-field>
+            <v-text-field 
+              clearable
+              v-model="this.userInfo.name"
+              ></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -25,15 +28,19 @@
             Phone:
           </v-col>
           <v-col cols="1" sm="1" md="4">
-            <v-text-field clearable> </v-text-field>
+            <v-text-field
+             clearable
+             v-model="this.userInfo.phone"> </v-text-field>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="1" sm="1" md="3" style="margin-top: 22px">
-            Address:
+            Email:
           </v-col>
           <v-col cols="1" sm="1" md="4">
-            <v-text-field clearable> </v-text-field>
+            <v-text-field
+             clearable
+             v-model="this.userInfo.email"></v-text-field>
           </v-col>
         </v-row>
         <v-row>
@@ -53,13 +60,22 @@
 
 <script>
 export default {
-  data: () => ({}),
-
+  data: () => ({
+    return:{
+      id:null,
+      userInfo:null,
+    }
+  }),
   methods: {
     backToUserPage() {
       const path = "/admin/manageuser";
       if (this.$route.path !== path) this.$router.push(path);
     },
   },
+  created:function(){
+    this.userInfo = this.$store.state.userInfo;
+    console.log("lay tu state: ", this.$store.state.userInfo);
+    console.log("data: ", this.userInfo);
+  }
 };
 </script>

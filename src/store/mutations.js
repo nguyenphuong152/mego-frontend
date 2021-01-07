@@ -136,10 +136,12 @@ export const SET_USER_LIST_ADMIN = (state, userList) => {
 export const SET_BRANDS_LIST_ADMIN = (state, brandList) => {
   state.brandList = brandList;
 };
-// export const SET_BANNER_LIST_ADMIN = (state, bannerList) => {
-//   state.bannerList = bannerList;
-// };
-// export const SET_BANNER_IMAGE_ADMIN = (state, bannerImageListByPriority,prio) =>{
-//   state.bannerImageListByPriority[prio] = bannerImageListByPriority;
-//   console.log("muta: ",state.bannerImageListByPriority[prio]);
-// }
+export const SET_BANNER_LIST_ADMIN = (state, bannerList) => {
+  state.bannerList = bannerList;
+};
+export const SET_BANNER_IMAGE_ADMIN = (state, bannerImageListByPriority,prio) =>{
+  state.bannerImageListByPriority[prio] = bannerImageListByPriority;
+}
+export const SET_USER_INFO = (state, userInfo) => {
+  state.userInfo = userInfo;
+}

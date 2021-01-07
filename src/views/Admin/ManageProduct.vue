@@ -19,13 +19,11 @@
               <v-col>Action</v-col>
             </v-row>
           </div>
-          <div
-            v-for="(products,index) in this.$store.state.products"
-            :key ="index"
-            class="flex-table"
-          >
+
             <v-row
-            :key="compKey">
+                        v-for="(products,index) in this.$store.state.products"
+            :key ="index"
+            class="flex-table">
               <v-col>{{ products.id }}</v-col>
               <v-col style="margin-right: 20px">{{ products.name }}</v-col>
               <v-col style="margin-right: 20px">{{
@@ -46,7 +44,6 @@
               @click="deleteProduct(products.id)"
               > Delete </v-btn>
             </v-row>
-          </div>
     </v-main>
   </v-app>
 </template>

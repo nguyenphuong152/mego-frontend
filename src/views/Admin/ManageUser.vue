@@ -19,22 +19,17 @@
               <v-col>Name</v-col>
               <v-col>Email</v-col>
               <v-col>Phone No</v-col>
-              <v-col>Create At</v-col>
               <v-col class="text-start">Action</v-col>
             </v-row>
           </div>
-          <div
+            <v-row            
             v-for="(User, index) in getUserList()"
             :key="index"
-            class="flex-table"
-          >
-            <v-row>
-              <v-col>{{ User.id }}</v-col>
-              <v-col>{{ User.name }}</v-col>
-              <v-col>{{ User.email }}</v-col>
-              <v-col>{{ User.phone }}</v-col>
-              <v-col>{{ User.create_at }}</v-col>
-              <v-col class="text-start">{{ User.Status }}</v-col>
+            class="flex-table">
+              <v-col >  {{ User.id }}</v-col>
+              <v-col >{{ User.name }}</v-col>
+              <v-col >{{ User.email }}</v-col>
+              <v-col >{{ User.phone }}</v-col>
               <v-btn
                 color="orange"
                 style="margin: 5px"
@@ -42,7 +37,6 @@
               > Update </v-btn>
               <v-btn color="red" style="margin: 5px"> Delete </v-btn>
             </v-row>
-          </div>
         </v-container>
     </v-main>
   </v-app>
@@ -57,6 +51,7 @@ export default {
   }),
   methods:{
   goDetail: function(id) {
+    this.$store.dispatch("getUserInfo",id);
     this.$router.push({ name: "UserDetailAdmin", params: { id }});
   },
     getUserList:function(){

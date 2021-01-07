@@ -11,7 +11,7 @@
         </v-btn>
         <h1 style="margin-left: 355px">Order Detail</h1>
       </v-row>
-      <v-row style="height: 600px">
+      <v-row style="height: 500px">
         <v-col>
           <div>
             <v-card style="width: 700px" class="modi-table">
@@ -47,7 +47,7 @@
           </v-row>
           <br /><br />
           <v-row>
-            <v-btn color="red lighten-1" elevation="1" style="width: 250px"
+            <v-btn color="red lighten-1" elevation="1" style="width: 350px"
               >Ship</v-btn
             >
           </v-row>

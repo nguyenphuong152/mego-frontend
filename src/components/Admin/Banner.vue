@@ -6,13 +6,13 @@
       show-arrows-on-hover
     >
       <v-carousel-item 
-        v-for="(banner, i) in this.bannerPriorityList" 
+        v-for="(banner, i) in 2" 
         :key="i">
           <v-sheet height="100%">
             <v-row class="fill-height" align="center" justify="center">
               <div>
-                <v-img :src="`https://mego-backend.herokuapp.com/api/image/banner/${banner.priority}`"
-                :lazy-src="`https://mego-backend.herokuapp.com/api/image/banner/${banner.priority}`"
+                <v-img :src="`https://mego-backend.herokuapp.com/api/image/banner/${banner}`"
+                :lazy-src="`https://mego-backend.herokuapp.com/api/image/banner/${banner}`"
                 max-height="450" max-width="1076"/>
               </div>
                 <!-- <div>
@@ -38,17 +38,5 @@ export default {
   props:["bannerPriorityList"],
   data() {
   },
-  // methods:{
-  //   getBannerImage:function(prio){
-  //     console.log("banner: ",this.$store.state.bannerImageListByPriority[prio]);
-  //     return this.$store.state.bannerImageListByPriority[prio];
-  //   }
-  // },
-  // created:function(){
-  //     this.bannerPriorityList.forEach(priority => {
-  //       console.log("foreach: ",priority);
-  //       this.$store.dispatch(`getBannerImageListByPriority`,this.bannerPriorityList.priority);
-  //   });
-  // }
 };
 </script>
