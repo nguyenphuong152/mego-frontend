@@ -72,6 +72,7 @@
             <v-col cols="3" class="align-end">
               <v-btn
                 color="teal"
+                :disabled="this.price == 0"
                 class="ma-2 white--text admin"
                 @click="addToCart(getProduct)"
               >

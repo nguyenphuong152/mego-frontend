@@ -6,12 +6,12 @@ import "../sass/style.scss";
 import axios from "axios";
 import VueAxios from "vue-axios";
 import store from "./store";
-import storeAdmin from "./storeAdmin";
+import VueLazyload from "vue-lazyload";
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
 Vue.use(store);
-Vue.use(storeAdmin);
+Vue.use(VueLazyload);
 
 import { BootstrapVue } from "bootstrap-vue";
 
@@ -21,6 +21,5 @@ new Vue({
   vuetify,
   router,
   store,
-  storeAdmin,
   render: (h) => h(App),
 }).$mount("#app");
