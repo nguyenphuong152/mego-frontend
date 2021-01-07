@@ -13,13 +13,26 @@ export default {
     new Chart(this.$refs.myChart, {
       type: "line",
       data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May","June","July","Aug","Sep","Oct","Nov","Dec"],
+        labels: [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "June",
+          "July",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ],
         datasets: [
           {
             label: "Total Customers",
-            borderColor: '#FB8C00',
-    backgroundColor: '#FFCC80',
-            data: [300, 700, 450, 750, 450,100,20,8,41,15,60,12],
+            borderColor: "#FB8C00",
+            backgroundColor: "#FFCC80",
+            data: [300, 100, 450, 550, 450, 100, 20, 8, 50, 100, 80, 300],
           },
         ],
       },

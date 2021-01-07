@@ -66,6 +66,18 @@ export const coupon = (state) => {
   return state.coupon;
 };
 
+export const numbProduct = (state) => {
+  return state.numbProduct;
+};
+
+export const numbUser = (state) => {
+  return state.numbUser;
+};
+
+export const numbOrder = (state) => {
+  return state.numbOrder;
+};
+
 //----------------------------------ADMIN-----------------------------------
 
 export const models_Admin = (state) => {
