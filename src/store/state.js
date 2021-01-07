@@ -32,6 +32,11 @@ export default {
   //toggle re-rendering
   increment: 0,
 
+  //dashboard
+  numbProduct: 20,
+  numbUser: 22,
+  numbOrder: 44,
+
   //-------------------------------ADMIN------------------------------------
   models_Admin: [],
   genders_Admin: [],

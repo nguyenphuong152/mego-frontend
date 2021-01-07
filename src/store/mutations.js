@@ -1,4 +1,5 @@
 export const SET_PRODUCTS = (state, products) => {
+  state.numbProduct = products.length;
   state.products = products;
 };
 
@@ -153,6 +154,10 @@ export const DELETE_COUPON = (state) => {
   state.coupon = null;
 };
 
+export const DELETE_CART = (state) => {
+  state.cart = [];
+};
+
 //---------------------------------------------ADMIN---------------------------------------------------
 
 export const SET_MODELS_ADMIN = (state, models) => {
@@ -179,9 +184,11 @@ export const SET_PRODUCT_BRAND_ADMIN = (state, brand) => {
   state.productBrand_Admin = brand;
 };
 export const SET_ORDER_LIST_ADMIN = (state, orderList) => {
+  state.numbOrdere = orderList.length;
   state.orderList = orderList;
 };
 export const SET_USER_LIST_ADMIN = (state, userList) => {
+  state.numbUser = userList.length;
   state.userList = userList;
 };
 export const SET_BRANDS_LIST_ADMIN = (state, brandList) => {

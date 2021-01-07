@@ -134,11 +134,7 @@
                         >
                           Close
                         </v-btn>
-                        <v-btn
-                          color="green darken-1"
-                          text
-                          @click="showDialog = false"
-                        >
+                        <v-btn color="green darken-1" text @click="goHome()">
                           Back to home
                         </v-btn>
                       </v-card-actions>
@@ -203,6 +199,13 @@ export default {
         } else {
           this.$router.push({ name: "Home" });
         }
+      }, 2000);
+    },
+    goHome() {
+      this.showDialog = false;
+      setTimeout(() => {
+        this.$store.dispatch("deleteCart");
+        this.$router.push("/");
       }, 2000);
     },
     goCheckout: async function(value) {
