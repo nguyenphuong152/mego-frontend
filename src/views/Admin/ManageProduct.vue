@@ -1,9 +1,12 @@
 <template>
   <v-app class="admin">
-    <v-main>
+    <v-main >
       <v-row style="margin-left: 425px">
         <h1>Product List</h1>
-        <v-btn color="yellow" style="margin-left: 250px">
+        <v-btn 
+        color="yellow" 
+        style="margin-left: 250px"
+        @click="goAddProduct()">
           Add new Product
         </v-btn>
       </v-row>
@@ -16,12 +19,11 @@
               <v-col>Action</v-col>
             </v-row>
           </div>
-          <div
-            v-for="(products,index) in this.$store.state.products"
+
+            <v-row
+                        v-for="(products,index) in this.$store.state.products"
             :key ="index"
-            class="flex-table"
-          >
-            <v-row>
+            class="flex-table">
               <v-col>{{ products.id }}</v-col>
               <v-col style="margin-right: 20px">{{ products.name }}</v-col>
               <v-col style="margin-right: 20px">{{
@@ -36,9 +38,12 @@
                 @click="goDetail(products.id)"
                 >View</v-btn
               >
-              <v-btn color="red " style="margin: 5px"> Delete </v-btn>
+              <v-btn 
+              color="red " 
+              style="margin: 5px"
+              @click="deleteProduct(products.id)"
+              > Delete </v-btn>
             </v-row>
-          </div>
     </v-main>
   </v-app>
 </template>
@@ -50,18 +55,25 @@ export default {
   components: {},
   data: () => ({
     isShowProductDetail: false,
+    compKey : 0,
   }),
   methods: {
     goDetail: function(id) {
-    this.$router.push({ name: "ProductDetailAdmin", params: { id }});
+      this.$router.push({ name: "ProductDetailAdmin", params: { id }});
     },
-    listProduct() {
-      this.$store.dispatch("getProducts");
-      return this.$store.state.products;
+    deleteProduct(id){
+      this.$store.dispatch("deleteProduct",id);
+      this.forceUpdate();
     },
+    forceUpdate(){
+      this.compKey +=1;
+    },
+    goAddProduct(){
+      this.$router.push({ name: "AddProductAdmin"});
+    }
   },
-  mounted:function(){
-    this.listProduct()
+  created:function(){
+    this.$store.dispatch("getProducts");
   },
 };
 </script>

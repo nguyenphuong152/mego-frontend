@@ -20,7 +20,10 @@
         <ProductDescription/>
       </v-row>
       <div style="margin-left:955px;">
-        <v-btn color="teal" style="width:90px">
+        <v-btn
+         color="teal"
+         style="width:90px"
+         @click="UpdateProductDetail()">
           Save
         </v-btn>
       </div>
@@ -55,6 +58,10 @@ export default {
     getBrand:function() {
       return this.$store.state.productBrand_Admin;
     },  
+  },
+  methods:{
+    UpdateProductDetail(){
+    }
   },
   created:function(){
     this.pid = this.$route.params.id;

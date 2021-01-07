@@ -12,6 +12,8 @@ import OrderList from "../views/Admin/OrderList.vue";
 import Dashboard from "../views/Admin/Dashboard.vue";
 import ProductDetailAdmin from "../views/Admin/ProductDetail.vue";
 import UserDetailAdmin from "../views/Admin/UserDetail.vue";
+import AddProductAdmin from "../views/Admin/AddProduct.vue";
+import OrderDetail from "../views/Admin/OrderDetail.vue";
 import state from "../store/state"
 
 Vue.use(VueRouter);
@@ -163,6 +165,14 @@ const routes = [
         },
       },
       {
+        path: "/admin/productadd",
+        name: "AddProductAdmin",
+        component: AddProductAdmin,
+        meta: {
+          title: "Add Product",
+        },
+      },
+      {
         path: "/admin/manageuser",
         name: "ManageUser",
         component: ManageUser,
@@ -184,6 +194,14 @@ const routes = [
         component: OrderList,
         meta: {
           title: "OrderList Management",
+        },
+      },
+      {
+        path: "/admin/order/:id",
+        name: "OrderDetail",
+        component: OrderDetail,
+        meta: {
+          title: "Order Detail",
         },
       },
       {
@@ -219,8 +237,8 @@ router.beforeEach((to, from, next) => { //Duyệt luồng truy cập
   const authRequired = RestrictedPage.includes(to.path);    //Paths thats are restricted 
   const loggedIn = state.token;           //loggedIn = have Token
   if(authRequired && !loggedIn){
-    return next('/adminlogin');
-  }
+    next('/adminlogin');
+  }else
   next();
 })
 
