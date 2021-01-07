@@ -16,8 +16,9 @@
             color="white"
             class="product-detail--title"
             align="center"
+            @click="goto(item.id)"
           >
-            hi
+            {{ item.title }}
           </v-btn>
         </v-row>
 

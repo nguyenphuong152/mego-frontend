@@ -30,28 +30,28 @@
 export default {
   data() {
     return {
-      // items: [
-      //   {
-      //     id: 1,
-      //     src: require("../../assets/brand-1.jpg"),
-      //   },
-      //   {
-      //     id: 2,
-      //     src: require("../../assets/brand-2.jpg"),
-      //   },
-      //   {
-      //     id: 3,
-      //     src: require("../../assets/brand-3.jpg"),
-      //   },
-      //   {
-      //     id: 4,
-      //     src: require("../../assets/brand-4.jpg"),
-      //   },
-      //   {
-      //     id: 5,
-      //     src: require("../../assets/brand-5.jpg"),
-      //   },
-      // ],
+      items: [
+        {
+          id: 1,
+          src: require("../../assets/brand-1.jpg"),
+        },
+        {
+          id: 2,
+          src: require("../../assets/brand-2.jpg"),
+        },
+        {
+          id: 3,
+          src: require("../../assets/brand-3.jpg"),
+        },
+        {
+          id: 4,
+          src: require("../../assets/brand-4.jpg"),
+        },
+        {
+          id: 5,
+          src: require("../../assets/brand-5.jpg"),
+        },
+      ],
     };
   },
 };
