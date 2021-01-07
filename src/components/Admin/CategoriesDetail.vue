@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <div>
+    <div  v-bind:key="this.compKey">
       <v-container >
         <v-row>
-          <v-container :key="compKey" >
+          <v-container>
             <v-card class="text-start">
               <v-list dense>
                 <a class="admin pl-4 font-weight-black" style="color: teal"
@@ -74,11 +74,11 @@
         </v-row>
       </v-container>
 
-      <v-container>
+      <v-container >
         <v-row>
           <v-container>
             <v-card class="text-start">
-              <v-list dense>
+              <v-list dense >
                 <a class="admin pl-4 font-weight-black" style="color: teal"
                   >Brands</a
                 >
@@ -158,17 +158,21 @@ export default {
     };
   },
   methods: {
+    reRender:function(){
+      this.$store.dispatch("toggleRerender");
+    },
     deleteGender:function(genderId) {
       this.$store.dispatch("deleteGender",genderId);
-      this.forceUpdate();
+      this.compKey += 1;
     },
     deleteModel: function (modelID) {
       this.$store.dispatch("deleteModel",modelID);
-      this.forceUpdate();
+      this.compKey += 1;
     },
     deleteBrand: function (brandID) {
       this.$store.dispatch("deleteBrand",brandID);
-      this.compKey += 1;
+      this.compKey++;
+      console.log(this.compKey);
     },
     addCategory(){
       if (this.cate === "Gender")
@@ -179,11 +183,12 @@ export default {
       }else if (this.cate === "Model")
         {
           this.$store.dispatch("addModel",this.input);
-          this.forceUpdate();
+          this.compKey += 1;
         }else
           {
             this.$store.dispatch("addBrand",this.input);
-            this.forceUpdate();
+            this.reRender();
+            console.log("reRender:",this.$store.state.increment);
           }
     },
   },
@@ -192,14 +197,13 @@ export default {
       return this.$store.getters.models_Admin;
     },
     listGenders() {
-      console.log("alo");
       return this.$store.getters.genders_Admin;
     },
     listBrands() {
       return this.$store.getters.getBrandList_Admin;
     },
   },
-  mounted() {
+  created() {
     console.log("initKey: ",this.compKey);
     this.$store.dispatch("getListGenders_Admin"); //get List Gender
     this.$store.dispatch("getListModels_Admin"); //, { colID: 1, brandID: "", modelID:"" });
