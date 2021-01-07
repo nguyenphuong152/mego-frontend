@@ -9,6 +9,7 @@
       <v-carousel-item v-for="n in 2" :key="n">
         <v-img
           :src="`https://mego-backend.herokuapp.com/api/image/banner/${n}`"
+          :lazy-src="`https://mego-backend.herokuapp.com/api/image/banner/${n}`"
           max-height="500"
         >
         </v-img>
@@ -29,11 +30,6 @@ export default {
       return this.$store.getters.listBanner;
     },
   },
-  created() {
-    // for (var i = 0; i < this.banners.length; i++) {
-    //   this.slides.push(this.banners[i].priority);
-    // }
-    console.log("hi", this.banners);
-  },
+  created() {},
 };
 </script>
