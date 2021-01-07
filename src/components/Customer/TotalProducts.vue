@@ -5,14 +5,21 @@
       :items="products"
       class="elevation-1 title-normal"
     >
-      <!-- <template v-slot:item.path="{ item }">
-      <v-img
-        :lazy-src="require('../../assets/' + item.path)"
-        max-height="100"
-        max-width="100"
-        :src="require('../../assets/' + item.path)"
-      ></v-img>
-    </template> -->
+      <template v-slot:item.path="{ item }">
+        <v-img
+          v-if="
+            item.id <= 15
+              ? (x = item.id)
+              : (x = Math.floor(Math.random() * 15) + 1)
+          "
+          :src="`https://mego-backend.herokuapp.com/api/image/product/${x} `"
+          :lazy-src="
+            `https://mego-backend.herokuapp.com/api/image/product/${x}`
+          "
+          height="100"
+          width="100"
+        ></v-img>
+      </template>
       <template v-slot:item.total="{ item }">
         <span class="product-name font-weight-medium">
           {{

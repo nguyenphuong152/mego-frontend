@@ -92,23 +92,26 @@ export default {
     },
   },
   async created() {
-    console.log(this.brand);
     if (this.category == 11) {
+      console.log("vo1");
       await this.$store.dispatch("getListProductWithPrice");
     } else if (this.category != 11) {
       if (this.brand !== "" && this.tag !== "") {
+        console.log("vo2");
         await this.$store.dispatch("getListProductFilter", {
           colID: this.category,
           brandID: this.brand,
           modelID: this.tag,
         });
       } else if (this.brand !== "" && this.tag == "") {
+        console.log("vo3");
         await this.$store.dispatch("getListProductFilter", {
           colID: this.category,
           brandID: this.brand,
           modelID: "",
         });
       } else {
+        console.log("vo4");
         await this.$store.dispatch("getListProductFilter", {
           colID: this.category,
           brandID: "",
