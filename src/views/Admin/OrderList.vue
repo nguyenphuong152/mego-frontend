@@ -38,8 +38,16 @@
               <v-col>{{ orders.id}}</v-col>
               <v-col>{{ orders.user_id }}</v-col>
               <v-col>{{ orders.address }}</v-col>
-              <v-col>{{ orders.created_at }}</v-col>             
-              <v-col>{{ orders.Total }}</v-col>
+              <v-col>
+                {{formatDate(orders.created_at)}}
+              </v-col>             
+              <v-col>
+                {{ Intl.NumberFormat("vn-VN", {
+                      style: "currency",
+                      currency: "VND",
+                    }).format(orders.total_amount)
+                }}
+              </v-col>
               <v-col class="text-start">{{ orders.status }}</v-col>
               <v-btn 
                 color="blue" 
@@ -54,6 +62,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   data: () => ({
       searchID:null,
@@ -63,13 +73,20 @@ export default {
         "Cancelled" ,
       ],
   }),
+
   methods:{
     goOrderDetail: function(id) {
       this.$router.push({ name: "OrderDetail", params: { id }});
     },
     getOrderList:function(){
       return this.$store.state.orderList;
+    },
+    formatDate:function(value){
+      return moment(String(value)).format('MM/DD/YYYY hh:mm');
     }
+  },
+  computed:{
+
   },
   created:function(){
     this.$store.dispatch('getOrderList_Admin');
@@ -78,6 +95,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+
 .flex-table {
   border-bottom: 1px black solid;
   &:nth-of-type(2n) {

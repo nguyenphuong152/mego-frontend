@@ -47,11 +47,13 @@ export default {
   data: () => ({
     return:{
       searchID:null,
+      userInfo:null,
     }
   }),
   methods:{
   goDetail: function(id) {
     this.$store.dispatch("getUserInfo",id);
+    this.userInfo = this.$store.state.userInfo;
     this.$router.push({ name: "UserDetailAdmin", params: { id }});
   },
     getUserList:function(){
