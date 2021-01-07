@@ -71,7 +71,9 @@
             </v-col>
             <v-col cols="3" class="align-end">
               <v-btn
-                :disabled="this.price == 0"
+                v-if="this.price == 0"
+                ?
+                :v-bind:="disable:true"
                 color="teal"
                 class="ma-2 white--text admin"
                 @click="addToCart(getProduct)"
