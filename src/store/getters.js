@@ -62,6 +62,10 @@ export const orderId = (state) => {
   return state.orderId;
 };
 
+export const coupon = (state) => {
+  return state.coupon;
+};
+
 //----------------------------------ADMIN-----------------------------------
 
 export const models_Admin = (state) => {
@@ -94,7 +98,7 @@ export const getBrandList_Admin = (state) => {
 
 export const getUserInfo = (state) => {
   return state.userInfo;
-}
+};
 
 // export const getBannerList = (state) => {
 //   return state.bannerList;

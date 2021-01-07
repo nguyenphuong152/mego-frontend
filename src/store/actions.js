@@ -250,7 +250,6 @@ export const createOrderDetail = (
       number: number,
     })
     .then((response) => {
-      console.log(response.data);
       commit("CREATE_ORDER_DETAIL", response.data);
     })
     .catch((error) => console.log(error));
@@ -258,6 +257,14 @@ export const createOrderDetail = (
 
 export const updateCart = ({ commit }, listProduct) => {
   commit("UPDATE_CART", listProduct);
+};
+
+export const setCoupon = ({ commit }, coupon) => {
+  commit("SET_COUPON", coupon);
+};
+
+export const deleteCoupon = ({ commit }) => {
+  commit("DELETE_COUPON");
 };
 
 //----------------------------------------------------------------------------------------
@@ -388,8 +395,7 @@ export const getUserList_Admin = ({ commit }) => {
     });
 };
 
-
-export const getUserInfo = ({ commit },id) => {
+export const getUserInfo = ({ commit }, id) => {
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "get",
@@ -429,7 +435,7 @@ export const getListBrand_Admin = ({ commit }) => {
     });
 };
 
-export const deleteGender = ({commit},gender)=>{
+export const deleteGender = ({ commit }, gender) => {
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
@@ -441,16 +447,16 @@ export const deleteGender = ({commit},gender)=>{
     data: data,
   };
   axios(config)
-  .then(function (response) {
-    alert("Delete gender success",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .then(function(response) {
+      alert("Delete gender success", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
-export const deleteBrand = ({commit},brandID)=>{
+export const deleteBrand = ({ commit }, brandID) => {
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
@@ -462,16 +468,16 @@ export const deleteBrand = ({commit},brandID)=>{
     data: data,
   };
   axios(config)
-  .then(function (response) {
-    alert("Delete brand success",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .then(function(response) {
+      alert("Delete brand success", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
-export const deleteModel = ({commit},modelID)=>{
+export const deleteModel = ({ commit }, modelID) => {
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
@@ -483,81 +489,81 @@ export const deleteModel = ({commit},modelID)=>{
     data: data,
   };
   axios(config)
-  .then(function (response) {
-    alert("Delete model success",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .then(function(response) {
+      alert("Delete model success", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
-export const addGender = ({commit},gender)=>{
+export const addGender = ({ commit }, gender) => {
   var config = {
-    method: 'post',
+    method: "post",
     url: `https://mego-backend.herokuapp.com/api/genders?name=${gender}`,
-    headers: { 
+    headers: {
       Authorization: Bearer,
-    }
+    },
   };
   axios(config)
-  .then(function (response) {
-    alert("Add gender success!",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .then(function(response) {
+      alert("Add gender success!", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
-export const addBrand = ({commit},brand)=>{
+export const addBrand = ({ commit }, brand) => {
   var config = {
-    method: 'post',
+    method: "post",
     url: `https://mego-backend.herokuapp.com/api/brands?name=${brand}`,
-    headers: { 
+    headers: {
       Authorization: Bearer,
-    }
+    },
   };
   axios(config)
-  .then(function (response) {
-    alert("Add brand success!",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
+    .then(function(response) {
+      alert("Add brand success!", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
-export const addModel = ({commit},model)=>{
+export const addModel = ({ commit }, model) => {
   var config = {
-    method: 'post',
+    method: "post",
     url: `https://mego-backend.herokuapp.com/api/models?name=${model}&gender_id=1`,
-    headers: { 
+    headers: {
       Authorization: Bearer,
-    }
+    },
   };
-  
-  axios(config)
-  
-  config = {
-    method: 'post',
-    url: `https://mego-backend.herokuapp.com/api/models?name=${model}&gender_id=2`,
-    headers: { 
-      Authorization: Bearer,
-    }
-  };
-  
-  axios(config)
-  .then(function (response) {
-    alert("Add model successfully!",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
 
-export const deleteProduct = ({commit},id)=>{
+  axios(config);
+
+  config = {
+    method: "post",
+    url: `https://mego-backend.herokuapp.com/api/models?name=${model}&gender_id=2`,
+    headers: {
+      Authorization: Bearer,
+    },
+  };
+
+  axios(config)
+    .then(function(response) {
+      alert("Add model successfully!", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
+
+export const deleteProduct = ({ commit }, id) => {
   Bearer = "Bearer " + currentToken;
   var config = {
     method: "delete",
@@ -569,15 +575,14 @@ export const deleteProduct = ({commit},id)=>{
     data: data,
   };
   axios(config)
-  .then(function (response) {
-    alert("Delete gender success",commit);
-    console.log(JSON.stringify(response.data));
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-}
-
+    .then(function(response) {
+      alert("Delete gender success", commit);
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+};
 
 export const getBannerList = ({ commit }) => {
   axios

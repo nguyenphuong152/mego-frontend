@@ -1,5 +1,11 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation class="admin">
+  <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+    class="admin"
+    v-if="isLogin"
+  >
     <v-text-field
       :v-model="name"
       :rules="nameRules"
@@ -21,6 +27,25 @@
       required
     ></v-text-field>
     <v-text-field label="Phone" :value="getUser.phone" required></v-text-field>
+    <br />
+    <v-checkbox
+      v-model="checkbox"
+      label="Do you want to create an account?"
+      required
+    ></v-checkbox>
+  </v-form>
+  <v-form ref="form" v-model="valid" lazy-validation class="admin" v-else>
+    <v-text-field
+      :v-model="name"
+      :rules="nameRules"
+      label="Name"
+      required
+    ></v-text-field>
+    <v-text-field label="E-mail" :rules="emailRules" required></v-text-field>
+    <v-text-field v-model="country" label="Country" required></v-text-field>
+    <v-text-field v-model="company" label="Company"></v-text-field>
+    <v-text-field label="Address" required></v-text-field>
+    <v-text-field label="Phone" required></v-text-field>
     <br />
     <v-checkbox
       v-model="checkbox"
@@ -57,6 +82,9 @@ export default {
   computed: {
     getUser() {
       return this.$store.getters.getUser;
+    },
+    isLogin() {
+      return this.$store.getters.isLogin;
     },
   },
 };

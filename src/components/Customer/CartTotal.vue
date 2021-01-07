@@ -65,7 +65,18 @@
         <strong> Coupon</strong>
       </v-col>
       <v-col cols="8">
-        <span class="pl-6">
+        <!-- <span class="pl-6" v-if="coupon != null">
+          {{ coupon }}
+        </span> -->
+        <v-row v-if="coupon != null">
+          <v-col class="py-0 pl-8" cols="8">{{ coupon }}</v-col>
+          <v-col class="py-0">
+            <v-icon color="red" @click="deleteCoupon()"
+              >mdi-close</v-icon
+            ></v-col
+          >
+        </v-row>
+        <span class="pl-6" v-else>
           <span class="red--text">*</span> You have not added any coupon yet
         </span>
       </v-col>
@@ -107,6 +118,9 @@ export default {
     cart() {
       return this.$store.getters.cart;
     },
+    coupon() {
+      return this.$store.getters.coupon;
+    },
   },
   methods: {
     goCheckout: function(total, shipping) {
@@ -116,6 +130,9 @@ export default {
     },
     calFinalAmount: function(total, price, coupon) {
       return Number(total) + Number(price) + Number(coupon);
+    },
+    deleteCoupon() {
+      this.$store.dispatch("deleteCoupon");
     },
   },
 };

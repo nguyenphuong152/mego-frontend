@@ -20,9 +20,20 @@
                     Login here!
                   </v-expansion-panel-header>
                   <v-expansion-panel-content>
-                    <v-text-field label="Username" outlined></v-text-field>
-                    <v-text-field label="Password" outlined></v-text-field>
-                    <v-btn depressed color="primary">
+                    <v-text-field
+                      label="Email"
+                      v-model="email"
+                      outlined
+                    ></v-text-field>
+                    <v-text-field
+                      label="Password"
+                      v-model="password"
+                      :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                      :type="show1 ? 'text' : 'password'"
+                      @click:append="show1 = !show1"
+                      outlined
+                    ></v-text-field>
+                    <v-btn depressed color="primary" @click="validate">
                       Login
                     </v-btn>
                   </v-expansion-panel-content>
@@ -106,6 +117,33 @@
                   >
                     Place Order
                   </v-btn>
+                  <v-dialog v-model="showDialog" persistent max-width="290">
+                    <v-card>
+                      <v-card-title class="headline">
+                        Notification
+                      </v-card-title>
+                      <v-card-text
+                        >Your order has successfully created!</v-card-text
+                      >
+                      <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn
+                          color="blue-grey darken-1"
+                          text
+                          @click="showDialog = false"
+                        >
+                          Close
+                        </v-btn>
+                        <v-btn
+                          color="green darken-1"
+                          text
+                          @click="showDialog = false"
+                        >
+                          Back to home
+                        </v-btn>
+                      </v-card-actions>
+                    </v-card>
+                  </v-dialog>
                 </v-col>
               </v-row>
             </v-container>
@@ -131,11 +169,15 @@ export default {
   },
   data() {
     return {
+      email: "",
+      password: "",
+      show1: false,
       uid: "",
       address: "aaadsfsd",
       bill: [],
       select: ["Viet Nam"],
       items: ["US", "UK", "AUS", "CANADA"],
+      showDialog: false,
     };
   },
   created() {
@@ -150,6 +192,19 @@ export default {
     },
   },
   methods: {
+    validate: async function() {
+      await this.$store.dispatch("login", {
+        email: this.email,
+        password: this.password,
+      });
+      setTimeout(() => {
+        if (this.getUser.name == null) {
+          this.dialog = true;
+        } else {
+          this.$router.push({ name: "Home" });
+        }
+      }, 2000);
+    },
     goCheckout: async function(value) {
       this.uid = this.$store.getters.getUser.id;
       let token = localStorage.getItem("token");
@@ -161,7 +216,7 @@ export default {
           total_amount: value,
           status: false,
         });
-        setTimeout(() => {
+        await setTimeout(() => {
           let orderId = this.$store.getters.orderId;
           console.log("order Id nef", orderId);
           for (let i = 0; i < this.cart.length; i++) {
@@ -172,11 +227,7 @@ export default {
             });
           }
         }, 5000);
-
-        // for(let i=0;i<this.cart.length;i++)
-        // {
-
-        // }
+        this.showDialog = true;
       }
     },
   },
