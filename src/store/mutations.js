@@ -1,5 +1,3 @@
-
-
 export const SET_PRODUCTS = (state, products) => {
   state.products = products;
 };
@@ -114,7 +112,6 @@ export const LOGIN = (state, { user, token }) => {
   state.user.address = user.address;
   state.user.phone = user.phone;
   state.user.id = user.id;
-  console.log("user login", state.user);
 };
 
 export const SET_USER = (state, { name, email, phone, address }) => {
@@ -122,7 +119,6 @@ export const SET_USER = (state, { name, email, phone, address }) => {
   state.user.email = email;
   state.user.phone = phone;
   state.user.address = address;
-  console.log(state.user);
 };
 
 export const DELETE_USER = (state) => {
@@ -145,6 +141,18 @@ export const UPDATE_CART = (state, listProducts) => {
   }
 };
 
+export const CREATE_ORDER_DETAIL = (state) => {
+  console.log(state.isLogin);
+};
+
+export const SET_COUPON = (state, coupon) => {
+  state.coupon = coupon;
+};
+
+export const DELETE_COUPON = (state) => {
+  state.coupon = null;
+};
+
 //---------------------------------------------ADMIN---------------------------------------------------
 
 export const SET_MODELS_ADMIN = (state, models) => {
@@ -158,7 +166,6 @@ export const SET_TOKENS = (state, token) => {
   state.token = JSON.stringify(token.token);
   localStorage.setItem("token", token.token);
   console.log(state.token);
-
 };
 
 export const HANDLE_LOGIN = (state, { email, password }) => {
@@ -183,9 +190,13 @@ export const SET_BRANDS_LIST_ADMIN = (state, brandList) => {
 export const SET_BANNER_LIST_ADMIN = (state, bannerList) => {
   state.bannerList = bannerList;
 };
-export const SET_BANNER_IMAGE_ADMIN = (state, bannerImageListByPriority,prio) =>{
+export const SET_BANNER_IMAGE_ADMIN = (
+  state,
+  bannerImageListByPriority,
+  prio
+) => {
   state.bannerImageListByPriority[prio] = bannerImageListByPriority;
-}
+};
 export const SET_USER_INFO = (state, userInfo) => {
   state.userInfo = userInfo;
-}
+};

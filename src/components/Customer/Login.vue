@@ -8,8 +8,8 @@
     ></v-text-field>
 
     <v-text-field
-      :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
       v-model="password"
+      :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
       :type="show1 ? 'text' : 'password'"
       @click:append="show1 = !show1"
       label="Password"

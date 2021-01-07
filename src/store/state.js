@@ -27,6 +27,7 @@ export default {
   isLogin: false,
   user: [],
   orderId: null,
+  coupon: null,
 
   //toggle re-rendering
   increment: 0,
@@ -42,7 +43,7 @@ export default {
   orderList: [],
   userList: [],
   brandList: [],
-  userInfo:null,
+  userInfo: null,
   // bannerList: [],
   //bannerImageListByPriority:[],
 };

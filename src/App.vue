@@ -26,7 +26,7 @@
           <template v-slot:activator="{ on }">
             <v-row class="d-flex align-baseline justify-space-around">
               <v-col class="pa-0 text-start" cols="10">
-                <span>MEGO</span>
+                <span id="logo" style="fontSize:32px">MEGO</span>
               </v-col>
               <v-col class="pa-0">
                 <v-app-bar-nav-icon v-on="on"></v-app-bar-nav-icon>
